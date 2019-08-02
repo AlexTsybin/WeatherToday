@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <color name="colorPrimary">#2c3e50</color>
+  <color name="colorPrimaryDark">#1B3147</color>
+  <color name="colorAccent">#3498db</color>
+
+  <color name="accent">#1398DA</color>
+
+  <color name="white">#FFFFFF</color>
+  <color name="black">#000000</color>
+
+  <color name="background_gradient_dark">#1F333F</color>
+  <color name="background_gradient_light">#10545E</color>
+
+  <!-- Color for an earthquake with magnitude 0 and 2 -->
+  <color name="weather1">#FF0000</color>
+
+  <!-- Magnitude circle color for an earthquake with magnitude between 2 and 3 -->
+  <color name="weather2">#FFFF00</color>
+
+  <!-- Magnitude circle color for an earthquake with magnitude between 3 and 4 -->
+  <color name="weather3">#ADFF2F</color>
+
+  <!-- Magnitude circle color for an earthquake with magnitude between 4 and 5 -->
+  <color name="weather4">#E0FFFF</color>
+
+  <!-- Magnitude circle color for an earthquake with magnitude between 5 and 6 -->
+  <color name="weather5">#00BFFF</color>
+
+  <!-- Magnitude circle color for an earthquake with magnitude between 6 and 7 -->
+  <color name="weather6">#1E90FF</color>
+
+  <!-- Magnitude circle color for an earthquake with magnitude between 7 and 8 -->
+  <color name="weather7">#4169E1</color>
+
+  <!-- Text color for the details of the earthquake in the list item -->
+  <color name="textColorWeatherBackground">#B4BAC0</color>
+
+  <!-- Text color for the primary location of the earthquake in the list item -->
+  <color name="textColorWeatherText">#4b687f</color>
+</resources>

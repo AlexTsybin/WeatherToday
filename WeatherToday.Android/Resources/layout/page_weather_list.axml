@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    local:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/activity_main">
+	<TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/items_empty_cities"
+        android:textSize="20sp"
+        android:layout_centerInParent="true"
+        local:MvxBind="Visibility InvertedVisibility(IsItemsAvailable)" />
+	<MvvmCross.Droid.Support.V4.MvxSwipeRefreshLayout
+        android:id="@+id/refresher"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        local:layout_behavior="@string/appbar_scrolling_view_behavior"
+        local:MvxBind="Refreshing IsRefreshing; RefreshCommand ReloadCommand">
+        <MvvmCross.Droid.Support.V7.RecyclerView.MvxRecyclerView
+            android:id="@+id/chat_users_list"
+            android:scrollbars="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            local:MvxItemTemplate="@layout/item_weather_list"
+            local:MvxBind="ItemsSource Items; ItemClick ItemSelectedCommand; ItemLongClick ItemLongClickCommand" />
+    </MvvmCross.Droid.Support.V4.MvxSwipeRefreshLayout>
+</RelativeLayout>
