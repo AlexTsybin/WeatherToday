@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using WeatherToday.Core.Services.Platform;
 using WeatherToday.Core.ViewModels.Base.Commands;
 using WeatherToday.Core.ViewModels.Collection;
+using WeatherToday.Core.ViewModels.EditCity;
 
 namespace WeatherToday.Core.ViewModels.CityList
 {
@@ -52,7 +53,8 @@ namespace WeatherToday.Core.ViewModels.CityList
 
         private async Task AddNewCity()
         {
-            Items.Add(new CityListItemVM("Palma de Mallorca"));
+            //Items.Add(new CityListItemVM("Palma de Mallorca"));
+            await NavigationService.Navigate<EditCityVM>();
         }
 
         #endregion

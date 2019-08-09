@@ -80,6 +80,7 @@
     <Compile Include="Utilities\MvxPanelPopToRootPresentationHint.cs" />
     <Compile Include="Views\Base\BaseFragment.cs" />
     <Compile Include="Views\CityList\CityListFragment.cs" />
+    <Compile Include="Views\EditCity\EditCityFragment.cs" />
     <Compile Include="Views\WeatherList\WeatherListFragment.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -203,7 +204,11 @@
   <ItemGroup>
     <AndroidResource Include="Resources\values-v21\styles.xml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\page_edit_city.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\page_city_list.axml">
       <SubType>Designer</SubType>

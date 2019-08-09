@@ -8809,8 +8809,8 @@ namespace WeatherToday.Android
 			// aapt resource value: 0x7f0a006b
 			public const int action_bar_title = 2131361899;
 			
-			// aapt resource value: 0x7f0a00ce
-			public const int action_city_list = 2131361998;
+			// aapt resource value: 0x7f0a00cf
+			public const int action_city_list = 2131361999;
 			
 			// aapt resource value: 0x7f0a00b6
 			public const int action_container = 2131361974;
@@ -8860,8 +8860,8 @@ namespace WeatherToday.Android
 			// aapt resource value: 0x7f0a0041
 			public const int always = 2131361857;
 			
-			// aapt resource value: 0x7f0a00c8
-			public const int appbar = 2131361992;
+			// aapt resource value: 0x7f0a00c9
+			public const int appbar = 2131361993;
 			
 			// aapt resource value: 0x7f0a0067
 			public const int async = 2131361895;
@@ -8935,8 +8935,8 @@ namespace WeatherToday.Android
 			// aapt resource value: 0x7f0a0077
 			public const int contentPanel = 2131361911;
 			
-			// aapt resource value: 0x7f0a00cb
-			public const int content_frame = 2131361995;
+			// aapt resource value: 0x7f0a00cc
+			public const int content_frame = 2131361996;
 			
 			// aapt resource value: 0x7f0a00a7
 			public const int coordinator = 2131361959;
@@ -8979,6 +8979,9 @@ namespace WeatherToday.Android
 			
 			// aapt resource value: 0x7f0a0091
 			public const int edit_query = 2131361937;
+			
+			// aapt resource value: 0x7f0a00c7
+			public const int edit_text_city_name = 2131361991;
 			
 			// aapt resource value: 0x7f0a0039
 			public const int end = 2131361849;
@@ -9073,11 +9076,11 @@ namespace WeatherToday.Android
 			// aapt resource value: 0x7f0a0072
 			public const int list_item = 2131361906;
 			
-			// aapt resource value: 0x7f0a00ca
-			public const int main_frame = 2131361994;
+			// aapt resource value: 0x7f0a00cb
+			public const int main_frame = 2131361995;
 			
-			// aapt resource value: 0x7f0a00cd
-			public const int masked = 2131361997;
+			// aapt resource value: 0x7f0a00ce
+			public const int masked = 2131361998;
 			
 			// aapt resource value: 0x7f0a009e
 			public const int message = 2131361950;
@@ -9331,8 +9334,8 @@ namespace WeatherToday.Android
 			// aapt resource value: 0x7f0a0080
 			public const int title_template = 2131361920;
 			
-			// aapt resource value: 0x7f0a00c9
-			public const int toolbar = 2131361993;
+			// aapt resource value: 0x7f0a00ca
+			public const int toolbar = 2131361994;
 			
 			// aapt resource value: 0x7f0a0047
 			public const int top = 2131361863;
@@ -9373,11 +9376,11 @@ namespace WeatherToday.Android
 			// aapt resource value: 0x7f0a001b
 			public const int view_offset_helper = 2131361819;
 			
-			// aapt resource value: 0x7f0a00cc
-			public const int visible = 2131361996;
+			// aapt resource value: 0x7f0a00cd
+			public const int visible = 2131361997;
 			
-			// aapt resource value: 0x7f0a00c7
-			public const int weather_list = 2131361991;
+			// aapt resource value: 0x7f0a00c8
+			public const int weather_list = 2131361992;
 			
 			// aapt resource value: 0x7f0a0045
 			public const int withText = 2131361861;
@@ -9647,28 +9650,31 @@ namespace WeatherToday.Android
 			public const int page_city_list = 2130968630;
 			
 			// aapt resource value: 0x7f040037
-			public const int page_weather_list = 2130968631;
+			public const int page_edit_city = 2130968631;
 			
 			// aapt resource value: 0x7f040038
-			public const int select_dialog_item_material = 2130968632;
+			public const int page_weather_list = 2130968632;
 			
 			// aapt resource value: 0x7f040039
-			public const int select_dialog_multichoice_material = 2130968633;
+			public const int select_dialog_item_material = 2130968633;
 			
 			// aapt resource value: 0x7f04003a
-			public const int select_dialog_singlechoice_material = 2130968634;
+			public const int select_dialog_multichoice_material = 2130968634;
 			
 			// aapt resource value: 0x7f04003b
-			public const int splash_screen = 2130968635;
+			public const int select_dialog_singlechoice_material = 2130968635;
 			
 			// aapt resource value: 0x7f04003c
-			public const int support_simple_spinner_dropdown_item = 2130968636;
+			public const int splash_screen = 2130968636;
 			
 			// aapt resource value: 0x7f04003d
-			public const int toolbar_actionbar = 2130968637;
+			public const int support_simple_spinner_dropdown_item = 2130968637;
 			
 			// aapt resource value: 0x7f04003e
-			public const int weather_activity = 2130968638;
+			public const int toolbar_actionbar = 2130968638;
+			
+			// aapt resource value: 0x7f04003f
+			public const int weather_activity = 2130968639;
 			
 			static Layout()
 			{
