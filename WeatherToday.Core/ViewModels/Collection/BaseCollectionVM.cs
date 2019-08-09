@@ -1,5 +1,6 @@
 ﻿using MvvmCross;
 using MvvmCross.Commands;
+using MvvmCross.Logging;
 using MvvmCross.Navigation;
 using MvvmCross.Plugin.Messenger;
 using System;
@@ -14,7 +15,7 @@ using WeatherToday.Core.ViewModels.Base.Interfaces;
 
 namespace WeatherToday.Core.ViewModels.Collection
 {
-    public abstract class BaseCollectionVM<ItemType> : WeatherViewModel, IBaseCollectionVM<ItemType> 
+    public abstract class BaseCollectionVM<ItemType> : BaseVM, IBaseCollectionVM<ItemType> 
         where ItemType : CollectionItemVM
     {
         #region Commands
@@ -117,9 +118,9 @@ namespace WeatherToday.Core.ViewModels.Collection
 
         #region Constructor
 
-        public BaseCollectionVM(IMvxNavigationService navigationService,
+        public BaseCollectionVM(IMvxLogProvider logProvider, IMvxNavigationService navigationService,
             IUserInteraction userInteraction, IMvxMessenger messenger)
-            : base(navigationService, userInteraction, messenger)
+            : base(logProvider, navigationService, userInteraction, messenger)
         {
             DeviceService = Mvx.IoCProvider.Resolve<IDeviceService>();
         }

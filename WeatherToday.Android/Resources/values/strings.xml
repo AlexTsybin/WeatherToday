@@ -2,5 +2,8 @@
   <string name="app_name">WeatherApp</string>
   <string name="action_settings">Settings</string>
 
+  <string name="weather_list_title">Weather today</string>
+
   <string name="items_empty_cities">There are no cities yet</string>
+  <string name="city_list">City list</string>
 </resources>

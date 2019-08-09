@@ -1,4 +1,5 @@
-﻿using MvvmCross.IoC;
+﻿using MvvmCross;
+using MvvmCross.IoC;
 using MvvmCross.ViewModels;
 using WeatherToday.Core.ViewModels;
 using WeatherToday.Core.ViewModels.Base;
@@ -10,13 +11,14 @@ namespace WeatherToday.Core
     {
         public override void Initialize()
         {
+            new API.App().Initialize();
+
             CreatableTypes()
                 .EndingWith("Service")
                 .AsInterfaces()
                 .RegisterAsLazySingleton();
 
-            //RegisterAppStart<WeatherListVM>();
-            RegisterCustomAppStart<WeatherAppStart>();
+            RegisterCustomAppStart<WeatherAppStart<MainViewModel>>();
         }
     }
 }

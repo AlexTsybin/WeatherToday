@@ -60,18 +60,27 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Activity\CommonActivity.cs" />
+    <Compile Include="Behaviour\RefractoredFabBehavior.cs" />
     <Compile Include="Domain\DialogOnDismissListener.cs" />
+    <Compile Include="LinkerPleaseInclude.cs" />
     <Compile Include="MainApplication.cs" />
     <Compile Include="MvxBindings\SwipeRefreshLayoutIsRefreshingTargetBinding.cs" />
+    <Compile Include="Presenter\IBackHandler.cs" />
+    <Compile Include="Presenter\ICustomPresenter.cs" />
+    <Compile Include="Presenter\WeatherAndroidPresenter.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Activity\WeatherView.cs" />
+    <Compile Include="Activity\MainActivity.cs" />
     <Compile Include="Services\AnalitycsService.cs" />
     <Compile Include="Services\DeviceService.cs" />
     <Compile Include="Services\UserInteraction.cs" />
     <Compile Include="Setup.cs" />
-    <Compile Include="Views\BaseFragment.cs" />
-    <Compile Include="Views\WeatherFragment.cs" />
+    <Compile Include="SplashScreen.cs" />
+    <Compile Include="Utilities\MvxPanelPopToRootPresentationHint.cs" />
+    <Compile Include="Views\Base\BaseFragment.cs" />
+    <Compile Include="Views\CityList\CityListFragment.cs" />
+    <Compile Include="Views\WeatherList\WeatherListFragment.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -79,9 +88,6 @@
     <None Include="Assets\AboutAssets.txt" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\tip_view.axml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
     <AndroidResource Include="Resources\values\colors.xml" />
     <AndroidResource Include="Resources\values\ic_launcher_background.xml" />
     <AndroidResource Include="Resources\values\strings.xml" />
@@ -129,10 +135,13 @@
     <PackageReference Include="MvvmCross.Plugin.Visibility">
       <Version>6.3.1</Version>
     </PackageReference>
+    <PackageReference Include="Refractored.FloatingActionButton">
+      <Version>2.1.0</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Android.Support.Design" Version="28.0.0.1" />
     <PackageReference Include="Xamarin.Android.Support.Core.Utils" Version="28.0.0.1" />
     <PackageReference Include="Xamarin.Android.Support.CustomTabs" Version="28.0.0.1" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.1.0" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.2.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WeatherToday.API\WeatherToday.API.csproj">
@@ -144,7 +153,7 @@
       <Name>WeatherToday.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\WeatherToday.Localization\WeatherToday.Localization.csproj">
-      <Project>{5c4f5675-f876-4a2f-a660-239523bdf58f}</Project>
+      <Project>{dfb305d6-0841-4491-a827-3b654f22def5}</Project>
       <Name>WeatherToday.Localization</Name>
     </ProjectReference>
   </ItemGroup>
@@ -177,6 +186,42 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\weather_app.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\splash_screen.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\toolbar_actionbar.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\screen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\values-v21\styles.xml" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\page_city_list.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\item_city_list.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ic_plus.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\menu\menu_weather_list.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\values\text_styles.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

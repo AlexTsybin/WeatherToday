@@ -5,31 +5,23 @@ using MvvmCross.Plugin.Messenger;
 using MvvmCross.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using WeatherToday.API;
-using WeatherToday.API.Services.Platform;
 using WeatherToday.Core.Messages.Common;
 using WeatherToday.Core.Services.Platform;
 using WeatherToday.Core.ViewModels.Base.Interfaces;
 
 namespace WeatherToday.Core.ViewModels.Base
 {
-    public class WeatherViewModel : MvxNavigationViewModel, IBaseVM
+    public abstract class BaseVM : MvxNavigationViewModel, IBaseVM
     {
         #region Fields
 
         protected CancellationTokenSource DataLoadingCancellationTokenSource = new CancellationTokenSource();
-
-        protected readonly List<MvxSubscriptionToken> SubscriptionTokens;
         private MvxSubscriptionToken _updateVMToken;
-
-        #endregion
-
-        #region Services
-
-        protected readonly IUserInteraction UserInteraction;
-        protected readonly IMvxMessenger Messenger;
+        protected readonly List<MvxSubscriptionToken> SubscriptionTokens;
 
         #endregion
 
@@ -58,18 +50,24 @@ namespace WeatherToday.Core.ViewModels.Base
 
         #endregion
 
+        #region Services
+
+        protected readonly IUserInteraction UserInteractions;
+        protected readonly IMvxMessenger Messenger;
+
+        #endregion
+
         #region Constructor
 
-        protected WeatherViewModel(IMvxNavigationService navigationService,
-            IUserInteraction userInteraction, IMvxMessenger messenger) : base(Mvx.IoCProvider.Resolve<IMvxLogProvider>(), navigationService)
+        protected BaseVM(IMvxLogProvider logProvider, IMvxNavigationService navigationService, IUserInteraction userInteraction, IMvxMessenger messenger) : base(logProvider, navigationService)
         {
-            UserInteraction = userInteraction;
+            UserInteractions = userInteraction;
             Messenger = messenger;
 
             SubscriptionTokens = new List<MvxSubscriptionToken>();
         }
 
-        protected WeatherViewModel() : this(Mvx.IoCProvider.Resolve<IMvxNavigationService>(),
+        protected BaseVM() : this(Mvx.IoCProvider.Resolve<IMvxLogProvider>(), Mvx.IoCProvider.Resolve<IMvxNavigationService>(), 
             Mvx.IoCProvider.Resolve<IUserInteraction>(), Mvx.IoCProvider.Resolve<IMvxMessenger>())
         {
         }
@@ -77,15 +75,6 @@ namespace WeatherToday.Core.ViewModels.Base
         #endregion
 
         #region Private
-
-        // TODO not tested
-        private void ClearMvxTokens()
-        {
-            foreach (var token in SubscriptionTokens)
-            {
-                DisposeMvxMessageToken<MvxMessage>(token);
-            }
-        }
 
         private void UpdateVMExecute(UpdateViewModelMessage message)
         {
@@ -99,50 +88,6 @@ namespace WeatherToday.Core.ViewModels.Base
 
         #region Protected
 
-        protected virtual bool CheckResponse(ErrorModel model, bool notify = true, string notifyMessage = null)
-        {
-            if (model.IsError)
-            {
-                if (!string.IsNullOrEmpty(model.ErrorMessage) && notify)
-                    UserInteraction.AlertAsync(string.IsNullOrEmpty(notifyMessage) ? model.ErrorMessage : notifyMessage, "Ooops!");
-
-                var analitycsService = Mvx.IoCProvider.Resolve<IAnalitycsService>();
-                analitycsService.TrackCustomEvent($"Response Error. Model: {model.GetType().FullName}. Error message: {model.ErrorMessage}. Notify message: {notifyMessage}");
-
-                return false;
-            }
-            return true;
-        }
-
-        protected void DisposeMvxMessageToken<T>(MvxSubscriptionToken token)
-            where T : MvxMessage
-        {
-            // TODO rework with base vm token controller
-            if (token != null)
-            {
-                Messenger.Unsubscribe<T>(token);
-                token = null;
-            }
-        }
-
-        protected void SubscribeToMvxMessage<T>(Action<T> action)
-            where T : MvxMessage
-        {
-            SubscriptionTokens.Add(Messenger.Subscribe(action));
-        }
-
-        protected void CancelDataLoading()
-        {
-            DisposeDataLoadingToken();
-
-            DataLoadingCancellationTokenSource = new CancellationTokenSource();
-        }
-
-        protected bool IsTokenActive()
-        {
-            return DataLoadingCancellationTokenSource != null && !DataLoadingCancellationTokenSource.IsCancellationRequested;
-        }
-
         protected void DisposeDataLoadingToken()
         {
             if (DataLoadingCancellationTokenSource != null)
@@ -153,6 +98,17 @@ namespace WeatherToday.Core.ViewModels.Base
                     DataLoadingCancellationTokenSource.Dispose();
                     DataLoadingCancellationTokenSource = null;
                 }
+            }
+        }
+
+        protected void DisposeMvxMessageToken<T>(MvxSubscriptionToken token)
+            where T : MvxMessage
+        {
+            // TODO rework with base vm token controller
+            if (token != null)
+            {
+                Messenger.Unsubscribe<T>(token);
+                token = null;
             }
         }
 
@@ -172,18 +128,13 @@ namespace WeatherToday.Core.ViewModels.Base
             RaisePropertyChanged(() => PageTitle);
         }
 
-        public virtual string GetUniqName()
+        public async void CloseVM()
         {
-            return GetType().FullName + GetHashCode();
+            //await NavigationService.Close(this);
         }
 
         public virtual async Task UpdateVM(bool hardUpdate)
         {
-        }
-
-        public async void CloseVM()
-        {
-            await NavigationService.Close(this);
         }
 
         public override void Prepare()
@@ -193,6 +144,21 @@ namespace WeatherToday.Core.ViewModels.Base
             _updateVMToken = Messenger.Subscribe<UpdateViewModelMessage>(UpdateVMExecute);
         }
 
+        public override Task Initialize()
+        {
+            return base.Initialize();
+        }
+
         #endregion
+    }
+
+    public abstract class BaseVM<TParameter> : BaseVM, IMvxViewModel<TParameter>
+    {
+        public BaseVM(IMvxLogProvider logProvider, IMvxNavigationService navigationService, IUserInteraction userInteraction, IMvxMessenger messenger) : 
+            base(logProvider, navigationService, userInteraction, messenger)
+        {
+        }
+
+        public abstract void Prepare(TParameter parameter);
     }
 }

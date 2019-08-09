@@ -9,6 +9,8 @@ namespace WeatherToday.Core.Services.Platform
 
         void Alert(string message, Action done = null, string title = null, string okButton = "OK");
 
+        void ShowCustomNotification(string message, int duration = 3000, string actionName = null, Action action = null);
+
         void CloseApp();
     }
 }

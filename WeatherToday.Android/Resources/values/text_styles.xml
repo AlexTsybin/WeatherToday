@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+
+  <style name="mainText">
+    <item name="android:textColor">@color/white</item>
+    <item name="android:fontFamily">sans-serif</item>
+  </style>
+
+  <style name="mainText.14sp">
+    <item name="android:textSize">14sp</item>
+  </style>
+
+  <style name="mainTextTitle">
+    <item name="android:textColor">@color/white</item>
+    <item name="android:fontFamily">sans-serif-medium</item>
+    <item name="android:textSize">16sp</item>
+  </style>
+
+</resources>

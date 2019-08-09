@@ -9,8 +9,4 @@
     <PackageReference Include="System.ServiceModel.Primitives" Version="4.5.3" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\WeatherToday.Localization\WeatherToday.Localization.csproj" />
-  </ItemGroup>
-
 </Project>

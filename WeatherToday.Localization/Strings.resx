@@ -117,7 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="city_list_title" xml:space="preserve">
+    <value>City list</value>
+  </data>
+  <data name="message_close_app" xml:space="preserve">
+    <value>Close app?</value>
+  </data>
   <data name="title_error_default" xml:space="preserve">
-    <value>Oops!</value>
+    <value>Ooops!</value>
+  </data>
+  <data name="weather_list_title" xml:space="preserve">
+    <value>Weather today</value>
+  </data>
+  <data name="yes" xml:space="preserve">
+    <value>Yes</value>
   </data>
 </root>

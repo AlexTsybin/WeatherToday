@@ -1,6 +1,7 @@
 ﻿using MvvmCross;
 using MvvmCross.Base;
 using MvvmCross.Commands;
+using MvvmCross.Logging;
 using MvvmCross.Navigation;
 using MvvmCross.Plugin.Messenger;
 using System;
@@ -9,6 +10,7 @@ using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using WeatherToday.Core.Services.Platform;
 using WeatherToday.Core.ViewModels.Base.Commands;
+using WeatherToday.Core.ViewModels.CityList;
 using WeatherToday.Core.ViewModels.Collection;
 
 namespace WeatherToday.Core.ViewModels.Weather
@@ -17,19 +19,19 @@ namespace WeatherToday.Core.ViewModels.Weather
     {
         #region Commands
 
-        private IMvxAsyncCommand<WeatherListItemVM> _deleteCurrentItemCommand;
-        public IMvxAsyncCommand<WeatherListItemVM> DeleteCurrentItemCommand
+        private IMvxAsyncCommand _cityListCommand;
+        public IMvxAsyncCommand CityListCommand
         {
-            get => _deleteCurrentItemCommand ?? (_deleteCurrentItemCommand = new TorAsyncCommand<WeatherListItemVM>(DeleteCityExecute));
+            get => _cityListCommand ?? (_cityListCommand = new TorAsyncCommand(CityListExecute, null, true));
         }
 
         #endregion
 
         #region Constructor
 
-        public WeatherListVM(IMvxNavigationService navigationService,
+        public WeatherListVM(IMvxLogProvider logProvider, IMvxNavigationService navigationService,
             IUserInteraction userInteraction, IMvxMessenger messenger)
-            : base(navigationService, userInteraction, messenger)
+            : base(logProvider, navigationService, userInteraction, messenger)
         {
         }
 
@@ -37,9 +39,9 @@ namespace WeatherToday.Core.ViewModels.Weather
 
         #region Private
 
-        private async Task DeleteCityExecute(WeatherListItemVM city)
+        private async Task CityListExecute()
         {
-
+            await NavigationService.Navigate<CityListVM>();
         }
 
         #endregion
@@ -65,6 +67,7 @@ namespace WeatherToday.Core.ViewModels.Weather
                 Items.Add(new WeatherListItemVM(10, "Saint Petersburg", "Sunny", DateTime.Now, DateTime.Now));
                 Items.Add(new WeatherListItemVM(15, "Helsinki", "Sunny", DateTime.Now, DateTime.Now));
                 Items.Add(new WeatherListItemVM(21, "Amsterdam", "Cloudy", DateTime.Now, DateTime.Now));
+                Items.Add(new WeatherListItemVM(24, "Palma de Mallorca", "Sunny", DateTime.Now, DateTime.Now));
             });
         }
 
@@ -81,6 +84,7 @@ namespace WeatherToday.Core.ViewModels.Weather
         {
             base.Prepare();
 
+            PageTitle = "WeatherToday";
             Items = new ObservableCollection<WeatherListItemVM>();
         }
 
