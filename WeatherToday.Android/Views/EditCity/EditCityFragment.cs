@@ -14,6 +14,8 @@ namespace WeatherToday.Android.Views.EditCity
     {
         protected override int FragmentId => Resource.Layout.page_edit_city;
 
+        #region Public
+
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             var view = base.OnCreateView(inflater, container, savedInstanceState);
@@ -24,5 +26,26 @@ namespace WeatherToday.Android.Views.EditCity
 
             return view;
         }
+
+        public override void OnCreateOptionsMenu(IMenu menu, MenuInflater inflater)
+        {
+            inflater.Inflate(Resource.Menu.menu_edit_city, menu);
+
+            base.OnCreateOptionsMenu(menu, inflater);
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+                case Resource.Id.action_save_city:
+                    ViewModel.SaveCityCommand.Execute();
+                    return true;
+                default:
+                    return base.OnOptionsItemSelected(item);
+            }
+        }
+
+        #endregion
     }
 }

@@ -13,7 +13,7 @@
             android:layout_height="wrap_content"
             android:text="@string/items_empty_cities"
             android:textSize="20sp"
-            android:layout_centerInParent="true"
+            android:layout_gravity="center"
             local:MvxBind="Visibility InvertedVisibility(IsItemsAvailable)" />
 	    <MvvmCross.Droid.Support.V4.MvxSwipeRefreshLayout
             android:id="@+id/refresher"
