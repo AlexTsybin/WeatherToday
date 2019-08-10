@@ -40,7 +40,7 @@
             android:tint="@color/white"
             local:fab_colorNormal="@color/accent"
             local:fab_colorPressed="@color/accent_pressed"
-		    local:layout_behavior="TORMobile.Droid.Android.Behaviour.RefractoredFabBehavior"
+		    local:layout_behavior="WeatherToday.Android.Behaviour.RefractoredFabBehavior"
             local:MvxBind="Click AddNewCityCommand; Visibility Visibility(!Loading)" />
     </FrameLayout >
 </android.support.design.widget.CoordinatorLayout>

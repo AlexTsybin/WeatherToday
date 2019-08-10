@@ -12,6 +12,7 @@ using WeatherToday.Core.Services.Platform;
 using WeatherToday.Core.ViewModels.Base.Commands;
 using WeatherToday.Core.ViewModels.CityList;
 using WeatherToday.Core.ViewModels.Collection;
+using WeatherToday.Core.ViewModels.EditCity;
 
 namespace WeatherToday.Core.ViewModels.Weather
 {
@@ -23,6 +24,12 @@ namespace WeatherToday.Core.ViewModels.Weather
         public IMvxAsyncCommand CityListCommand
         {
             get => _cityListCommand ?? (_cityListCommand = new TorAsyncCommand(CityListExecute, null, true));
+        }
+
+        private IMvxAsyncCommand _addNewCityCommand;
+        public IMvxAsyncCommand AddNewCityCommand
+        {
+            get => _addNewCityCommand ?? (_addNewCityCommand = new TorAsyncCommand(AddNewCity, null, true));
         }
 
         #endregion
@@ -42,6 +49,11 @@ namespace WeatherToday.Core.ViewModels.Weather
         private async Task CityListExecute()
         {
             await NavigationService.Navigate<CityListVM>();
+        }
+
+        private async Task AddNewCity()
+        {
+            await NavigationService.Navigate<EditCityVM>();
         }
 
         #endregion
