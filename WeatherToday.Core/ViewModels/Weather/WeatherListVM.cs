@@ -62,12 +62,12 @@ namespace WeatherToday.Core.ViewModels.Weather
 
         protected override Task ReloadExecute()
         {
-            return null;
+            return Task.CompletedTask;
         }
 
         protected override Task ItemSelectedExecute(WeatherListItemVM item)
         {
-            return null;
+            return Task.CompletedTask;
         }
 
         protected override async Task SetupItems()

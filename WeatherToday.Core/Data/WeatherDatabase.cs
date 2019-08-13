@@ -27,21 +27,28 @@ namespace WeatherToday.Core.Data
                             .FirstOrDefaultAsync();
         }
 
-        public Task<int> SaveCityAsync(CityBO note)
+        public Task<CityBO> GetCityByNameAsync(string name)
         {
-            if (note.ID != 0)
+            return _database.Table<CityBO>()
+                            .Where(i => i.CityName == name)
+                            .FirstOrDefaultAsync();
+        }
+
+        public Task<int> SaveCityAsync(CityBO city)
+        {
+            if (city.ID != 0)
             {
-                return _database.UpdateAsync(note);
+                return _database.UpdateAsync(city);
             }
             else
             {
-                return _database.InsertAsync(note);
+                return _database.InsertAsync(city);
             }
         }
 
-        public Task<int> DeleteCityAsync(CityBO note)
+        public Task<int> DeleteCityAsync(CityBO city)
         {
-            return _database.DeleteAsync(note);
+            return _database.DeleteAsync(city);
         }
     }
 }

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:local="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="@dimen/small_margin">
@@ -12,4 +11,11 @@
         android:textSize="20sp"
         tools:text="Saint Petersburg"
         local:MvxBind="Text CityName" />
-</LinearLayout>
+    <ImageView
+        android:layout_width="@dimen/button_size"
+        android:layout_height="@dimen/button_size"
+        android:layout_alignParentRight="true"
+        android:padding="@dimen/xsmall_margin"
+        android:src="@drawable/ic_cross"
+        local:MvxBind="Click DeleteCityCommand"/>
+</RelativeLayout>

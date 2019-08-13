@@ -54,14 +54,17 @@ namespace WeatherToday.Core.ViewModels.CityList
 
         #region Private
 
-        private async Task DeleteCityExecute(CityListItemVM city)
+        private async Task DeleteCityExecute(CityListItemVM item)
         {
+            CityBO city = await App.Database.GetCityByNameAsync(item.CityName);
 
+            await App.Database.DeleteCityAsync(city);
+
+            Items.Remove(item);
         }
 
         private async Task AddNewCity()
         {
-            //Items.Add(new CityListItemVM("Palma de Mallorca"));
             await NavigationService.Navigate<EditCityVM>();
         }
 
@@ -81,12 +84,12 @@ namespace WeatherToday.Core.ViewModels.CityList
 
         protected override Task ItemSelectedExecute(CityListItemVM item)
         {
-            return null;
+            return Task.CompletedTask;
         }
 
         protected override Task ReloadExecute()
         {
-            return null;
+            return Task.CompletedTask;
         }
 
         protected async override Task SetupItems()
@@ -97,7 +100,7 @@ namespace WeatherToday.Core.ViewModels.CityList
             {
                 foreach (var city in cityList)
                 {
-                    Items.Add(new CityListItemVM(city.CityName));
+                    Items.Add(new CityListItemVM(city.CityName, DeleteCurrentItemCommand));
                 }
             });
         }
