@@ -8836,6 +8836,9 @@ namespace WeatherToday.Android
 			// aapt resource value: 0x7f0a00b7
 			public const int action_image = 2131361975;
 			
+			// aapt resource value: 0x7f0a00d1
+			public const int action_location = 2131362001;
+			
 			// aapt resource value: 0x7f0a0003
 			public const int action_menu_divider = 2131361795;
 			

@@ -70,6 +70,9 @@ namespace WeatherToday.Android.Views
                 case Resource.Id.action_city_list:
                     ViewModel.CityListCommand.Execute();
                     return true;
+                case Resource.Id.action_location:
+                    ViewModel.LocationCommand.Execute();
+                    return true;
                 default:
                     return base.OnOptionsItemSelected(item);
             }
