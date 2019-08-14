@@ -120,6 +120,9 @@
   <data name="city_list_title" xml:space="preserve">
     <value>City list</value>
   </data>
+  <data name="edit_city_title" xml:space="preserve">
+    <value>Edit city</value>
+  </data>
   <data name="message_close_app" xml:space="preserve">
     <value>Close app?</value>
   </data>

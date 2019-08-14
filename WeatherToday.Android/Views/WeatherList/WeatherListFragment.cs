@@ -4,6 +4,7 @@ using Android.Support.V7.Widget;
 using Android.Views;
 using MvvmCross.Droid.Support.V7.RecyclerView;
 using MvvmCross.Platforms.Android.Presenters.Attributes;
+using Refractored.Fab;
 using WeatherToday.Core.ViewModels.Base;
 using WeatherToday.Core.ViewModels.Weather;
 using WeatherToday.Localization;
@@ -12,8 +13,14 @@ namespace WeatherToday.Android.Views
 {
     [MvxFragmentPresentation(typeof(MainViewModel), Resource.Id.content_frame, true)]
     [Register(nameof(WeatherListFragment))]
-    public class WeatherListFragment : BaseFragment<WeatherListVM>
+    public class WeatherListFragment : BaseFragment<WeatherListVM>, IScrollDirectorListener
     {
+        #region Fields
+
+        private FloatingActionButton _fab;
+
+        #endregion
+
         protected override int FragmentId => Resource.Layout.page_weather_list;
 
         protected MainActivity MyActivity
@@ -34,6 +41,10 @@ namespace WeatherToday.Android.Views
                 var layoutManager = new LinearLayoutManager(Activity);
                 recyclerView.SetLayoutManager(layoutManager);
             }
+
+            _fab = view.FindViewById<FloatingActionButton>(Resource.Id.fab_add_city);
+            _fab.AttachToRecyclerView(recyclerView, this);
+            _fab.Enabled = true;
 
             return view;
         }
@@ -59,9 +70,20 @@ namespace WeatherToday.Android.Views
                 case Resource.Id.action_city_list:
                     ViewModel.CityListCommand.Execute();
                     return true;
+                case Resource.Id.action_location:
+                    ViewModel.LocationCommand.Execute();
+                    return true;
                 default:
                     return base.OnOptionsItemSelected(item);
             }
+        }
+
+        public void OnScrollDown()
+        {
+        }
+
+        public void OnScrollUp()
+        {
         }
     }
 }

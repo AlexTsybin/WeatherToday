@@ -9,14 +9,23 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
 using System.Threading.Tasks;
+using WeatherToday.Core.Messages;
+using WeatherToday.Core.Models.City;
 using WeatherToday.Core.Services.Platform;
 using WeatherToday.Core.ViewModels.Base.Commands;
 using WeatherToday.Core.ViewModels.Collection;
+using WeatherToday.Core.ViewModels.EditCity;
 
 namespace WeatherToday.Core.ViewModels.CityList
 {
     public class CityListVM : BaseCollectionVM<CityListItemVM>
     {
+        #region Fields
+
+        private MvxSubscriptionToken _citiesUpdatedToken;
+
+        #endregion
+
         #region Commands
 
         private IMvxAsyncCommand<CityListItemVM> _deleteCurrentItemCommand;
@@ -45,14 +54,28 @@ namespace WeatherToday.Core.ViewModels.CityList
 
         #region Private
 
-        private async Task DeleteCityExecute(CityListItemVM city)
+        private async Task DeleteCityExecute(CityListItemVM item)
         {
+            CityBO city = await App.Database.GetCityByNameAsync(item.CityName);
 
+            await App.Database.DeleteCityAsync(city);
+
+            Items.Remove(item);
         }
 
         private async Task AddNewCity()
         {
-            Items.Add(new CityListItemVM("Palma de Mallorca"));
+            await NavigationService.Navigate<EditCityVM>();
+        }
+
+        private async void CitiesUpdatedExecute(CitiesUpdatedMessage message)
+        {
+            if (message.Sender is EditCityVM chatItemVM)
+            {
+                Items.Clear();
+
+                await SetupItems();
+            }
         }
 
         #endregion
@@ -61,24 +84,24 @@ namespace WeatherToday.Core.ViewModels.CityList
 
         protected override Task ItemSelectedExecute(CityListItemVM item)
         {
-            return null;
+            return Task.CompletedTask;
         }
 
         protected override Task ReloadExecute()
         {
-            return null;
+            return Task.CompletedTask;
         }
 
         protected async override Task SetupItems()
         {
-            var cityList = new List<CityListItemVM>();
+            List<CityBO> cityList = await App.Database.GetCitiesAsync();
 
             await Mvx.IoCProvider.Resolve<IMvxMainThreadAsyncDispatcher>().ExecuteOnMainThreadAsync(() =>
             {
-                Items.Add(new CityListItemVM("Saint Petersburg"));
-                Items.Add(new CityListItemVM("Helsinki"));
-                Items.Add(new CityListItemVM("Amsterdam"));
-                Items.Add(new CityListItemVM("Palma de Mallorca"));
+                foreach (var city in cityList)
+                {
+                    Items.Add(new CityListItemVM(city.CityName, DeleteCurrentItemCommand));
+                }
             });
         }
 
@@ -96,6 +119,8 @@ namespace WeatherToday.Core.ViewModels.CityList
             base.Prepare();
 
             Items = new ObservableCollection<CityListItemVM>();
+
+            _citiesUpdatedToken = Messenger.Subscribe<CitiesUpdatedMessage>(CitiesUpdatedExecute);
         }
 
         #endregion

@@ -70,6 +70,15 @@ namespace WeatherToday.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit city.
+        /// </summary>
+        public static string edit_city_title {
+            get {
+                return ResourceManager.GetString("edit_city_title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Close app?.
         /// </summary>
         public static string message_close_app {

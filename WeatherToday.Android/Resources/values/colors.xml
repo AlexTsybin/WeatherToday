@@ -9,6 +9,7 @@
 
   <color name="white">#FFFFFF</color>
   <color name="black">#000000</color>
+  <color name="red">#FF0000</color>
 
   <color name="background_gradient_dark">#1F333F</color>
   <color name="background_gradient_light">#10545E</color>
