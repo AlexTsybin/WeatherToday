@@ -55,7 +55,7 @@ namespace WeatherToday.Android.Views
 
         protected override View CreateView()
         {
-            return this.BindingInflate(Resource.Layout.weather_activity, null);
+            return this.BindingInflate(Resource.Layout.activity_weather, null);
         }
 
         #endregion
