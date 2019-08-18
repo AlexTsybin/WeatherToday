@@ -6,4 +6,7 @@
 
   <string name="items_empty_cities">There are no cities yet</string>
   <string name="city_list">City list</string>
+  <string name="location">Location</string>
+  <string name="location_title">You are at</string>
+
 </resources>
