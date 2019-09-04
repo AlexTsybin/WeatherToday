@@ -8,17 +8,26 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
+using WeatherToday.Core.Messages;
+using WeatherToday.Core.Models.City;
 using WeatherToday.Core.Services.Platform;
 using WeatherToday.Core.ViewModels.Base.Commands;
 using WeatherToday.Core.ViewModels.CityList;
 using WeatherToday.Core.ViewModels.Collection;
 using WeatherToday.Core.ViewModels.EditCity;
+using WeatherToday.Core.ViewModels.Forecast;
 using WeatherToday.Core.ViewModels.Location;
 
 namespace WeatherToday.Core.ViewModels.Weather
 {
     public class WeatherListVM : BaseCollectionVM<WeatherListItemVM>
     {
+        #region Fields
+
+        private MvxSubscriptionToken _citiesUpdatedToken;
+
+        #endregion
+
         #region Commands
 
         private IMvxAsyncCommand _cityListCommand;
@@ -68,30 +77,41 @@ namespace WeatherToday.Core.ViewModels.Weather
             await NavigationService.Navigate<EditCityVM>();
         }
 
+        private async void CitiesUpdatedExecute(CitiesUpdatedMessage message)
+        {
+            Items.Clear();
+
+            await SetupItems();
+        }
+
         #endregion
 
         #region Protected
 
         protected override Task ReloadExecute()
         {
+            IsRefreshing = false;
+
             return Task.CompletedTask;
         }
 
-        protected override Task ItemSelectedExecute(WeatherListItemVM item)
+        protected async override Task ItemSelectedExecute(WeatherListItemVM item)
         {
-            return Task.CompletedTask;
+            await NavigationService.Navigate<ForecastVM>();
         }
 
         protected override async Task SetupItems()
         {
-            var cityList = new List<WeatherListItemVM>();
+            //var cityList = new List<WeatherListItemVM>();
+
+            List<CityBO> cityList = await App.Database.GetCitiesAsync();
 
             await Mvx.IoCProvider.Resolve<IMvxMainThreadAsyncDispatcher>().ExecuteOnMainThreadAsync(() =>
             {
-                Items.Add(new WeatherListItemVM(10, "Saint Petersburg", "Sunny", DateTime.Now, DateTime.Now));
-                Items.Add(new WeatherListItemVM(15, "Helsinki", "Sunny", DateTime.Now, DateTime.Now));
-                Items.Add(new WeatherListItemVM(21, "Amsterdam", "Cloudy", DateTime.Now, DateTime.Now));
-                Items.Add(new WeatherListItemVM(24, "Palma de Mallorca", "Sunny", DateTime.Now, DateTime.Now));
+                foreach (CityBO city in cityList)
+                {
+                    Items.Add(new WeatherListItemVM(10, city.CityName, "Sunny", DateTime.Now, DateTime.Now));
+                }
             });
         }
 
@@ -110,6 +130,15 @@ namespace WeatherToday.Core.ViewModels.Weather
 
             PageTitle = "WeatherToday";
             Items = new ObservableCollection<WeatherListItemVM>();
+
+            _citiesUpdatedToken = Messenger.Subscribe<CitiesUpdatedMessage>(CitiesUpdatedExecute);
+        }
+
+        public override void Unbind()
+        {
+            base.Unbind();
+
+            DisposeMvxMessageToken<CitiesUpdatedMessage>(_citiesUpdatedToken);
         }
 
         #endregion

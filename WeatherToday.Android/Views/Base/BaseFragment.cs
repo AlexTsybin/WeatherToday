@@ -7,6 +7,7 @@ using MvvmCross.Droid.Support.V7.AppCompat;
 using MvvmCross.Platforms.Android.Binding.BindingContext;
 using MvvmCross.Platforms.Android.Views;
 using MvvmCross.ViewModels;
+using WeatherToday.Android.Activity;
 using WeatherToday.Core.ViewModels.Base;
 
 namespace WeatherToday.Android.Views
@@ -24,6 +25,11 @@ namespace WeatherToday.Android.Views
         public MvxAppCompatActivity ParentActivity
         {
             get => (MvxAppCompatActivity)Activity;
+        }
+
+        protected CommonActivity MainActivity
+        {
+            get => Activity as CommonActivity;
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)

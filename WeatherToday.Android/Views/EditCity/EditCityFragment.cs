@@ -27,6 +27,13 @@ namespace WeatherToday.Android.Views.EditCity
             return view;
         }
 
+        public override void OnPause()
+        {
+            base.OnPause();
+
+            MainActivity.HideSoftKeyboard();
+        }
+
         public override void OnCreateOptionsMenu(IMenu menu, MenuInflater inflater)
         {
             inflater.Inflate(Resource.Menu.menu_edit_city, menu);

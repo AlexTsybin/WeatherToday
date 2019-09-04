@@ -3,6 +3,6 @@
       xmlns:app="http://schemas.android.com/apk/res-auto">
   <item android:id="@+id/action_save_city"
         app:showAsAction="always"
-        android:icon="@drawable/ic_plus"
+        android:icon="@drawable/ic_done"
         android:title="Save city"/>
 </menu>

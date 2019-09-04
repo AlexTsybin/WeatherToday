@@ -46,6 +46,28 @@ namespace WeatherToday.Android.Views.CityList
             return view;
         }
 
+        public override void OnCreateOptionsMenu(IMenu menu, MenuInflater inflater)
+        {
+            inflater.Inflate(Resource.Menu.menu_save_cities, menu);
+
+            base.OnCreateOptionsMenu(menu, inflater);
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+                case Resource.Id.action_save_city:
+                    ViewModel.SaveChangeCommand.Execute();
+                    return true;
+                case global::Android.Resource.Id.Home:
+                    ViewModel.SaveChangeCommand.Execute();
+                    return true;
+                default:
+                    return base.OnOptionsItemSelected(item);
+            }
+        }
+
         public void OnScrollDown()
         {
         }

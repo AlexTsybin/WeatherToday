@@ -82,7 +82,6 @@ namespace WeatherToday.Android.Activity
             set { base.ViewModel = value; }
         }
 
-
         #endregion
     }
 

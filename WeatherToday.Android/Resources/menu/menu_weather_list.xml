@@ -6,5 +6,6 @@
         android:title="@string/city_list"/>
   <item android:id="@+id/action_location"
         app:showAsAction="always"
+        android:icon="@drawable/ic_my_location"
         android:title="@string/location"/>
 </menu>

@@ -1,21 +1,29 @@
-﻿using Android.App;
+﻿using System;
+using Android.App;
 using Android.Content.PM;
 using Android.OS;
 using Android.Views;
 using MvvmCross.Platforms.Android.Binding.BindingContext;
 using MvvmCross.Platforms.Android.Presenters.Attributes;
-using WeatherToday.Core.ViewModels.Location;
+using WeatherToday.Core.ViewModels.Forecast;
 
 namespace WeatherToday.Android.Activity
 {
     [MvxActivityPresentation]
     [Activity(
-        Label = "Location",
+        Label = "Forecast",
         AlwaysRetainTaskState = true,
         Theme = "@style/AppTheme",
         ScreenOrientation = ScreenOrientation.User)]
-    public class LocationActivity : CommonActivity<LocationVM>
+    public class ForecastActivity : CommonActivity
     {
+        #region Protected
+
+        protected override View CreateView()
+        {
+            return this.BindingInflate(Resource.Layout.activity_forecast, null);
+        }
+
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
@@ -24,10 +32,7 @@ namespace WeatherToday.Android.Activity
             SupportActionBar.SetHomeButtonEnabled(true);
         }
 
-        protected override View CreateView()
-        {
-            return this.BindingInflate(Resource.Layout.activity_location, null);
-        }
+        #endregion
 
         #region Public
 

@@ -26,6 +26,17 @@ namespace WeatherToday.Core.ViewModels.CityList
 
         #endregion
 
+        #region Properties
+
+        private bool _citiesChanged;
+        public bool CitiesChanged
+        {
+            get => _citiesChanged;
+            set => SetProperty(ref _citiesChanged, value);
+        }
+
+        #endregion
+
         #region Commands
 
         private IMvxAsyncCommand<CityListItemVM> _deleteCurrentItemCommand;
@@ -38,6 +49,12 @@ namespace WeatherToday.Core.ViewModels.CityList
         public IMvxAsyncCommand AddNewCityCommand
         {
             get => _addNewCityCommand ?? (_addNewCityCommand = new TorAsyncCommand(AddNewCity, null, true));
+        }
+
+        private IMvxAsyncCommand _saveChangeCommand;
+        public IMvxAsyncCommand SaveChangeCommand
+        {
+            get => _saveChangeCommand ?? (_saveChangeCommand = new TorAsyncCommand(SaveChangeExecute));
         }
 
         #endregion
@@ -61,6 +78,8 @@ namespace WeatherToday.Core.ViewModels.CityList
             await App.Database.DeleteCityAsync(city);
 
             Items.Remove(item);
+
+            CitiesChanged = true;
         }
 
         private async Task AddNewCity()
@@ -74,8 +93,25 @@ namespace WeatherToday.Core.ViewModels.CityList
             {
                 Items.Clear();
 
+                CitiesChanged = true;
+
                 await SetupItems();
             }
+        }
+
+        private async Task SaveChangeExecute()
+        {
+            if (!CitiesChanged)
+                return;
+
+            SendUpdateMessage();
+
+            await NavigationService.Close(this);
+        }
+
+        private void SendUpdateMessage()
+        {
+            Messenger.Publish(new CitiesUpdatedMessage(this));
         }
 
         #endregion
@@ -89,6 +125,8 @@ namespace WeatherToday.Core.ViewModels.CityList
 
         protected override Task ReloadExecute()
         {
+            IsRefreshing = false;
+
             return Task.CompletedTask;
         }
 
