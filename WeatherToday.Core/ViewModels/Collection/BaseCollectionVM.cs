@@ -1,13 +1,16 @@
 ﻿using MvvmCross;
 using MvvmCross.Commands;
+using MvvmCross.Core;
 using MvvmCross.Logging;
 using MvvmCross.Navigation;
 using MvvmCross.Plugin.Messenger;
+using MvvmCross.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
 using System.Threading.Tasks;
+using WeatherToday.API.Utils.Helpers;
 using WeatherToday.Core.Services.Platform;
 using WeatherToday.Core.ViewModels.Base;
 using WeatherToday.Core.ViewModels.Base.Commands;
@@ -15,6 +18,82 @@ using WeatherToday.Core.ViewModels.Base.Interfaces;
 
 namespace WeatherToday.Core.ViewModels.Collection
 {
+    public abstract class BaseCollectionVM<ItemType, TParameter> : BaseCollectionVM<ItemType>,
+        IMvxViewModel<TParameter> where ItemType : CollectionItemVM
+    {
+        #region Fields
+
+        protected TParameter BaseParameter;
+
+        #endregion
+
+        #region Properties
+
+        protected virtual string BaseParamStr
+        {
+            get => "BaseParameter";
+        }
+
+        private float _progress;
+        public float Progress
+        {
+            get => _progress;
+            set => SetProperty(ref _progress, value);
+        }
+
+        #endregion
+
+        #region Constructor
+
+        public BaseCollectionVM(IMvxLogProvider logProvider, IMvxNavigationService navigationService,
+            IUserInteraction userInteraction, IMvxMessenger messenger)
+            : base(logProvider, navigationService, userInteraction, messenger)
+        {
+        }
+
+        public BaseCollectionVM() : base()
+        { }
+
+        #endregion
+
+        #region Public
+
+        public virtual void Prepare(TParameter parameter)
+        {
+            if (BaseParameter == null)
+                BaseParameter = parameter;
+        }
+
+        #endregion
+
+        #region Protected
+
+        protected override void SaveStateToBundle(IMvxBundle bundle)
+        {
+            base.SaveStateToBundle(bundle);
+
+            bundle.Data[BaseParamStr] = JsonHelper.Serialize(BaseParameter);
+        }
+
+        protected override void ReloadFromBundle(IMvxBundle state)
+        {
+            base.ReloadFromBundle(state);
+
+            if (state != null && state.Data.ContainsKey(BaseParamStr))
+            {
+                if (state.SafeGetData().TryGetValue(BaseParamStr, out string serializedParameter))
+                {
+                    BaseParameter = JsonHelper.Deserialize<TParameter>(serializedParameter);
+
+                    if (BaseParameter != null)
+                        Prepare(BaseParameter);
+                }
+            }
+        }
+
+        #endregion
+    }
+
     public abstract class BaseCollectionVM<ItemType> : BaseVM, IBaseCollectionVM<ItemType> 
         where ItemType : CollectionItemVM
     {

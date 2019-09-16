@@ -61,7 +61,7 @@
             android:paddingTop="12dp"
             android:divider="@null"
             android:dividerHeight="0dp"
-            local:MvxItemTemplate="@layout/item_weather_list"
+            local:MvxItemTemplate="@layout/item_forecast_list"
             local:MvxBind="ItemsSource Items; ItemClick ItemSelectedCommand; ItemLongClick ItemLongClickCommand" />
     </MvvmCross.Droid.Support.V4.MvxSwipeRefreshLayout>
 </RelativeLayout>

@@ -22,6 +22,8 @@ using WeatherToday.Core.Services.Platform;
 using System;
 using System.Threading.Tasks;
 using WeatherToday.Android.Presenter;
+using MvvmCross.Converters;
+using WeatherToday.Android.Converters.Date;
 
 namespace WeatherToday.Android
 {
@@ -55,25 +57,15 @@ namespace WeatherToday.Android
             var mvxFragmentsPresenter = new WeatherAndroidPresenter(AndroidViewAssemblies);
             Mvx.IoCProvider.RegisterSingleton<ICustomPresenter>(mvxFragmentsPresenter);
 
-            ////add a presentation hint handler to listen for pop to root
-            //mvxFragmentsPresenter.AddPresentationHintHandler<MvxPanelPopToRootPresentationHint>(hint =>
-            //{
-            //    var activity = Mvx.IoCProvider.Resolve<IMvxAndroidCurrentTopActivity>().Activity;
-            //    var fragmentActivity = activity as global::Android.Support.V4.App.FragmentActivity;
-
-            //    for (int i = 0; i < fragmentActivity.SupportFragmentManager.BackStackEntryCount; i++)
-            //    {
-            //        fragmentActivity.SupportFragmentManager.PopBackStack();
-            //    }
-
-            //    return Task.FromResult(true);
-            //});
-
-            ////register the presentation hint to pop to root
-            ////picked up in the third view model
-            //Mvx.IoCProvider.RegisterSingleton<MvxPresentationHint>(() => new MvxPanelPopToRootPresentationHint());
-
             return mvxFragmentsPresenter;
+        }
+
+        protected override void FillValueConverters(IMvxValueConverterRegistry registry)
+        {
+            base.FillValueConverters(registry);
+
+            registry.AddOrOverwrite("WeekDayFormat", new WeekDayValueConverter());
+            registry.AddOrOverwrite("ShortDateFormat", new ShortDateValueConverter());
         }
 
         protected override void InitializeFirstChance()

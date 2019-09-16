@@ -65,6 +65,7 @@
     <Compile Include="Activity\ForecastActivity.cs" />
     <Compile Include="Activity\LocationActivity.cs" />
     <Compile Include="Behaviour\RefractoredFabBehavior.cs" />
+    <Compile Include="Converters\Date\DateConverter.cs" />
     <Compile Include="Domain\DialogOnDismissListener.cs" />
     <Compile Include="LinkerPleaseInclude.cs" />
     <Compile Include="MainApplication.cs" />
@@ -84,6 +85,7 @@
     <Compile Include="Views\Base\BaseFragment.cs" />
     <Compile Include="Views\CityList\CityListFragment.cs" />
     <Compile Include="Views\EditCity\EditCityFragment.cs" />
+    <Compile Include="Views\Forecast\ForecastDetailsFragment.cs" />
     <Compile Include="Views\Forecast\ForecastFragment.cs" />
     <Compile Include="Views\WeatherList\WeatherListFragment.cs" />
   </ItemGroup>
@@ -303,6 +305,16 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\menu\menu_save_cities.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\item_forecast_list.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\page_forecast_details.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

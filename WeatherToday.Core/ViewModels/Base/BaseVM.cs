@@ -1,4 +1,5 @@
 ﻿using MvvmCross;
+using MvvmCross.Core;
 using MvvmCross.Logging;
 using MvvmCross.Navigation;
 using MvvmCross.Plugin.Messenger;
@@ -7,6 +8,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using WeatherToday.API;
+using WeatherToday.API.Utils.Helpers;
 using WeatherToday.Core.Messages.Common;
 using WeatherToday.Core.Services.Platform;
 using WeatherToday.Core.ViewModels.Base.Interfaces;
@@ -157,11 +159,68 @@ namespace WeatherToday.Core.ViewModels.Base
 
     public abstract class BaseVM<TParameter> : BaseVM, IMvxViewModel<TParameter>
     {
-        public BaseVM(IMvxLogProvider logProvider, IMvxNavigationService navigationService, IUserInteraction userInteraction, IMvxMessenger messenger) : 
-            base(logProvider, navigationService, userInteraction, messenger)
+        #region Fields
+
+        protected TParameter BaseParameter;
+
+        #endregion
+
+        #region Properties
+
+        protected virtual string BaseParamStr
+        {
+            get => "BaseParameter";
+        }
+
+        public virtual string ObjectName { get; }
+
+        #endregion
+
+        #region Constructor
+
+        protected BaseVM(IMvxLogProvider logProvider, IMvxNavigationService navigationService,
+            IUserInteraction userInteraction, IMvxMessenger messenger)
+            : base(logProvider, navigationService, userInteraction, messenger)
         {
         }
 
-        public abstract void Prepare(TParameter parameter);
+        protected BaseVM() : base()
+        {
+        }
+
+        #endregion
+
+        #region Protected
+
+        protected override void SaveStateToBundle(IMvxBundle bundle)
+        {
+            base.SaveStateToBundle(bundle);
+
+            bundle.Data[BaseParamStr] = JsonHelper.Serialize(BaseParameter);
+        }
+
+        protected override void ReloadFromBundle(IMvxBundle state)
+        {
+            base.ReloadFromBundle(state);
+
+            if (state != null && state.SafeGetData().ContainsKey(BaseParamStr))
+            {
+                if (state.SafeGetData().TryGetValue(BaseParamStr, out string serializedParameter))
+                {
+                    BaseParameter = JsonHelper.Deserialize<TParameter>(serializedParameter);
+
+                    if (BaseParameter != null)
+                        Prepare(BaseParameter);
+                }
+            }
+        }
+
+        #endregion
+
+        public virtual void Prepare(TParameter parameter)
+        {
+            if (BaseParameter == null)
+                BaseParameter = parameter;
+        }
     }
 }

@@ -1,15 +1,17 @@
 ﻿using MvvmCross.Logging;
 using MvvmCross.Navigation;
 using MvvmCross.Plugin.Messenger;
+using System;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using WeatherToday.Core.Models.Parameters;
 using WeatherToday.Core.Services.Platform;
 using WeatherToday.Core.ViewModels.Base;
+using WeatherToday.Core.ViewModels.Collection;
 
 namespace WeatherToday.Core.ViewModels.Forecast
 {
-    public class ForecastVM : BaseVM<ForecastParameter>
+    public class ForecastVM : BaseCollectionVM<ForecastListItemVM, ForecastParameter>
     {
         #region Properties
 
@@ -41,13 +43,6 @@ namespace WeatherToday.Core.ViewModels.Forecast
             set => SetProperty(ref _weatherDescription, value);
         }
 
-        private ObservableCollection<ForecastListItemVM> _daysList;
-        public ObservableCollection<ForecastListItemVM> DaysList
-        {
-            get => _daysList;
-            set => SetProperty(ref _daysList, value);
-        }
-
         #endregion
 
         #region Constructor
@@ -62,26 +57,42 @@ namespace WeatherToday.Core.ViewModels.Forecast
 
         #region Public
 
-        public async override Task Initialize()
-        {
-            await base.Initialize();
-
-            DaysList = new ObservableCollection<ForecastListItemVM>();
-
-            DayWeatherParameter param = new DayWeatherParameter
-            {
-                Temperature = 5
-            };
-
-            DaysList.Add(new ForecastListItemVM(param));
-        }
-
         public override void Prepare(ForecastParameter parameter)
         {
             CityName = parameter.CityName;
             CountryName = "Russia";
             CurrentTemperature = "-7";
             WeatherDescription = "Sunny";
+        }
+
+        protected override async Task ReloadExecute()
+        {
+            await SetupItems();
+        }
+
+        protected override async Task SetupItems()
+        {
+            Items = new ObservableCollection<ForecastListItemVM>();
+
+            DayWeatherParameter param = new DayWeatherParameter
+            {
+                WeekDay = DateTime.Now,
+                ForecastDate = DateTime.Now,
+                MaxTemp = 5,
+                MinTemp = 1
+            };
+
+            Items.Add(new ForecastListItemVM(param));
+            Items.Add(new ForecastListItemVM(param));
+            Items.Add(new ForecastListItemVM(param));
+        }
+
+        protected override async Task ItemSelectedExecute(ForecastListItemVM item)
+        {
+            await NavigationService.Navigate<ForecastDetailsVM, ForecastDetailsParameter>(new ForecastDetailsParameter
+            {
+                ForecastDate = item.ForecastDate
+            });
         }
 
         #endregion
