@@ -10,6 +10,7 @@ using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using WeatherToday.Core.Messages;
 using WeatherToday.Core.Models.City;
+using WeatherToday.Core.Models.Parameters;
 using WeatherToday.Core.Services.Platform;
 using WeatherToday.Core.ViewModels.Base.Commands;
 using WeatherToday.Core.ViewModels.CityList;
@@ -97,7 +98,10 @@ namespace WeatherToday.Core.ViewModels.Weather
 
         protected async override Task ItemSelectedExecute(WeatherListItemVM item)
         {
-            await NavigationService.Navigate<ForecastVM>();
+            await NavigationService.Navigate<ForecastVM, ForecastParameter>(new ForecastParameter
+            {
+                CityName = item.CityName
+            });
         }
 
         protected override async Task SetupItems()

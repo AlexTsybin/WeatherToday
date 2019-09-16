@@ -6,7 +6,6 @@ using MvvmCross.Droid.Support.V4;
 using MvvmCross.Droid.Support.V7.AppCompat;
 using MvvmCross.Platforms.Android.Binding.BindingContext;
 using MvvmCross.Platforms.Android.Views;
-using MvvmCross.ViewModels;
 using WeatherToday.Android.Activity;
 using WeatherToday.Core.ViewModels.Base;
 
@@ -20,6 +19,8 @@ namespace WeatherToday.Android.Views
 
         #endregion
 
+        #region Properties
+
         protected abstract int FragmentId { get; }
 
         public MvxAppCompatActivity ParentActivity
@@ -31,6 +32,8 @@ namespace WeatherToday.Android.Views
         {
             get => Activity as CommonActivity;
         }
+
+        #endregion
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
@@ -49,6 +52,16 @@ namespace WeatherToday.Android.Views
             HasOptionsMenu = true;
 
             return view;
+        }
+
+        /// <summary>
+        /// Данный метод используется для корректировки биндинга с VM в случае, когда фрагмент был закеширован
+        /// </summary>
+        public void ReloadFragment()
+        {
+            //UnbindFragment();
+            //SetupBaseBinding();
+            //BindNewVM();
         }
 
         public override void OnConfigurationChanged(Configuration newConfig)

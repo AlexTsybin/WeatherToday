@@ -4,6 +4,7 @@ using Android.OS;
 using Android.Views;
 using MvvmCross.Platforms.Android.Binding.BindingContext;
 using MvvmCross.Platforms.Android.Presenters.Attributes;
+using System.Threading.Tasks;
 using WeatherToday.Android.Activity;
 using WeatherToday.Core.ViewModels.Base;
 
@@ -11,11 +12,12 @@ namespace WeatherToday.Android.Views
 {
     [MvxActivityPresentation]
     [Activity(
+        
         Label = "WeatherApp",
         Theme = "@style/AppTheme",
-        LaunchMode = LaunchMode.SingleTop,
+        LaunchMode = LaunchMode.SingleTask,
         Name = "weatherToday.android.views.MainActivity")]
-    public class MainActivity : CommonActivity<MainViewModel>, global::Android.Support.V4.App.FragmentManager.IOnBackStackChangedListener
+    public class MainActivity : CommonActivity<MainVM>, global::Android.Support.V4.App.FragmentManager.IOnBackStackChangedListener
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -24,30 +26,30 @@ namespace WeatherToday.Android.Views
             SupportFragmentManager.RemoveOnBackStackChangedListener(this);
             SupportFragmentManager.AddOnBackStackChangedListener(this);
 
-            //SetContentView(Resource.Layout.weather_activity);
+            InitStartPage();
         }
 
         #region Private
 
-        //private async Task InitStartPage()
-        //{
-        //    if (ViewModel.InitializeTask.IsNotCompleted)
-        //    {
-        //        ViewModel.InitializeTask.PropertyChanged += async (e, o) =>
-        //        {
-        //            if (o.PropertyName == "IsSuccessfullyCompleted" && ViewModel.InitializeTask.IsSuccessfullyCompleted)
-        //            {
-        //                await ViewModel.InitializeMainVMsCommand.ExecuteAsync();
-        //            }
-        //            //else if (ViewModel.InitializeTask.IsFaulted)
-        //            //    Mvx.IoCProvider.Resolve<IUserInteraction>().Alert(Strings.message_reload_app, null, Strings.title_error_default);
-        //        };
-        //    }
-        //    else if (ViewModel.InitializeTask.IsSuccessfullyCompleted)
-        //        await ViewModel.InitializeMainVMsCommand.ExecuteAsync();
-        //    //else if (ViewModel.InitializeTask.IsFaulted)
-        //    //    Mvx.IoCProvider.Resolve<IUserInteraction>().Alert(Strings.message_reload_app, null, Strings.title_error_default);
-        //}
+        private async Task InitStartPage()
+        {
+            if (ViewModel.InitializeTask.IsNotCompleted)
+            {
+                ViewModel.InitializeTask.PropertyChanged += async (e, o) =>
+                {
+                    if (o.PropertyName == "IsSuccessfullyCompleted" && ViewModel.InitializeTask.IsSuccessfullyCompleted)
+                    {
+                        await ViewModel.InitializeMainVMsCommand.ExecuteAsync();
+                    }
+                    //else if (ViewModel.InitializeTask.IsFaulted)
+                    //    Mvx.IoCProvider.Resolve<IUserInteraction>().Alert(Strings.message_reload_app, null, Strings.title_error_default);
+                };
+            }
+            else if (ViewModel.InitializeTask.IsSuccessfullyCompleted)
+                await ViewModel.InitializeMainVMsCommand.ExecuteAsync();
+            //else if (ViewModel.InitializeTask.IsFaulted)
+            //    Mvx.IoCProvider.Resolve<IUserInteraction>().Alert(Strings.message_reload_app, null, Strings.title_error_default);
+        }
 
         #endregion
 

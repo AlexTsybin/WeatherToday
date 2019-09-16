@@ -9,6 +9,13 @@ namespace WeatherToday.Core.ViewModels.Weather
     {
         #region Properties
 
+        private int _cityId;
+        public int CityId
+        {
+            get => _cityId;
+            set => SetProperty(ref _cityId, value);
+        }
+
         private int _temperature;
         public int Temperature
         {

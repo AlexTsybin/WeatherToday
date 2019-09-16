@@ -1,25 +1,19 @@
 ﻿using MvvmCross;
 using MvvmCross.Commands;
-using MvvmCross.Logging;
-using MvvmCross.Navigation;
 using MvvmCross.Plugin.Messenger;
-using MvvmCross.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using WeatherToday.API;
 using WeatherToday.API.Services.Platform;
-using WeatherToday.Core.Messages.Common;
-using WeatherToday.Core.Services.Platform;
 using WeatherToday.Core.ViewModels.Base.Commands;
-using WeatherToday.Core.ViewModels.Base.Interfaces;
 using WeatherToday.Core.ViewModels.Weather;
 using WeatherToday.Localization;
 
 namespace WeatherToday.Core.ViewModels.Base
 {
-    public class MainViewModel : BaseVM
+    public class MainVM : BaseVM
     {
         #region Commands
 
@@ -33,9 +27,9 @@ namespace WeatherToday.Core.ViewModels.Base
 
         #region Constructor
 
-        public MainViewModel()
+        public MainVM()
         {
-            InitializeMainVMsCommand.Execute();
+            //InitializeMainVMsCommand.Execute();
         }
 
         #endregion

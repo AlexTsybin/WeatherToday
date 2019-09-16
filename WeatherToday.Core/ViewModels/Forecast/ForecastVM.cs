@@ -1,17 +1,15 @@
 ﻿using MvvmCross.Logging;
 using MvvmCross.Navigation;
 using MvvmCross.Plugin.Messenger;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Collections.ObjectModel;
 using System.Threading.Tasks;
+using WeatherToday.Core.Models.Parameters;
 using WeatherToday.Core.Services.Platform;
 using WeatherToday.Core.ViewModels.Base;
-using WeatherToday.Core.ViewModels.Collection;
 
 namespace WeatherToday.Core.ViewModels.Forecast
 {
-    public class ForecastVM : BaseCollectionVM<ForecastListItemVM>
+    public class ForecastVM : BaseVM<ForecastParameter>
     {
         #region Properties
 
@@ -43,6 +41,13 @@ namespace WeatherToday.Core.ViewModels.Forecast
             set => SetProperty(ref _weatherDescription, value);
         }
 
+        private ObservableCollection<ForecastListItemVM> _daysList;
+        public ObservableCollection<ForecastListItemVM> DaysList
+        {
+            get => _daysList;
+            set => SetProperty(ref _daysList, value);
+        }
+
         #endregion
 
         #region Constructor
@@ -55,37 +60,25 @@ namespace WeatherToday.Core.ViewModels.Forecast
 
         #endregion
 
-        #region Protected
-
-        protected override Task ReloadExecute()
-        {
-            return Task.CompletedTask;
-        }
-
-        protected override Task ItemSelectedExecute(ForecastListItemVM item)
-        {
-            return Task.CompletedTask;
-        }
-
-        protected override Task SetupItems()
-        {
-            return Task.CompletedTask;
-        }
-
-        #endregion
-
         #region Public
 
-        public override Task Initialize()
+        public async override Task Initialize()
         {
-            return base.Initialize();
+            await base.Initialize();
+
+            DaysList = new ObservableCollection<ForecastListItemVM>();
+
+            DayWeatherParameter param = new DayWeatherParameter
+            {
+                Temperature = 5
+            };
+
+            DaysList.Add(new ForecastListItemVM(param));
         }
 
-        public override void Prepare()
+        public override void Prepare(ForecastParameter parameter)
         {
-            base.Prepare();
-
-            CityName = "Petropavlovsk-Kamchatskiy";
+            CityName = parameter.CityName;
             CountryName = "Russia";
             CurrentTemperature = "-7";
             WeatherDescription = "Sunny";

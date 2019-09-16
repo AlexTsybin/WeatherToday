@@ -3,9 +3,7 @@ using MvvmCross.Logging;
 using MvvmCross.Navigation;
 using MvvmCross.Plugin.Messenger;
 using MvvmCross.ViewModels;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using WeatherToday.API;
@@ -115,6 +113,11 @@ namespace WeatherToday.Core.ViewModels.Base
         #endregion
 
         #region Public
+
+        public virtual string GetUniqName()
+        {
+            return GetType().FullName + GetHashCode();
+        }
 
         public virtual void Unbind()
         {

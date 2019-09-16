@@ -8,7 +8,7 @@ using WeatherToday.Localization;
 
 namespace WeatherToday.Android.Views.EditCity
 {
-    [MvxFragmentPresentation(typeof(MainViewModel), Resource.Id.content_frame, true)]
+    [MvxFragmentPresentation(typeof(MainVM), Resource.Id.content_frame, true)]
     [Register(nameof(EditCityFragment))]
     public class EditCityFragment : BaseFragment<EditCityVM>
     {

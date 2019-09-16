@@ -16,8 +16,8 @@
         android:gravity="center_vertical"
         android:ellipsize="end"
         android:maxLines="2"
-        tools:text="Petropavlovsk-Kamchatskiy"
-        local:MvxBind="CityName"/>
+        android:text="Petropavlovsk-Kamchatskiy"
+        local:MvxBind="Text CityName"/>
     <TextView
         android:id="@+id/forecast_country"
         android:layout_width="230dp"
@@ -25,7 +25,7 @@
         style="@style/fragmentText.20sp"
         tools:text="Russia"
         android:layout_below="@+id/forecast_city_name"
-        local:MvxBind="CountryName"/>
+        local:MvxBind="Text CountryName"/>
     <TextView
         android:id="@+id/forecast_temp"
         android:layout_width="120dp"
@@ -34,7 +34,7 @@
         android:gravity="center"
         android:layout_alignParentEnd="true"
         tools:text="-6°"
-        local:MvxBind="CurrentTemperature"/>
+        local:MvxBind="Text CurrentTemperature"/>
     <TextView
         android:id="@+id/forecast_descr"
         android:layout_width="120dp"
@@ -44,7 +44,7 @@
         android:layout_below="@+id/forecast_temp"
         android:layout_alignStart="@+id/forecast_temp"
         style="@style/fragmentText.20sp"
-        local:MvxBind="WeatherDescription"/>
+        local:MvxBind="Text WeatherDescription"/>
     <MvvmCross.Droid.Support.V4.MvxSwipeRefreshLayout
         android:id="@+id/refresher"
         android:layout_width="match_parent"

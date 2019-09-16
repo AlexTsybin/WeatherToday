@@ -60,6 +60,7 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Activity\BaseHostActivity.cs" />
     <Compile Include="Activity\CommonActivity.cs" />
     <Compile Include="Activity\ForecastActivity.cs" />
     <Compile Include="Activity\LocationActivity.cs" />

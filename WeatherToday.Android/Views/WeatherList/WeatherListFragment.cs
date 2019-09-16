@@ -11,7 +11,7 @@ using WeatherToday.Localization;
 
 namespace WeatherToday.Android.Views
 {
-    [MvxFragmentPresentation(typeof(MainViewModel), Resource.Id.content_frame, true)]
+    [MvxFragmentPresentation(typeof(MainVM), Resource.Id.content_frame, true)]
     [Register(nameof(WeatherListFragment))]
     public class WeatherListFragment : BaseFragment<WeatherListVM>, IScrollDirectorListener
     {
@@ -86,4 +86,4 @@ namespace WeatherToday.Android.Views
         {
         }
     }
-}
+} 

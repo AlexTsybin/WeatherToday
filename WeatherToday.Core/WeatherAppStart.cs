@@ -1,11 +1,6 @@
-﻿using MvvmCross;
-using MvvmCross.Navigation;
+﻿using MvvmCross.Navigation;
 using MvvmCross.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
-using WeatherToday.Core.ViewModels.Base;
 
 namespace WeatherToday.Core
 {
@@ -17,9 +12,9 @@ namespace WeatherToday.Core
         {
         }
 
-        protected override Task NavigateToFirstViewModel(object hint = null)
+        protected async override Task NavigateToFirstViewModel(object hint = null)
         {
-            return NavigationService.Navigate<TViewModel>();
+            NavigationService.Navigate<TViewModel>();
         }
     }
 }

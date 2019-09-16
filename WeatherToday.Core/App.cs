@@ -1,12 +1,9 @@
-﻿using MvvmCross;
-using MvvmCross.IoC;
+﻿using MvvmCross.IoC;
 using MvvmCross.ViewModels;
 using System;
 using System.IO;
 using WeatherToday.Core.Data;
-using WeatherToday.Core.ViewModels;
 using WeatherToday.Core.ViewModels.Base;
-using WeatherToday.Core.ViewModels.Weather;
 
 namespace WeatherToday.Core
 {
@@ -23,7 +20,7 @@ namespace WeatherToday.Core
                 .AsInterfaces()
                 .RegisterAsLazySingleton();
 
-            RegisterCustomAppStart<WeatherAppStart<MainViewModel>>();
+            RegisterCustomAppStart<WeatherAppStart<MainVM>>();
         }
 
         public static WeatherDatabase Database

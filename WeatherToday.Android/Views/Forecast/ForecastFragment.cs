@@ -1,15 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
-using Android.OS;
+﻿using Android.OS;
 using Android.Runtime;
 using Android.Support.V7.Widget;
 using Android.Views;
-using Android.Widget;
 using MvvmCross.Droid.Support.V7.RecyclerView;
 using MvvmCross.Platforms.Android.Presenters.Attributes;
 using WeatherToday.Android.Activity;
@@ -17,9 +9,10 @@ using WeatherToday.Core.ViewModels.Forecast;
 
 namespace WeatherToday.Android.Views.Forecast
 {
-    [MvxFragmentPresentation(null, Resource.Id.content_frame, true)]
+    [MvxFragmentPresentation(typeof(ForecastVM), Resource.Id.content_frame, true,
+        ViewModelType = typeof(ForecastVM))]
     [Register(nameof(ForecastFragment))]
-    public class ForecastFragment : BaseFragment<ForecastVM>
+    public class ForecastFragment : BaseFragment
     {
         #region Properties
 

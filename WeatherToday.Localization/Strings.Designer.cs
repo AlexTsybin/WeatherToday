@@ -88,6 +88,15 @@ namespace WeatherToday.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error occured. Restart app for continue.
+        /// </summary>
+        public static string message_reload_app {
+            get {
+                return ResourceManager.GetString("message_reload_app", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ooops!.
         /// </summary>
         public static string title_error_default {
