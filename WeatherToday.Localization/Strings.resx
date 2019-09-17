@@ -129,6 +129,9 @@
   <data name="message_reload_app" xml:space="preserve">
     <value>Error occured. Restart app for continue</value>
   </data>
+  <data name="metric" xml:space="preserve">
+    <value>metric</value>
+  </data>
   <data name="short_date" xml:space="preserve">
     <value>{0:dd MMM yyyy}</value>
   </data>
@@ -137,6 +140,9 @@
   </data>
   <data name="weather_list_title" xml:space="preserve">
     <value>Weather today</value>
+  </data>
+  <data name="weather_today" xml:space="preserve">
+    <value>WeatherToday</value>
   </data>
   <data name="week_day_date" xml:space="preserve">
     <value>{0:ddd}</value>
