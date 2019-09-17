@@ -10,8 +10,12 @@ namespace WeatherToday.Core.Models.Weather
 
         public string City { get; set; }
 
+        public string Country { get; set; }
+
         public string WeatherDescription { get; set; }
 
         public DateTime Date { get; set; }
+
+        public string IconValue { get; set; }
     }
 }

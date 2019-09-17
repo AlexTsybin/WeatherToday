@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="?android:attr/listPreferredItemHeight"
-    android:paddingTop="@dimen/default_margin"
-    android:paddingBottom="@dimen/default_margin">
+    android:paddingTop="@dimen/small_margin"
+    android:paddingBottom="@dimen/small_margin">
     <TextView
         android:id="@+id/week_day"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="@dimen/default_margin"
+        android:layout_marginLeft="@dimen/default_margin"
         android:layout_centerVertical="true"
         android:textColor="@color/textColorWeatherText"
         android:textSize="20sp"
@@ -28,18 +29,18 @@
 		local:MvxBind="Text ShortDateFormat(ForecastDate)"/>
     <ImageView
         android:id="@+id/mini_icon"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
+        android:layout_width="@dimen/xxxlarge_margin"
+        android:layout_height="@dimen/xxxlarge_margin"
         android:layout_centerVertical="true"
-        android:layout_marginRight="@dimen/default_margin"
+        android:layout_marginRight="@dimen/small_margin"
         android:layout_toLeftOf="@+id/max_temp"
         android:src="@drawable/term"
-        local:MvxBind=""/>
+        local:MvxBind="WeatherImage IconValue"/>
     <TextView
         android:id="@+id/max_temp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/default_margin"
+        android:layout_marginLeft="@dimen/small_margin"
         android:layout_marginRight="@dimen/default_margin"
         android:layout_centerVertical="true"
         android:layout_toLeftOf="@+id/min_temp"

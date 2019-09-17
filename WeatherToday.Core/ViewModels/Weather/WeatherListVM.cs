@@ -2,6 +2,7 @@
 using MvvmCross.Logging;
 using MvvmCross.Navigation;
 using MvvmCross.Plugin.Messenger;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
@@ -96,18 +97,23 @@ namespace WeatherToday.Core.ViewModels.Weather
 
         #region Protected
 
-        protected override Task ReloadExecute()
+        protected override async Task ReloadExecute()
         {
-            IsRefreshing = false;
+            Items.Clear();
 
-            return Task.CompletedTask;
+            await SetupItems();
+
+            Loading = false;
         }
 
         protected async override Task ItemSelectedExecute(WeatherListItemVM item)
         {
             await NavigationService.Navigate<ForecastVM, ForecastParameter>(new ForecastParameter
             {
-                CityName = item.CityName
+                CityName = item.CityName,
+                Country = item.Country,
+                Description = item.WeatherDescription,
+                Temperature = item.Temperature
             });
         }
 
@@ -123,11 +129,13 @@ namespace WeatherToday.Core.ViewModels.Weather
                 {
                     WeatherListItemParameter param = new WeatherListItemParameter
                     {
-                        Temperature = resultModel.Temperature,
+                        Temperature = Math.Round(Double.Parse(resultModel.Temperature)).ToString(),
                         City = resultModel.City,
                         Description = resultModel.WeatherDescription,
                         Date = resultModel.Date,
-                        Time = resultModel.Date
+                        Time = resultModel.Date,
+                        Country = resultModel.Country,
+                        IconValue = resultModel.IconValue
                     };
 
                     Items.Add(new WeatherListItemVM(param));

@@ -10,6 +10,8 @@ namespace WeatherToday.Core.ViewModels.Weather
     {
         #region Properties
 
+        public string Country { get; set; }
+
         private int _cityId;
         public int CityId
         {
@@ -52,6 +54,13 @@ namespace WeatherToday.Core.ViewModels.Weather
             set => SetProperty(ref _weatherTime, value);
         }
 
+        private string _iconValue;
+        public string IconValue
+        {
+            get => _iconValue;
+            set => SetProperty(ref _iconValue, value);
+        }
+
         #endregion
 
         #region Constructor
@@ -63,6 +72,8 @@ namespace WeatherToday.Core.ViewModels.Weather
             WeatherDescription = param.Description;
             WeatherDate = param.Date;
             WeatherTime = param.Time;
+            Country = param.Country;
+            IconValue = param.IconValue;
         }
 
         #endregion

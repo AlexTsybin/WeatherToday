@@ -5,10 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="?android:attr/listPreferredItemHeight"
     android:orientation="horizontal"
-    android:paddingEnd="16dp"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    android:paddingStart="16dp">
+    android:paddingStart="@dimen/default_margin"
+    android:paddingEnd="@dimen/default_margin">
     <TextView
         android:id="@+id/temperature"
         android:layout_width="40dp"
@@ -19,7 +17,7 @@
         android:gravity="center"
         android:textColor="@android:color/black"
         android:textSize="18sp"
-        tools:text="+24"
+        tools:text="24"
 		local:MvxBind="Text Temperature"/>
     <LinearLayout
         android:layout_width="0dp"
@@ -53,16 +51,17 @@
     </LinearLayout>
     <ImageView
         android:id="@+id/mini_icon"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
+        android:layout_width="@dimen/xxlarge_margin"
+        android:layout_height="@dimen/xxlarge_margin"
         android:layout_gravity="center_vertical"
-        android:layout_marginStart="8dp"
-        android:src="@drawable/term"/>
+        android:layout_marginStart="@dimen/small_margin"
+        android:src="@drawable/term"
+        local:MvxBind="WeatherImage IconValue"/>
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="@dimen/xsmall_margin"
         android:orientation="vertical">
         <TextView
             android:id="@+id/date"
@@ -72,7 +71,7 @@
             android:textColor="@color/textColorWeatherBackground"
             android:textSize="14sp"
             tools:text="Mar 6, 2010"
-			local:MvxBind="Text WeatherDate"/>
+			local:MvxBind="Text ShortDateFormat(WeatherDate)"/>
         <TextView
             android:id="@+id/time"
             android:layout_width="wrap_content"
@@ -81,6 +80,6 @@
             android:textColor="@color/textColorWeatherBackground"
             android:textSize="14sp"
             tools:text="3:00 PM" 
-			local:MvxBind="Text WeatherTime"/>
+			local:MvxBind="Text TimeDateFormat(WeatherTime)"/>
     </LinearLayout>
 </LinearLayout>
