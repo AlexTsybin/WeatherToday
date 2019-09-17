@@ -65,6 +65,7 @@
     <Compile Include="Activity\ForecastActivity.cs" />
     <Compile Include="Activity\LocationActivity.cs" />
     <Compile Include="Behaviour\RefractoredFabBehavior.cs" />
+    <Compile Include="Bindings\WeatherImageBinding.cs" />
     <Compile Include="Converters\Date\DateConverter.cs" />
     <Compile Include="Domain\DialogOnDismissListener.cs" />
     <Compile Include="LinkerPleaseInclude.cs" />
@@ -315,6 +316,42 @@
     <AndroidResource Include="Resources\layout\page_forecast_details.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ic_weather_clear_day.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ic_weather_clear_night.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ic_weather_rain.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ic_weather_snow.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ic_weather_sleet.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ic_weather_wind.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ic_weather_fog.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ic_weather_cloudy.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ic_weather_partly_cloudy_day.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ic_weather_partly_cloudy_night.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ic_weather_undefined.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\separator.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

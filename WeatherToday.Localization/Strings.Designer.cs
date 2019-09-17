@@ -79,6 +79,24 @@ namespace WeatherToday.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to hPa.
+        /// </summary>
+        public static string hectopascal {
+            get {
+                return ResourceManager.GetString("hectopascal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0:dddd, dd MMMM}.
+        /// </summary>
+        public static string long_date {
+            get {
+                return ResourceManager.GetString("long_date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Close app?.
         /// </summary>
         public static string message_close_app {
@@ -97,7 +115,7 @@ namespace WeatherToday.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to metric.
+        ///   Looks up a localized string similar to si.
         /// </summary>
         public static string metric {
             get {
@@ -111,6 +129,15 @@ namespace WeatherToday.Localization {
         public static string short_date {
             get {
                 return ResourceManager.GetString("short_date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0:HH:mm}.
+        /// </summary>
+        public static string short_time {
+            get {
+                return ResourceManager.GetString("short_time", resourceCulture);
             }
         }
         

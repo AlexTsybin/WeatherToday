@@ -10,10 +10,14 @@ namespace WeatherToday.Core.Models.Parameters
 
         public string City { get; set; }
 
+        public string Country { get; set; }
+
         public string Description { get; set; }
 
         public DateTime Date { get; set; }
 
         public DateTime Time { get; set; }
+
+        public string IconValue { get; set; }
     }
 }

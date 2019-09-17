@@ -33,6 +33,22 @@ namespace WeatherToday.Android.Converters.Date
         }
     }
 
+    public class LongDateValueConverter : MvxValueConverter<DateTime, string>
+    {
+        protected override string Convert(DateTime value, Type targetType, object parameter, CultureInfo culture)
+        {
+            return string.Format(CultureInfo.InvariantCulture, Strings.long_date, value);
+        }
+    }
+
+    public class TimeValueConverter : MvxValueConverter<DateTime, string>
+    {
+        protected override string Convert(DateTime value, Type targetType, object parameter, CultureInfo culture)
+        {
+            return string.Format(CultureInfo.InvariantCulture, Strings.short_time, value);
+        }
+    }
+
     #endregion
 
 

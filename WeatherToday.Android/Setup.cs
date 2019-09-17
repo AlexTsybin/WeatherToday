@@ -24,6 +24,8 @@ using System.Threading.Tasks;
 using WeatherToday.Android.Presenter;
 using MvvmCross.Converters;
 using WeatherToday.Android.Converters.Date;
+using Android.Widget;
+using WeatherToday.Android.Bindings;
 
 namespace WeatherToday.Android
 {
@@ -34,7 +36,7 @@ namespace WeatherToday.Android
             typeof(NavigationView).Assembly,
             typeof(CoordinatorLayout).Assembly,
             typeof(FloatingActionButton).Assembly,
-            typeof(Toolbar).Assembly,
+            typeof(global::Android.Support.V7.Widget.Toolbar).Assembly,
             typeof(DrawerLayout).Assembly,
             typeof(ViewPager).Assembly,
             typeof(MvxRecyclerView).Assembly,
@@ -50,6 +52,7 @@ namespace WeatherToday.Android
             base.FillTargetFactories(registry);
 
             registry.RegisterFactory(new MvxCustomBindingFactory<SwipeRefreshLayout>("IsRefreshing", (swipeRefreshLayout) => new SwipeRefreshLayoutIsRefreshingTargetBinding(swipeRefreshLayout)));
+            registry.RegisterFactory(new MvxCustomBindingFactory<ImageView>("WeatherImage", (view) => new WeatherImageBinding(view)));
         }
 
         protected override IMvxAndroidViewPresenter CreateViewPresenter()
@@ -66,6 +69,8 @@ namespace WeatherToday.Android
 
             registry.AddOrOverwrite("WeekDayFormat", new WeekDayValueConverter());
             registry.AddOrOverwrite("ShortDateFormat", new ShortDateValueConverter());
+            registry.AddOrOverwrite("LongDateFormat", new LongDateValueConverter());
+            registry.AddOrOverwrite("TimeDateFormat", new TimeValueConverter());
         }
 
         protected override void InitializeFirstChance()

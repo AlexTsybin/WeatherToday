@@ -6,6 +6,16 @@ namespace WeatherToday.Core.ViewModels.Forecast
 {
     public class ForecastListItemVM : CollectionItemVM
     {
+        public string Description { get; set; }
+
+        public string Humidity { get; set; }
+
+        public string Pressure { get; set; }
+
+        public string WindSpeed { get; set; }
+
+        public string WindDirection { get; set; }
+
         private DateTime _weekDay;
         public DateTime WeekDay
         {
@@ -20,18 +30,25 @@ namespace WeatherToday.Core.ViewModels.Forecast
             set => SetProperty(ref _forecastDate, value);
         }
 
-        private int _maxTemp;
-        public int MaxTemp
+        private string _maxTemp;
+        public string MaxTemp
         {
             get => _maxTemp;
             set => SetProperty(ref _maxTemp, value);
         }
 
-        private int _minTemp;
-        public int MinTemp
+        private string _minTemp;
+        public string MinTemp
         {
             get => _minTemp;
             set => SetProperty(ref _minTemp, value);
+        }
+
+        private string _iconValue;
+        public string IconValue
+        {
+            get => _iconValue;
+            set => SetProperty(ref _iconValue, value);
         }
 
         #region Constructor
@@ -42,6 +59,12 @@ namespace WeatherToday.Core.ViewModels.Forecast
             ForecastDate = param.ForecastDate;
             MaxTemp = param.MaxTemp;
             MinTemp = param.MinTemp;
+            IconValue = param.IconValue;
+            Description = param.Description;
+            Humidity = param.Humidity;
+            Pressure = param.Pressure;
+            WindSpeed = param.WindSpeed;
+            WindDirection = param.WindDirection;
         }
 
         #endregion

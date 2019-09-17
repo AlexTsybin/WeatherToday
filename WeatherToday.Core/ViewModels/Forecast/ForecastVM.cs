@@ -2,9 +2,12 @@
 using MvvmCross.Navigation;
 using MvvmCross.Plugin.Messenger;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using WeatherToday.Core.Models.Parameters;
+using WeatherToday.Core.Models.Weather;
+using WeatherToday.Core.Services;
 using WeatherToday.Core.Services.Platform;
 using WeatherToday.Core.ViewModels.Base;
 using WeatherToday.Core.ViewModels.Collection;
@@ -45,25 +48,24 @@ namespace WeatherToday.Core.ViewModels.Forecast
 
         #endregion
 
+        #region Services
+
+        protected readonly IWeatherService _weatherService;
+
+        #endregion
+
         #region Constructor
 
         public ForecastVM(IMvxLogProvider logProvider, IMvxNavigationService navigationService,
-            IUserInteraction userInteraction, IMvxMessenger messenger)
+            IUserInteraction userInteraction, IMvxMessenger messenger, IWeatherService weatherService)
             : base(logProvider, navigationService, userInteraction, messenger)
         {
+            _weatherService = weatherService;
         }
 
         #endregion
 
-        #region Public
-
-        public override void Prepare(ForecastParameter parameter)
-        {
-            CityName = parameter.CityName;
-            CountryName = "Russia";
-            CurrentTemperature = "-7";
-            WeatherDescription = "Sunny";
-        }
+        #region Protected
 
         protected override async Task ReloadExecute()
         {
@@ -74,25 +76,55 @@ namespace WeatherToday.Core.ViewModels.Forecast
         {
             Items = new ObservableCollection<ForecastListItemVM>();
 
-            DayWeatherParameter param = new DayWeatherParameter
-            {
-                WeekDay = DateTime.Now,
-                ForecastDate = DateTime.Now,
-                MaxTemp = 5,
-                MinTemp = 1
-            };
+            List<DailyForecastModel> resultModel = await _weatherService.GetForecastAsync(CityName);
 
-            Items.Add(new ForecastListItemVM(param));
-            Items.Add(new ForecastListItemVM(param));
-            Items.Add(new ForecastListItemVM(param));
+            if (resultModel == null)
+                return;
+
+            foreach (var model in resultModel)
+            {
+                Items.Add(new ForecastListItemVM(new DayWeatherParameter
+                {
+                    WeekDay = model.WeekDay,
+                    ForecastDate = model.Date,
+                    MaxTemp = Math.Round(Double.Parse(model.MaxTemp)).ToString(),
+                    MinTemp = Math.Round(Double.Parse(model.MinTemp)).ToString(),
+                    IconValue = model.IconValue,
+                    Description = model.Description,
+                    Humidity = model.Humidity,
+                    Pressure = model.Pressure,
+                    WindSpeed = model.WindSpeed,
+                    WindDirection = model.WindDirection
+                }));
+            }
         }
 
         protected override async Task ItemSelectedExecute(ForecastListItemVM item)
         {
             await NavigationService.Navigate<ForecastDetailsVM, ForecastDetailsParameter>(new ForecastDetailsParameter
             {
-                ForecastDate = item.ForecastDate
+                ForecastDate = item.ForecastDate,
+                Description = item.Description,
+                MaxTemp = item.MaxTemp,
+                MinTemp = item.MinTemp,
+                IconValue = item.IconValue,
+                Humidity = item.Humidity,
+                Pressure = item.Pressure,
+                WindSpeed = item.WindSpeed,
+                WindDirection = item.WindDirection
             });
+        }
+
+        #endregion
+
+        #region Public
+
+        public override void Prepare(ForecastParameter parameter)
+        {
+            CityName = parameter.CityName;
+            CountryName = parameter.Country;
+            CurrentTemperature = parameter.Temperature;
+            WeatherDescription = parameter.Description;
         }
 
         #endregion

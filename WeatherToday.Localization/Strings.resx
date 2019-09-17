@@ -123,6 +123,12 @@
   <data name="edit_city_title" xml:space="preserve">
     <value>Edit city</value>
   </data>
+  <data name="hectopascal" xml:space="preserve">
+    <value>hPa</value>
+  </data>
+  <data name="long_date" xml:space="preserve">
+    <value>{0:dddd, dd MMMM}</value>
+  </data>
   <data name="message_close_app" xml:space="preserve">
     <value>Close app?</value>
   </data>
@@ -130,10 +136,13 @@
     <value>Error occured. Restart app for continue</value>
   </data>
   <data name="metric" xml:space="preserve">
-    <value>metric</value>
+    <value>si</value>
   </data>
   <data name="short_date" xml:space="preserve">
     <value>{0:dd MMM yyyy}</value>
+  </data>
+  <data name="short_time" xml:space="preserve">
+    <value>{0:HH:mm}</value>
   </data>
   <data name="title_error_default" xml:space="preserve">
     <value>Ooops!</value>
