@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using WeatherToday.Core.Models.Parameters;
 using WeatherToday.Core.ViewModels.Collection;
 
 namespace WeatherToday.Core.ViewModels.Weather
@@ -16,8 +17,8 @@ namespace WeatherToday.Core.ViewModels.Weather
             set => SetProperty(ref _cityId, value);
         }
 
-        private int _temperature;
-        public int Temperature
+        private string _temperature;
+        public string Temperature
         {
             get => _temperature;
             set => SetProperty(ref _temperature, value);
@@ -55,13 +56,13 @@ namespace WeatherToday.Core.ViewModels.Weather
 
         #region Constructor
 
-        public WeatherListItemVM(int temp, string city, string weather, DateTime date, DateTime time)
+        public WeatherListItemVM(WeatherListItemParameter param)
         {
-            Temperature = temp;
-            CityName = city;
-            WeatherDescription = weather;
-            WeatherDate = date;
-            WeatherTime = time;
+            Temperature = param.Temperature;
+            CityName = param.City;
+            WeatherDescription = param.Description;
+            WeatherDate = param.Date;
+            WeatherTime = param.Time;
         }
 
         #endregion

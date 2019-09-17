@@ -97,6 +97,15 @@ namespace WeatherToday.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to metric.
+        /// </summary>
+        public static string metric {
+            get {
+                return ResourceManager.GetString("metric", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0:dd MMM yyyy}.
         /// </summary>
         public static string short_date {
@@ -120,6 +129,15 @@ namespace WeatherToday.Localization {
         public static string weather_list_title {
             get {
                 return ResourceManager.GetString("weather_list_title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WeatherToday.
+        /// </summary>
+        public static string weather_today {
+            get {
+                return ResourceManager.GetString("weather_today", resourceCulture);
             }
         }
         
