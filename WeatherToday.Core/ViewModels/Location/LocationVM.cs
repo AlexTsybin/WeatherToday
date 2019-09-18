@@ -1,8 +1,10 @@
-﻿using MvvmCross.Commands;
+﻿using MvvmCross;
+using MvvmCross.Commands;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using WeatherToday.Core.Services;
 using WeatherToday.Core.ViewModels.Base;
 using WeatherToday.Core.ViewModels.Base.Commands;
 
@@ -11,6 +13,28 @@ namespace WeatherToday.Core.ViewModels.Location
     public class LocationVM : BaseVM
     {
         #region Properties
+
+        private double _lat;
+        public double Lat
+        {
+            get => _lat;
+            set
+            {
+                _lat = value;
+                Latitude = value.ToString();
+            }
+        }
+
+        private double _lon;
+        public double Lon
+        {
+            get => _lon;
+            set
+            {
+                _lon = value;
+                Longtitude = value.ToString();
+            }
+        }
 
         private string _latitude;
         public string Latitude
@@ -35,34 +59,16 @@ namespace WeatherToday.Core.ViewModels.Location
 
         #endregion
 
-        #region Commands
-
-        private IMvxAsyncCommand _getLocationCommand;
-        public IMvxAsyncCommand GetLocationCommand
-        {
-            get => _getLocationCommand ?? (_getLocationCommand = new TorAsyncCommand(GetLocationExecute, null, true));
-        }
-
-        #endregion
-
-        #region Private
-
-        private async Task GetLocationExecute()
-        {
-            await Task.CompletedTask;
-        }
-
-        #endregion
-
         #region Public
+
+        public async void UpdateCity(double lat, double lon)
+        {
+            LocationCity = await Mvx.IoCProvider.Resolve<IWeatherService>().GetCityFromCoordinates(lat, lon);
+        }
 
         public async override Task Initialize()
         {
             await base.Initialize();
-
-            Latitude = Convert.ToString(59.9431705);
-            Longtitude = Convert.ToString(30.3454007);
-            LocationCity = "St.Petersburg";
         }
 
         public override void Prepare()

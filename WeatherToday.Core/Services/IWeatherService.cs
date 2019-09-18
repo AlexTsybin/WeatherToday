@@ -9,5 +9,7 @@ namespace WeatherToday.Core.Services
         Task<WeatherListModel> GetWeatherAsync(string cityName);
 
         Task<List<DailyForecastModel>> GetForecastAsync(string cityName);
+
+        Task<string> GetCityFromCoordinates(double lat, double lon);
     }
 }
