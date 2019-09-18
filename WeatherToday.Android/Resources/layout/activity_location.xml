@@ -93,7 +93,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="60dp"
-            android:text="Get Current Location"
-            local:MvxBind="Click GetLocationCommand"/>
+            android:text="Get Current Location"/>
     </LinearLayout>
 </ScrollView>

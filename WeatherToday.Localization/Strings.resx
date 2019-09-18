@@ -123,6 +123,9 @@
   <data name="edit_city_title" xml:space="preserve">
     <value>Edit city</value>
   </data>
+  <data name="getting_last_location" xml:space="preserve">
+    <value>Getting last location</value>
+  </data>
   <data name="hectopascal" xml:space="preserve">
     <value>hPa</value>
   </data>

@@ -74,6 +74,36 @@ namespace WeatherToday.Core.Services.Implementation
             return countryName;
         }
 
+        public async Task<string> GetCityFromCoordinates(double lat, double lon)
+        {
+            string city = string.Empty;
+
+            try
+            {
+
+                var placemarks = await Geocoding.GetPlacemarksAsync(lat, lon);
+
+                var placemark = placemarks?.FirstOrDefault();
+
+                if (placemark != null)
+                {
+                    city = placemark.Locality;
+                }
+            }
+            catch (FeatureNotSupportedException fnsEx)
+            {
+                Console.WriteLine(fnsEx.ToString());
+                return string.Empty;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return string.Empty;
+            }
+
+            return city;
+        }
+
         public async Task<WeatherListModel> GetWeatherAsync(string cityName)
         {
             WeatherListModel model = null;
