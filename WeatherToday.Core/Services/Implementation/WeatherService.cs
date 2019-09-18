@@ -10,9 +10,9 @@ namespace WeatherToday.Core.Services.Implementation
 {
     public class CalculationService : IWeatherService
     {
-        private async Task<string> GetLocationFromCity(string cityName)
+        private async Task<double[]> GetLocationFromCity(string cityName)
         {
-            string coordinates = string.Empty;
+            double[] coordinates = new double[2];
 
             try
             {
@@ -21,35 +21,34 @@ namespace WeatherToday.Core.Services.Implementation
                 var location = locations?.FirstOrDefault();
                 if (location != null)
                 {
-                    coordinates = location.Latitude.ToString().Replace(',', '.') + "," + location.Longitude.ToString().Replace(',', '.');
+                    coordinates[0] = (double)location.Latitude;
+                    coordinates[1] = (double)location.Longitude;
+
+                    //coordinates = location.Latitude.ToString().Replace(',', '.') + "," + location.Longitude.ToString().Replace(',', '.');
                 }
             }
             catch (FeatureNotSupportedException fnsEx)
             {
                 Console.WriteLine(fnsEx.ToString());
-                return string.Empty;
+                return null;
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
-                return string.Empty;
+                return null;
             }
 
             return coordinates;
         }
 
-        private async Task<string> GetCountryFromCoord(string coordinates)
+        private async Task<string> GetCountryFromCoord(double[] coordinates)
         {
             string countryName = string.Empty;
 
             try
             {
-                char[] spearator = {','};
-
-                string[] strList = coordinates.Split(spearator);
-
-                var latitude = Double.Parse(strList[0]);
-                var longtitude = Double.Parse(strList[1]);
+                var latitude = coordinates[0];
+                var longtitude = coordinates[1];
 
                 var placemarks = await Geocoding.GetPlacemarksAsync(latitude, longtitude);
 
@@ -108,7 +107,7 @@ namespace WeatherToday.Core.Services.Implementation
         {
             WeatherListModel model = null;
 
-            string coord = await GetLocationFromCity(cityName);
+            double[] coord = await GetLocationFromCity(cityName);
 
             var resultObject = await WeatherClient.GetWeather(coord);
 
@@ -131,7 +130,7 @@ namespace WeatherToday.Core.Services.Implementation
         {
             List<DailyForecastModel> modelList = null;
 
-            string coord = await GetLocationFromCity(cityName);
+            double[] coord = await GetLocationFromCity(cityName);
 
             var resultObject = await WeatherClient.GetForecast(coord);
 

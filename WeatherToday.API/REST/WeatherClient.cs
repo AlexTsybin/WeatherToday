@@ -16,12 +16,15 @@ namespace WeatherToday.API.REST
         private static readonly string apiKey = "6bf5d18a3bb41e148f232e3838870ab4";
         private static readonly string unit = Strings.metric;
 
-        public static async Task<JObject> GetWeather(string coordinates)
+        public static async Task<JObject> GetWeather(double[] coordinates)
         {
-            if (string.IsNullOrWhiteSpace(coordinates))
+            if (coordinates == null || coordinates.Length == 0)
                 return null;
 
-            string url = apiBase + apiKey + "/" + coordinates + "?exclude=minutely,hourly,daily,alerts,flags" + "&units=" + unit;
+            string lat = coordinates[0].ToString().Replace(",", ".");
+            string lon = coordinates[1].ToString().Replace(",", ".");
+
+            string url = apiBase + apiKey + "/" + lat + "," + lon + "?exclude=minutely,hourly,daily,alerts,flags" + "&units=" + unit;
 
             var handler = new HttpClientHandler();
             HttpClient client = new HttpClient(handler);
@@ -30,12 +33,15 @@ namespace WeatherToday.API.REST
             return JObject.Parse(result);
         }
 
-        public static async Task<JObject> GetForecast(string coordinates)
+        public static async Task<JObject> GetForecast(double[] coordinates)
         {
-            if (string.IsNullOrWhiteSpace(coordinates))
+            if (coordinates == null || coordinates.Length == 0)
                 return null;
 
-            string url = apiBase + apiKey + "/" + coordinates + "?exclude=currently,minutely,hourly,alerts,flags" + "&units=" + unit;
+            string lat = coordinates[0].ToString().Replace(",", ".");
+            string lon = coordinates[1].ToString().Replace(",", ".");
+
+            string url = apiBase + apiKey + "/" + lat + "," + lon + "?exclude=currently,minutely,hourly,alerts,flags" + "&units=" + unit;
 
             var handler = new HttpClientHandler();
             HttpClient client = new HttpClient(handler);

@@ -14,6 +14,7 @@ using Android.Gms.Location;
 using Android.Util;
 using System.Threading.Tasks;
 using WeatherToday.Localization;
+using Android.Support.V4.App;
 
 namespace WeatherToday.Android.Activity
 {
@@ -67,6 +68,7 @@ namespace WeatherToday.Android.Activity
             else
             {
                 // The app does not have permission ACCESS_FINE_LOCATION 
+                ActivityCompat.RequestPermissions(this, new string[] { Manifest.Permission.AccessFineLocation }, 0);
             }
         }
 
