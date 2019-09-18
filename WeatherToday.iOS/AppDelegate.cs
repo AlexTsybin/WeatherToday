@@ -1,12 +1,14 @@
 ﻿using Foundation;
+using MvvmCross.Platforms.Ios.Core;
 using UIKit;
+using WeatherToday.Core;
 
 namespace WeatherToday.iOS
 {
     // The UIApplicationDelegate for the application. This class is responsible for launching the
     // User Interface of the application, as well as listening (and optionally responding) to application events from iOS.
-    [Register("AppDelegate")]
-    public class AppDelegate : UIApplicationDelegate
+    [Register(nameof(AppDelegate))]
+    public class AppDelegate : MvxApplicationDelegate<MvxIosSetup<App>, App>
     {
         // class-level declarations
 
@@ -16,12 +18,15 @@ namespace WeatherToday.iOS
             set;
         }
 
+        // FinishedLaunching is the very first code to be executed in your app. Don't forget to call base!
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
             // Override point for customization after application launch.
             // If not required for your application you can safely delete this method
 
-            return true;
+            var result = base.FinishedLaunching(application, launchOptions);
+
+            return result;
         }
 
         public override void OnResignActivation(UIApplication application)
