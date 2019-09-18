@@ -79,6 +79,15 @@ namespace WeatherToday.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Get current location.
+        /// </summary>
+        public static string get_current_location {
+            get {
+                return ResourceManager.GetString("get_current_location", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Getting last location.
         /// </summary>
         public static string getting_last_location {

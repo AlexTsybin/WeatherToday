@@ -126,6 +126,9 @@
   <data name="getting_last_location" xml:space="preserve">
     <value>Getting last location</value>
   </data>
+  <data name="get_current_location" xml:space="preserve">
+    <value>Get current location</value>
+  </data>
   <data name="hectopascal" xml:space="preserve">
     <value>hPa</value>
   </data>

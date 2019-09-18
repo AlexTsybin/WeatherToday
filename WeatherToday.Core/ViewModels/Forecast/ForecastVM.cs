@@ -46,6 +46,15 @@ namespace WeatherToday.Core.ViewModels.Forecast
             set => SetProperty(ref _weatherDescription, value);
         }
 
+        public override bool Loading
+        {
+            get => base.Loading;
+            set
+            {
+                base.Loading = value;
+            }
+        }
+
         #endregion
 
         #region Services
@@ -69,11 +78,15 @@ namespace WeatherToday.Core.ViewModels.Forecast
 
         protected override async Task ReloadExecute()
         {
+            IsRefreshing = false;
+
             await SetupItems();
         }
 
         protected override async Task SetupItems()
         {
+            Loading = true;
+
             Items = new ObservableCollection<ForecastListItemVM>();
 
             List<DailyForecastModel> resultModel = await _weatherService.GetForecastAsync(CityName);
@@ -87,8 +100,8 @@ namespace WeatherToday.Core.ViewModels.Forecast
                 {
                     WeekDay = model.WeekDay,
                     ForecastDate = model.Date,
-                    MaxTemp = Math.Round(Double.Parse(model.MaxTemp)).ToString(),
-                    MinTemp = Math.Round(Double.Parse(model.MinTemp)).ToString(),
+                    MaxTemp = Math.Round(double.Parse(model.MaxTemp)).ToString(),
+                    MinTemp = Math.Round(double.Parse(model.MinTemp)).ToString(),
                     IconValue = model.IconValue,
                     Description = model.Description,
                     Humidity = model.Humidity,
@@ -97,6 +110,8 @@ namespace WeatherToday.Core.ViewModels.Forecast
                     WindDirection = model.WindDirection
                 }));
             }
+
+            Loading = false;
         }
 
         protected override async Task ItemSelectedExecute(ForecastListItemVM item)

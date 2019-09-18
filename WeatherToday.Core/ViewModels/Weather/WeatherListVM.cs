@@ -30,6 +30,19 @@ namespace WeatherToday.Core.ViewModels.Weather
 
         #endregion
 
+        #region Properties
+
+        public override bool Loading
+        {
+            get => base.Loading;
+            set
+            {
+                base.Loading = value;
+            }
+        }
+
+        #endregion
+
         #region Commands
 
         private IMvxAsyncCommand _cityListCommand;
@@ -99,11 +112,11 @@ namespace WeatherToday.Core.ViewModels.Weather
 
         protected override async Task ReloadExecute()
         {
+            IsRefreshing = false;
+
             Items.Clear();
 
             await SetupItems();
-
-            Loading = false;
         }
 
         protected async override Task ItemSelectedExecute(WeatherListItemVM item)
@@ -119,6 +132,8 @@ namespace WeatherToday.Core.ViewModels.Weather
 
         protected override async Task SetupItems()
         {
+            Loading = true;
+
             List<CityBO> cityList = await App.Database.GetCitiesAsync();
 
             foreach (CityBO city in cityList)
@@ -129,7 +144,7 @@ namespace WeatherToday.Core.ViewModels.Weather
                 {
                     WeatherListItemParameter param = new WeatherListItemParameter
                     {
-                        Temperature = Math.Round(Double.Parse(resultModel.Temperature)).ToString(),
+                        Temperature = Math.Round(double.Parse(resultModel.Temperature)).ToString(),
                         City = resultModel.City,
                         Description = resultModel.WeatherDescription,
                         Date = resultModel.Date,
@@ -141,6 +156,8 @@ namespace WeatherToday.Core.ViewModels.Weather
                     Items.Add(new WeatherListItemVM(param));
                 } 
             }
+
+            Loading = false;
         }
 
         #endregion

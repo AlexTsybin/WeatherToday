@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/progressBarLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:clickable="true"
+    android:background="#37414F4F"
+    local:MvxBind="Visibility Visibility(Loading)">
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="@dimen/default_margin"
+        android:layout_gravity="center">
+        <TextView
+            android:id="@+id/loadingText"
+            style="@style/fragmentText.20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fetching weather" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_margin"
+            android:orientation="horizontal"
+            android:layout_below="@+id/loadingText">
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:indeterminateOnly="true" />
+            <TextView
+                android:id="@+id/loadingText"
+                style="@style/fragmentText.16sp"
+                android:singleLine="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/default_margin"
+                android:text="Please wait..." />
+        </LinearLayout>
+    </RelativeLayout>
+</FrameLayout>

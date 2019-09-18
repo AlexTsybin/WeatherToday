@@ -13,8 +13,7 @@
         android:layout_marginRight="@dimen/default_margin"
         android:layout_marginLeft="@dimen/default_margin"
         android:layout_centerVertical="true"
-        android:textColor="@color/textColorWeatherText"
-        android:textSize="20sp"
+        style="@style/fragmentText.20sp"
         tools:text="Tue"
 		local:MvxBind="Text WeekDayFormat(WeekDay)"/>
     <TextView
@@ -22,8 +21,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:textColor="@color/textColorWeatherText"
-        android:textSize="20sp"
+        style="@style/fragmentText.16sp"
+        android:layout_alignBaseline="@+id/week_day"
         android:layout_toRightOf="@+id/week_day"
         tools:text="30 July 2019"
 		local:MvxBind="Text ShortDateFormat(ForecastDate)"/>
@@ -44,8 +43,7 @@
         android:layout_marginRight="@dimen/default_margin"
         android:layout_centerVertical="true"
         android:layout_toLeftOf="@+id/min_temp"
-        android:textColor="@color/textColorWeatherText"
-        android:textSize="20sp"
+        style="@style/fragmentText.20sp"
         tools:text="3"
 		local:MvxBind="Text MaxTemp"/>
     <TextView
@@ -56,8 +54,7 @@
         android:layout_marginRight="@dimen/default_margin"
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
-        android:textColor="@color/textColorWeatherText"
-        android:textSize="20sp"
+        style="@style/fragmentText.20sp"
         tools:text="1"
 		local:MvxBind="Text MinTemp"/>
 </RelativeLayout>

@@ -64,4 +64,6 @@
             local:MvxItemTemplate="@layout/item_forecast_list"
             local:MvxBind="ItemsSource Items; ItemClick ItemSelectedCommand; ItemLongClick ItemLongClickCommand" />
     </MvvmCross.Droid.Support.V4.MvxSwipeRefreshLayout>
+    <include
+        layout="@layout/include_loading" />
 </RelativeLayout>

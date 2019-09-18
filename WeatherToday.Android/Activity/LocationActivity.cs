@@ -76,17 +76,21 @@ namespace WeatherToday.Android.Activity
         {
             // This method assumes that the necessary run-time permission checks have succeeded.
             _locationButton.SetText(Strings.getting_last_location, TextView.BufferType.Normal);
+
             global::Android.Locations.Location location = await _fusedLocationProviderClient.GetLastLocationAsync();
 
             if (location == null)
             {
                 // Seldom happens, but should code that handles this scenario
+                _locationButton.SetText(Strings.get_current_location, TextView.BufferType.Normal);
             }
             else
             {
                 ViewModel.Lat = location.Latitude;
                 ViewModel.Lon = location.Longitude;
                 ViewModel.UpdateCity(location.Latitude, location.Longitude);
+
+                _locationButton.SetText(Strings.get_current_location, TextView.BufferType.Normal);
             }
         }
 
