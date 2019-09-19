@@ -20,6 +20,8 @@
 
   <color name="separator">#E2DDDC</color>
 
+  <color name="weather_icon">#FFCF44</color>
+
   <!-- Color for an earthquake with magnitude 0 and 2 -->
   <color name="weather1">#FF0000</color>
 

@@ -15,8 +15,7 @@
         android:background="@drawable/temperature_circle"
         android:fontFamily="sans-serif-medium"
         android:gravity="center"
-        android:textColor="@android:color/black"
-        android:textSize="18sp"
+        style="@style/fragmentText.18sp"
         tools:text="24"
 		local:MvxBind="Text Temperature"/>
     <LinearLayout
@@ -33,8 +32,7 @@
             android:layout_gravity="center_vertical"
             android:ellipsize="end"
             android:maxLines="1"
-            android:textColor="@color/textColorWeatherText"
-            android:textSize="20sp"
+            style="@style/fragmentMainText.20sp"
             tools:text="Petropavlovsk-Kamchatskiy"
 			local:MvxBind="Text CityName"/>
         <TextView
@@ -44,8 +42,7 @@
             android:layout_gravity="center_vertical"
             android:ellipsize="end"
             android:maxLines="1"
-            android:textColor="@color/textColorWeatherBackground"
-            android:textSize="16sp"
+            style="@style/fragmentText.16sp"
             tools:text="Breezy"
 			local:MvxBind="Text WeatherDescription"/>
     </LinearLayout>
@@ -68,8 +65,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:textColor="@color/textColorWeatherBackground"
-            android:textSize="14sp"
+            style="@style/fragmentText.14sp"
             tools:text="Mar 6, 2010"
 			local:MvxBind="Text ShortDateFormat(WeatherDate)"/>
         <TextView
@@ -77,8 +73,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:textColor="@color/textColorWeatherBackground"
-            android:textSize="14sp"
+            style="@style/fragmentText.14sp"
             tools:text="3:00 PM" 
 			local:MvxBind="Text TimeDateFormat(WeatherTime)"/>
     </LinearLayout>

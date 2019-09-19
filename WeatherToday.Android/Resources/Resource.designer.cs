@@ -7705,44 +7705,44 @@ namespace WeatherToday.Android
 		public partial class Color
 		{
 			
-			// aapt resource value: 0x7f0b007a
-			public const int abc_background_cache_hint_selector_material_dark = 2131427450;
-			
 			// aapt resource value: 0x7f0b007b
-			public const int abc_background_cache_hint_selector_material_light = 2131427451;
+			public const int abc_background_cache_hint_selector_material_dark = 2131427451;
 			
 			// aapt resource value: 0x7f0b007c
-			public const int abc_btn_colored_borderless_text_material = 2131427452;
+			public const int abc_background_cache_hint_selector_material_light = 2131427452;
 			
 			// aapt resource value: 0x7f0b007d
-			public const int abc_btn_colored_text_material = 2131427453;
+			public const int abc_btn_colored_borderless_text_material = 2131427453;
 			
 			// aapt resource value: 0x7f0b007e
-			public const int abc_color_highlight_material = 2131427454;
+			public const int abc_btn_colored_text_material = 2131427454;
 			
 			// aapt resource value: 0x7f0b007f
-			public const int abc_hint_foreground_material_dark = 2131427455;
+			public const int abc_color_highlight_material = 2131427455;
 			
 			// aapt resource value: 0x7f0b0080
-			public const int abc_hint_foreground_material_light = 2131427456;
+			public const int abc_hint_foreground_material_dark = 2131427456;
+			
+			// aapt resource value: 0x7f0b0081
+			public const int abc_hint_foreground_material_light = 2131427457;
 			
 			// aapt resource value: 0x7f0b000c
 			public const int abc_input_method_navigation_guard = 2131427340;
 			
-			// aapt resource value: 0x7f0b0081
-			public const int abc_primary_text_disable_only_material_dark = 2131427457;
-			
 			// aapt resource value: 0x7f0b0082
-			public const int abc_primary_text_disable_only_material_light = 2131427458;
+			public const int abc_primary_text_disable_only_material_dark = 2131427458;
 			
 			// aapt resource value: 0x7f0b0083
-			public const int abc_primary_text_material_dark = 2131427459;
+			public const int abc_primary_text_disable_only_material_light = 2131427459;
 			
 			// aapt resource value: 0x7f0b0084
-			public const int abc_primary_text_material_light = 2131427460;
+			public const int abc_primary_text_material_dark = 2131427460;
 			
 			// aapt resource value: 0x7f0b0085
-			public const int abc_search_url_text = 2131427461;
+			public const int abc_primary_text_material_light = 2131427461;
+			
+			// aapt resource value: 0x7f0b0086
+			public const int abc_search_url_text = 2131427462;
 			
 			// aapt resource value: 0x7f0b000d
 			public const int abc_search_url_text_normal = 2131427341;
@@ -7753,29 +7753,29 @@ namespace WeatherToday.Android
 			// aapt resource value: 0x7f0b000f
 			public const int abc_search_url_text_selected = 2131427343;
 			
-			// aapt resource value: 0x7f0b0086
-			public const int abc_secondary_text_material_dark = 2131427462;
-			
 			// aapt resource value: 0x7f0b0087
-			public const int abc_secondary_text_material_light = 2131427463;
+			public const int abc_secondary_text_material_dark = 2131427463;
 			
 			// aapt resource value: 0x7f0b0088
-			public const int abc_tint_btn_checkable = 2131427464;
+			public const int abc_secondary_text_material_light = 2131427464;
 			
 			// aapt resource value: 0x7f0b0089
-			public const int abc_tint_default = 2131427465;
+			public const int abc_tint_btn_checkable = 2131427465;
 			
 			// aapt resource value: 0x7f0b008a
-			public const int abc_tint_edittext = 2131427466;
+			public const int abc_tint_default = 2131427466;
 			
 			// aapt resource value: 0x7f0b008b
-			public const int abc_tint_seek_thumb = 2131427467;
+			public const int abc_tint_edittext = 2131427467;
 			
 			// aapt resource value: 0x7f0b008c
-			public const int abc_tint_spinner = 2131427468;
+			public const int abc_tint_seek_thumb = 2131427468;
 			
 			// aapt resource value: 0x7f0b008d
-			public const int abc_tint_switch_track = 2131427469;
+			public const int abc_tint_spinner = 2131427469;
+			
+			// aapt resource value: 0x7f0b008e
+			public const int abc_tint_switch_track = 2131427470;
 			
 			// aapt resource value: 0x7f0b0066
 			public const int accent = 2131427430;
@@ -7867,8 +7867,8 @@ namespace WeatherToday.Android
 			// aapt resource value: 0x7f0b0064
 			public const int colorPrimaryDark = 2131427428;
 			
-			// aapt resource value: 0x7f0b008e
-			public const int common_google_signin_btn_text_dark = 2131427470;
+			// aapt resource value: 0x7f0b008f
+			public const int common_google_signin_btn_text_dark = 2131427471;
 			
 			// aapt resource value: 0x7f0b0000
 			public const int common_google_signin_btn_text_dark_default = 2131427328;
@@ -7882,8 +7882,8 @@ namespace WeatherToday.Android
 			// aapt resource value: 0x7f0b0003
 			public const int common_google_signin_btn_text_dark_pressed = 2131427331;
 			
-			// aapt resource value: 0x7f0b008f
-			public const int common_google_signin_btn_text_light = 2131427471;
+			// aapt resource value: 0x7f0b0090
+			public const int common_google_signin_btn_text_light = 2131427472;
 			
 			// aapt resource value: 0x7f0b0004
 			public const int common_google_signin_btn_text_light_default = 2131427332;
@@ -7897,8 +7897,8 @@ namespace WeatherToday.Android
 			// aapt resource value: 0x7f0b0007
 			public const int common_google_signin_btn_text_light_pressed = 2131427335;
 			
-			// aapt resource value: 0x7f0b0090
-			public const int common_google_signin_btn_tint = 2131427472;
+			// aapt resource value: 0x7f0b0091
+			public const int common_google_signin_btn_tint = 2131427473;
 			
 			// aapt resource value: 0x7f0b0049
 			public const int design_bottom_navigation_shadow_color = 2131427401;
@@ -7909,8 +7909,8 @@ namespace WeatherToday.Android
 			// aapt resource value: 0x7f0b004b
 			public const int design_default_color_primary_dark = 2131427403;
 			
-			// aapt resource value: 0x7f0b0091
-			public const int design_error = 2131427473;
+			// aapt resource value: 0x7f0b0092
+			public const int design_error = 2131427474;
 			
 			// aapt resource value: 0x7f0b004c
 			public const int design_fab_shadow_end_color = 2131427404;
@@ -7936,8 +7936,8 @@ namespace WeatherToday.Android
 			// aapt resource value: 0x7f0b0053
 			public const int design_snackbar_background_color = 2131427411;
 			
-			// aapt resource value: 0x7f0b0092
-			public const int design_tint_password_toggle = 2131427474;
+			// aapt resource value: 0x7f0b0093
+			public const int design_tint_password_toggle = 2131427475;
 			
 			// aapt resource value: 0x7f0b001e
 			public const int dim_foreground_disabled_material_dark = 2131427358;
@@ -7975,8 +7975,8 @@ namespace WeatherToday.Android
 			// aapt resource value: 0x7f0b0027
 			public const int highlighted_text_material_light = 2131427367;
 			
-			// aapt resource value: 0x7f0b0079
-			public const int ic_launcher_background = 2131427449;
+			// aapt resource value: 0x7f0b007a
+			public const int ic_launcher_background = 2131427450;
 			
 			// aapt resource value: 0x7f0b0028
 			public const int material_blue_grey_800 = 2131427368;
@@ -8014,71 +8014,71 @@ namespace WeatherToday.Android
 			// aapt resource value: 0x7f0b0033
 			public const int material_grey_900 = 2131427379;
 			
-			// aapt resource value: 0x7f0b0093
-			public const int mtrl_bottom_nav_colored_item_tint = 2131427475;
-			
 			// aapt resource value: 0x7f0b0094
-			public const int mtrl_bottom_nav_item_tint = 2131427476;
+			public const int mtrl_bottom_nav_colored_item_tint = 2131427476;
+			
+			// aapt resource value: 0x7f0b0095
+			public const int mtrl_bottom_nav_item_tint = 2131427477;
 			
 			// aapt resource value: 0x7f0b0054
 			public const int mtrl_btn_bg_color_disabled = 2131427412;
 			
-			// aapt resource value: 0x7f0b0095
-			public const int mtrl_btn_bg_color_selector = 2131427477;
-			
 			// aapt resource value: 0x7f0b0096
-			public const int mtrl_btn_ripple_color = 2131427478;
+			public const int mtrl_btn_bg_color_selector = 2131427478;
 			
 			// aapt resource value: 0x7f0b0097
-			public const int mtrl_btn_stroke_color_selector = 2131427479;
+			public const int mtrl_btn_ripple_color = 2131427479;
 			
 			// aapt resource value: 0x7f0b0098
-			public const int mtrl_btn_text_btn_ripple_color = 2131427480;
+			public const int mtrl_btn_stroke_color_selector = 2131427480;
+			
+			// aapt resource value: 0x7f0b0099
+			public const int mtrl_btn_text_btn_ripple_color = 2131427481;
 			
 			// aapt resource value: 0x7f0b0055
 			public const int mtrl_btn_text_color_disabled = 2131427413;
 			
-			// aapt resource value: 0x7f0b0099
-			public const int mtrl_btn_text_color_selector = 2131427481;
+			// aapt resource value: 0x7f0b009a
+			public const int mtrl_btn_text_color_selector = 2131427482;
 			
 			// aapt resource value: 0x7f0b0056
 			public const int mtrl_btn_transparent_bg_color = 2131427414;
 			
-			// aapt resource value: 0x7f0b009a
-			public const int mtrl_chip_background_color = 2131427482;
-			
 			// aapt resource value: 0x7f0b009b
-			public const int mtrl_chip_close_icon_tint = 2131427483;
+			public const int mtrl_chip_background_color = 2131427483;
 			
 			// aapt resource value: 0x7f0b009c
-			public const int mtrl_chip_ripple_color = 2131427484;
+			public const int mtrl_chip_close_icon_tint = 2131427484;
 			
 			// aapt resource value: 0x7f0b009d
-			public const int mtrl_chip_text_color = 2131427485;
+			public const int mtrl_chip_ripple_color = 2131427485;
 			
 			// aapt resource value: 0x7f0b009e
-			public const int mtrl_fab_ripple_color = 2131427486;
+			public const int mtrl_chip_text_color = 2131427486;
+			
+			// aapt resource value: 0x7f0b009f
+			public const int mtrl_fab_ripple_color = 2131427487;
 			
 			// aapt resource value: 0x7f0b0057
 			public const int mtrl_scrim_color = 2131427415;
 			
-			// aapt resource value: 0x7f0b009f
-			public const int mtrl_tabs_colored_ripple_color = 2131427487;
-			
 			// aapt resource value: 0x7f0b00a0
-			public const int mtrl_tabs_icon_color_selector = 2131427488;
+			public const int mtrl_tabs_colored_ripple_color = 2131427488;
 			
 			// aapt resource value: 0x7f0b00a1
-			public const int mtrl_tabs_icon_color_selector_colored = 2131427489;
+			public const int mtrl_tabs_icon_color_selector = 2131427489;
 			
 			// aapt resource value: 0x7f0b00a2
-			public const int mtrl_tabs_legacy_text_color_selector = 2131427490;
+			public const int mtrl_tabs_icon_color_selector_colored = 2131427490;
 			
 			// aapt resource value: 0x7f0b00a3
-			public const int mtrl_tabs_ripple_color = 2131427491;
+			public const int mtrl_tabs_legacy_text_color_selector = 2131427491;
 			
 			// aapt resource value: 0x7f0b00a4
-			public const int mtrl_text_btn_text_color_selector = 2131427492;
+			public const int mtrl_tabs_ripple_color = 2131427492;
+			
+			// aapt resource value: 0x7f0b00a5
+			public const int mtrl_text_btn_text_color_selector = 2131427493;
 			
 			// aapt resource value: 0x7f0b0058
 			public const int mtrl_textinput_default_box_stroke_color = 2131427416;
@@ -8155,11 +8155,11 @@ namespace WeatherToday.Android
 			// aapt resource value: 0x7f0b0043
 			public const int switch_thumb_disabled_material_light = 2131427395;
 			
-			// aapt resource value: 0x7f0b00a5
-			public const int switch_thumb_material_dark = 2131427493;
-			
 			// aapt resource value: 0x7f0b00a6
-			public const int switch_thumb_material_light = 2131427494;
+			public const int switch_thumb_material_dark = 2131427494;
+			
+			// aapt resource value: 0x7f0b00a7
+			public const int switch_thumb_material_light = 2131427495;
 			
 			// aapt resource value: 0x7f0b0044
 			public const int switch_thumb_normal_material_dark = 2131427396;
@@ -8170,11 +8170,11 @@ namespace WeatherToday.Android
 			// aapt resource value: 0x7f0b0068
 			public const int text = 2131427432;
 			
-			// aapt resource value: 0x7f0b0077
-			public const int textColorWeatherBackground = 2131427447;
-			
 			// aapt resource value: 0x7f0b0078
-			public const int textColorWeatherText = 2131427448;
+			public const int textColorWeatherBackground = 2131427448;
+			
+			// aapt resource value: 0x7f0b0079
+			public const int textColorWeatherText = 2131427449;
 			
 			// aapt resource value: 0x7f0b0046
 			public const int tooltip_background_dark = 2131427398;
@@ -8182,26 +8182,29 @@ namespace WeatherToday.Android
 			// aapt resource value: 0x7f0b0047
 			public const int tooltip_background_light = 2131427399;
 			
-			// aapt resource value: 0x7f0b0070
-			public const int weather1 = 2131427440;
-			
 			// aapt resource value: 0x7f0b0071
-			public const int weather2 = 2131427441;
+			public const int weather1 = 2131427441;
 			
 			// aapt resource value: 0x7f0b0072
-			public const int weather3 = 2131427442;
+			public const int weather2 = 2131427442;
 			
 			// aapt resource value: 0x7f0b0073
-			public const int weather4 = 2131427443;
+			public const int weather3 = 2131427443;
 			
 			// aapt resource value: 0x7f0b0074
-			public const int weather5 = 2131427444;
+			public const int weather4 = 2131427444;
 			
 			// aapt resource value: 0x7f0b0075
-			public const int weather6 = 2131427445;
+			public const int weather5 = 2131427445;
 			
 			// aapt resource value: 0x7f0b0076
-			public const int weather7 = 2131427446;
+			public const int weather6 = 2131427446;
+			
+			// aapt resource value: 0x7f0b0077
+			public const int weather7 = 2131427447;
+			
+			// aapt resource value: 0x7f0b0070
+			public const int weather_icon = 2131427440;
 			
 			// aapt resource value: 0x7f0b0069
 			public const int white = 2131427433;
@@ -9207,26 +9210,26 @@ namespace WeatherToday.Android
 			// aapt resource value: 0x7f020054
 			public const int avd_hide_password = 2130837588;
 			
-			// aapt resource value: 0x7f02009d
-			public const int avd_hide_password_1 = 2130837661;
-			
-			// aapt resource value: 0x7f02009e
-			public const int avd_hide_password_2 = 2130837662;
-			
 			// aapt resource value: 0x7f02009f
-			public const int avd_hide_password_3 = 2130837663;
+			public const int avd_hide_password_1 = 2130837663;
+			
+			// aapt resource value: 0x7f0200a0
+			public const int avd_hide_password_2 = 2130837664;
+			
+			// aapt resource value: 0x7f0200a1
+			public const int avd_hide_password_3 = 2130837665;
 			
 			// aapt resource value: 0x7f020055
 			public const int avd_show_password = 2130837589;
 			
-			// aapt resource value: 0x7f0200a0
-			public const int avd_show_password_1 = 2130837664;
-			
-			// aapt resource value: 0x7f0200a1
-			public const int avd_show_password_2 = 2130837665;
-			
 			// aapt resource value: 0x7f0200a2
-			public const int avd_show_password_3 = 2130837666;
+			public const int avd_show_password_1 = 2130837666;
+			
+			// aapt resource value: 0x7f0200a3
+			public const int avd_show_password_2 = 2130837667;
+			
+			// aapt resource value: 0x7f0200a4
+			public const int avd_show_password_3 = 2130837668;
 			
 			// aapt resource value: 0x7f020056
 			public const int common_full_open_on_phone = 2130837590;
@@ -9322,124 +9325,130 @@ namespace WeatherToday.Android
 			public const int ic_done = 2130837620;
 			
 			// aapt resource value: 0x7f020075
-			public const int ic_location_on = 2130837621;
+			public const int ic_location = 2130837621;
 			
 			// aapt resource value: 0x7f020076
-			public const int ic_mtrl_chip_checked_black = 2130837622;
+			public const int ic_location_earth = 2130837622;
 			
 			// aapt resource value: 0x7f020077
-			public const int ic_mtrl_chip_checked_circle = 2130837623;
+			public const int ic_location_on = 2130837623;
 			
 			// aapt resource value: 0x7f020078
-			public const int ic_mtrl_chip_close_circle = 2130837624;
+			public const int ic_mtrl_chip_checked_black = 2130837624;
 			
 			// aapt resource value: 0x7f020079
-			public const int ic_my_location = 2130837625;
+			public const int ic_mtrl_chip_checked_circle = 2130837625;
 			
 			// aapt resource value: 0x7f02007a
-			public const int ic_plus = 2130837626;
+			public const int ic_mtrl_chip_close_circle = 2130837626;
 			
 			// aapt resource value: 0x7f02007b
-			public const int ic_save = 2130837627;
+			public const int ic_my_location = 2130837627;
 			
 			// aapt resource value: 0x7f02007c
-			public const int ic_weather_clear_day = 2130837628;
+			public const int ic_plus = 2130837628;
 			
 			// aapt resource value: 0x7f02007d
-			public const int ic_weather_clear_night = 2130837629;
+			public const int ic_save = 2130837629;
 			
 			// aapt resource value: 0x7f02007e
-			public const int ic_weather_cloudy = 2130837630;
+			public const int ic_weather_clear_day = 2130837630;
 			
 			// aapt resource value: 0x7f02007f
-			public const int ic_weather_fog = 2130837631;
+			public const int ic_weather_clear_night = 2130837631;
 			
 			// aapt resource value: 0x7f020080
-			public const int ic_weather_partly_cloudy_day = 2130837632;
+			public const int ic_weather_cloudy = 2130837632;
 			
 			// aapt resource value: 0x7f020081
-			public const int ic_weather_partly_cloudy_night = 2130837633;
+			public const int ic_weather_fog = 2130837633;
 			
 			// aapt resource value: 0x7f020082
-			public const int ic_weather_rain = 2130837634;
+			public const int ic_weather_partly_cloudy_day = 2130837634;
 			
 			// aapt resource value: 0x7f020083
-			public const int ic_weather_sleet = 2130837635;
+			public const int ic_weather_partly_cloudy_night = 2130837635;
 			
 			// aapt resource value: 0x7f020084
-			public const int ic_weather_snow = 2130837636;
+			public const int ic_weather_rain = 2130837636;
 			
 			// aapt resource value: 0x7f020085
-			public const int ic_weather_undefined = 2130837637;
+			public const int ic_weather_sleet = 2130837637;
 			
 			// aapt resource value: 0x7f020086
-			public const int ic_weather_wind = 2130837638;
+			public const int ic_weather_snow = 2130837638;
 			
 			// aapt resource value: 0x7f020087
-			public const int mtrl_snackbar_background = 2130837639;
+			public const int ic_weather_undefined = 2130837639;
 			
 			// aapt resource value: 0x7f020088
-			public const int mtrl_tabs_default_indicator = 2130837640;
+			public const int ic_weather_wind = 2130837640;
 			
 			// aapt resource value: 0x7f020089
-			public const int navigation_empty_icon = 2130837641;
+			public const int mtrl_snackbar_background = 2130837641;
 			
 			// aapt resource value: 0x7f02008a
-			public const int notification_action_background = 2130837642;
+			public const int mtrl_tabs_default_indicator = 2130837642;
 			
 			// aapt resource value: 0x7f02008b
-			public const int notification_bg = 2130837643;
+			public const int navigation_empty_icon = 2130837643;
 			
 			// aapt resource value: 0x7f02008c
-			public const int notification_bg_low = 2130837644;
+			public const int notification_action_background = 2130837644;
 			
 			// aapt resource value: 0x7f02008d
-			public const int notification_bg_low_normal = 2130837645;
+			public const int notification_bg = 2130837645;
 			
 			// aapt resource value: 0x7f02008e
-			public const int notification_bg_low_pressed = 2130837646;
+			public const int notification_bg_low = 2130837646;
 			
 			// aapt resource value: 0x7f02008f
-			public const int notification_bg_normal = 2130837647;
+			public const int notification_bg_low_normal = 2130837647;
 			
 			// aapt resource value: 0x7f020090
-			public const int notification_bg_normal_pressed = 2130837648;
+			public const int notification_bg_low_pressed = 2130837648;
 			
 			// aapt resource value: 0x7f020091
-			public const int notification_icon_background = 2130837649;
-			
-			// aapt resource value: 0x7f02009b
-			public const int notification_template_icon_bg = 2130837659;
-			
-			// aapt resource value: 0x7f02009c
-			public const int notification_template_icon_low_bg = 2130837660;
+			public const int notification_bg_normal = 2130837649;
 			
 			// aapt resource value: 0x7f020092
-			public const int notification_tile_bg = 2130837650;
+			public const int notification_bg_normal_pressed = 2130837650;
 			
 			// aapt resource value: 0x7f020093
-			public const int notify_panel_notification_icon_bg = 2130837651;
+			public const int notification_icon_background = 2130837651;
+			
+			// aapt resource value: 0x7f02009d
+			public const int notification_template_icon_bg = 2130837661;
+			
+			// aapt resource value: 0x7f02009e
+			public const int notification_template_icon_low_bg = 2130837662;
 			
 			// aapt resource value: 0x7f020094
-			public const int screen = 2130837652;
+			public const int notification_tile_bg = 2130837652;
 			
 			// aapt resource value: 0x7f020095
-			public const int separator = 2130837653;
+			public const int notify_panel_notification_icon_bg = 2130837653;
 			
 			// aapt resource value: 0x7f020096
-			public const int splash_centered = 2130837654;
+			public const int screen = 2130837654;
 			
 			// aapt resource value: 0x7f020097
-			public const int temperature_circle = 2130837655;
+			public const int separator = 2130837655;
 			
 			// aapt resource value: 0x7f020098
-			public const int tooltip_frame_dark = 2130837656;
+			public const int splash_centered = 2130837656;
 			
 			// aapt resource value: 0x7f020099
-			public const int tooltip_frame_light = 2130837657;
+			public const int temperature_circle = 2130837657;
 			
 			// aapt resource value: 0x7f02009a
-			public const int weather_app = 2130837658;
+			public const int tooltip_frame_dark = 2130837658;
+			
+			// aapt resource value: 0x7f02009b
+			public const int tooltip_frame_light = 2130837659;
+			
+			// aapt resource value: 0x7f02009c
+			public const int weather_app = 2130837660;
 			
 			static Drawable()
 			{
@@ -12375,28 +12384,40 @@ namespace WeatherToday.Android
 			public const int Widget_Support_CoordinatorLayout = 2131624428;
 			
 			// aapt resource value: 0x7f0e01ff
-			public const int fragmentText = 2131624447;
-			
-			// aapt resource value: 0x7f0e0202
-			public const int fragmentText_16sp = 2131624450;
-			
-			// aapt resource value: 0x7f0e0203
-			public const int fragmentText_20sp = 2131624451;
-			
-			// aapt resource value: 0x7f0e0204
-			public const int fragmentText_24sp = 2131624452;
-			
-			// aapt resource value: 0x7f0e0205
-			public const int fragmentText_28sp = 2131624453;
-			
-			// aapt resource value: 0x7f0e0206
-			public const int fragmentText_36sp = 2131624454;
+			public const int fragmentMainText = 2131624447;
 			
 			// aapt resource value: 0x7f0e0200
-			public const int fragmentText_55sp = 2131624448;
+			public const int fragmentMainText_20sp = 2131624448;
 			
 			// aapt resource value: 0x7f0e0201
-			public const int fragmentText_55sp_Light = 2131624449;
+			public const int fragmentText = 2131624449;
+			
+			// aapt resource value: 0x7f0e0204
+			public const int fragmentText_14sp = 2131624452;
+			
+			// aapt resource value: 0x7f0e0205
+			public const int fragmentText_16sp = 2131624453;
+			
+			// aapt resource value: 0x7f0e0206
+			public const int fragmentText_18sp = 2131624454;
+			
+			// aapt resource value: 0x7f0e0207
+			public const int fragmentText_20sp = 2131624455;
+			
+			// aapt resource value: 0x7f0e0208
+			public const int fragmentText_24sp = 2131624456;
+			
+			// aapt resource value: 0x7f0e0209
+			public const int fragmentText_28sp = 2131624457;
+			
+			// aapt resource value: 0x7f0e020a
+			public const int fragmentText_36sp = 2131624458;
+			
+			// aapt resource value: 0x7f0e0202
+			public const int fragmentText_55sp = 2131624450;
+			
+			// aapt resource value: 0x7f0e0203
+			public const int fragmentText_55sp_Light = 2131624451;
 			
 			// aapt resource value: 0x7f0e01fe
 			public const int locationTitle = 2131624446;
