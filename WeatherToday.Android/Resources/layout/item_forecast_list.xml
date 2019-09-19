@@ -33,14 +33,14 @@
         android:layout_centerVertical="true"
         android:layout_marginRight="@dimen/small_margin"
         android:layout_toLeftOf="@+id/max_temp"
-        android:src="@drawable/term"
+        android:src="@drawable/ic_weather_undefined"
         local:MvxBind="WeatherImage IconValue"/>
     <TextView
         android:id="@+id/max_temp"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/temperature_size"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/small_margin"
-        android:layout_marginRight="@dimen/default_margin"
+        android:layout_marginRight="@dimen/small_margin"
         android:layout_centerVertical="true"
         android:layout_toLeftOf="@+id/min_temp"
         style="@style/fragmentText.20sp"
@@ -48,10 +48,9 @@
 		local:MvxBind="Text MaxTemp"/>
     <TextView
         android:id="@+id/min_temp"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/temperature_size"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/default_margin"
-        android:layout_marginRight="@dimen/default_margin"
+        android:layout_marginRight="@dimen/small_margin"
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
         style="@style/fragmentText.20sp"

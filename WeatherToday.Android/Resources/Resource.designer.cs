@@ -8897,6 +8897,9 @@ namespace WeatherToday.Android
 			// aapt resource value: 0x7f0c0068
 			public const int subtitle_shadow_radius = 2131492968;
 			
+			// aapt resource value: 0x7f0c00ef
+			public const int temperature_size = 2131493103;
+			
 			// aapt resource value: 0x7f0c005d
 			public const int tooltip_corner_radius = 2131492957;
 			

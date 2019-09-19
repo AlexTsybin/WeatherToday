@@ -1,4 +1,5 @@
 ﻿<resources>
+  
   <dimen name="fab_margin">16dp</dimen>
   
   <dimen name="xxsmall_margin">2dp</dimen>
@@ -14,4 +15,7 @@
   <dimen name="xxxlarge_margin">56dp</dimen>
 
   <dimen name="button_size">36dp</dimen>
+
+  <dimen name="temperature_size">38dp</dimen>
+  
 </resources>
