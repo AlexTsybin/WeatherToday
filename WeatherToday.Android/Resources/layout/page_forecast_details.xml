@@ -1,138 +1,143 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:local="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/parent_forecast_details_layout"
+    android:id="@+id/scroll"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <TextView
-        android:id="@+id/date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/default_margin"
-        android:layout_marginRight="@dimen/default_margin"
-        android:layout_centerHorizontal="true"
-        style="@style/fragmentText.24sp"
-        tools:text="Tuesday, 30 July"
-		local:MvxBind="Text LongDateFormat(ForecastDate)"/>
-    <LinearLayout
-        android:id="@+id/icon_temp"
+    <RelativeLayout 
+        android:id="@+id/parent_forecast_details_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/date">
-        <ImageView
-            android:id="@+id/icon"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_marginStart="@dimen/default_margin"
-            android:src="@drawable/ic_weather_undefined"
-            local:MvxBind="WeatherImage IconValue"/>
-        <LinearLayout
-            android:id="@+id/temperatures"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/date"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_marginStart="@dimen/large_margin">
-            <TextView
-                android:id="@+id/max_temp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_margin"
+            android:layout_marginRight="@dimen/default_margin"
+            android:layout_centerHorizontal="true"
+            style="@style/fragmentText.24sp"
+            tools:text="Tuesday, 30 July"
+		    local:MvxBind="Text LongDateFormat(ForecastDate)"/>
+        <LinearLayout
+            android:id="@+id/icon_temp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/date">
+            <ImageView
+                android:id="@+id/icon"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_marginStart="@dimen/default_margin"
+                android:src="@drawable/ic_weather_undefined"
+                local:MvxBind="WeatherImage IconValue"/>
+            <LinearLayout
+                android:id="@+id/temperatures"
                 android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:gravity="center_vertical"
-                style="@style/fragmentText.36sp"
-                tools:text="12"
-		        local:MvxBind="Text MaxTemp"/>
-            <TextView
-                android:id="@+id/min_temp"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:gravity="center_vertical"
-                android:layout_gravity="center_horizontal"
-                style="@style/fragmentText.28sp"
-                tools:text="10"
-		        local:MvxBind="Text MinTemp"/>
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginStart="@dimen/large_margin">
+                <TextView
+                    android:id="@+id/max_temp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    style="@style/fragmentText.36sp"
+                    tools:text="12"
+		            local:MvxBind="Text MaxTemp"/>
+                <TextView
+                    android:id="@+id/min_temp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_horizontal"
+                    style="@style/fragmentText.28sp"
+                    tools:text="10"
+		            local:MvxBind="Text MinTemp"/>
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
-    <TextView
-        android:id="@+id/description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/default_margin"
-        android:layout_marginEnd="@dimen/default_margin"
-        android:layout_below="@+id/icon_temp"
-        style="@style/fragmentText.24sp"
-        tools:text="Cloudy"
-		local:MvxBind="Text Description"/>
-    <FrameLayout
-        android:id="@+id/separator"
-        style="@style/Separator"
-		android:layout_marginTop="@dimen/small_margin"
-        android:layout_below="@+id/description" />
-    <TextView
-        android:id="@+id/humidity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/default_margin"
-        android:layout_marginStart="@dimen/default_margin"
-        android:layout_marginRight="@dimen/default_margin"
-        android:layout_below="@+id/separator"
-        style="@style/fragmentText.28sp"
-        android:text="Humidity"/>
-    <TextView
-        android:id="@+id/hummidity_value"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/humidity"
-        android:layout_marginLeft="@dimen/default_margin"
-        android:layout_marginRight="@dimen/default_margin"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/separator"
-        style="@style/fragmentText.28sp"
-        tools:text="90%"
-		local:MvxBind="Text Humidity"/>
-    <TextView
-        android:id="@+id/pressure"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/default_margin"
-        android:layout_marginStart="@dimen/default_margin"
-        android:layout_marginRight="@dimen/default_margin"
-        android:layout_below="@+id/humidity"
-        style="@style/fragmentText.28sp"
-        android:text="Pressure"/>
-    <TextView
-        android:id="@+id/pressure_value"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/pressure"
-        android:layout_marginLeft="@dimen/default_margin"
-        android:layout_marginRight="@dimen/default_margin"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/hummidity_value"
-        style="@style/fragmentText.28sp"
-        tools:text="996 hPa"
-		local:MvxBind="Text Pressure"/>
-    <TextView
-        android:id="@+id/wind"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/default_margin"
-        android:layout_marginStart="@dimen/default_margin"
-        android:layout_marginRight="@dimen/default_margin"
-        android:layout_below="@+id/pressure"
-        style="@style/fragmentText.28sp"
-        android:text="Wind"/>
-    <TextView
-        android:id="@+id/wind_value"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/wind"
-        android:layout_marginLeft="@dimen/default_margin"
-        android:layout_marginRight="@dimen/default_margin"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/pressure_value"
-        style="@style/fragmentText.28sp"
-        tools:text="8 Km/h E"
-		local:MvxBind="Text Wind"/>
-</RelativeLayout>
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_margin"
+            android:layout_marginEnd="@dimen/default_margin"
+            android:layout_below="@+id/icon_temp"
+            style="@style/fragmentText.24sp"
+            tools:text="Cloudy"
+		    local:MvxBind="Text Description"/>
+        <FrameLayout
+            android:id="@+id/separator"
+            style="@style/Separator"
+		    android:layout_marginTop="@dimen/small_margin"
+            android:layout_below="@+id/description" />
+        <TextView
+            android:id="@+id/humidity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_margin"
+            android:layout_marginStart="@dimen/default_margin"
+            android:layout_marginRight="@dimen/default_margin"
+            android:layout_below="@+id/separator"
+            style="@style/fragmentText.28sp"
+            android:text="Humidity"/>
+        <TextView
+            android:id="@+id/hummidity_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/humidity"
+            android:layout_marginLeft="@dimen/default_margin"
+            android:layout_marginRight="@dimen/default_margin"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/separator"
+            style="@style/fragmentText.28sp"
+            tools:text="90%"
+		    local:MvxBind="Text Humidity"/>
+        <TextView
+            android:id="@+id/pressure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_margin"
+            android:layout_marginStart="@dimen/default_margin"
+            android:layout_marginRight="@dimen/default_margin"
+            android:layout_below="@+id/humidity"
+            style="@style/fragmentText.28sp"
+            android:text="Pressure"/>
+        <TextView
+            android:id="@+id/pressure_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/pressure"
+            android:layout_marginLeft="@dimen/default_margin"
+            android:layout_marginRight="@dimen/default_margin"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/hummidity_value"
+            style="@style/fragmentText.28sp"
+            tools:text="996 hPa"
+		    local:MvxBind="Text Pressure"/>
+        <TextView
+            android:id="@+id/wind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_margin"
+            android:layout_marginStart="@dimen/default_margin"
+            android:layout_marginRight="@dimen/default_margin"
+            android:layout_below="@+id/pressure"
+            style="@style/fragmentText.28sp"
+            android:text="Wind"/>
+        <TextView
+            android:id="@+id/wind_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/wind"
+            android:layout_marginLeft="@dimen/default_margin"
+            android:layout_marginRight="@dimen/default_margin"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/pressure_value"
+            style="@style/fragmentText.28sp"
+            tools:text="8 Km/h E"
+		    local:MvxBind="Text Wind"/>
+    </RelativeLayout>
+</ScrollView>
