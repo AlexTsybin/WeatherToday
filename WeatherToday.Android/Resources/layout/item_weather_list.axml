@@ -55,7 +55,7 @@
         android:layout_height="@dimen/xxlarge_margin"
         android:layout_gravity="center_vertical"
         android:layout_marginStart="@dimen/small_margin"
-        android:src="@drawable/term"
+        android:src="@drawable/ic_weather_undefined"
         local:MvxBind="WeatherImage IconValue"/>
     <LinearLayout
         android:layout_width="wrap_content"

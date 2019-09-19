@@ -9207,26 +9207,26 @@ namespace WeatherToday.Android
 			// aapt resource value: 0x7f020054
 			public const int avd_hide_password = 2130837588;
 			
+			// aapt resource value: 0x7f02009d
+			public const int avd_hide_password_1 = 2130837661;
+			
 			// aapt resource value: 0x7f02009e
-			public const int avd_hide_password_1 = 2130837662;
+			public const int avd_hide_password_2 = 2130837662;
 			
 			// aapt resource value: 0x7f02009f
-			public const int avd_hide_password_2 = 2130837663;
-			
-			// aapt resource value: 0x7f0200a0
-			public const int avd_hide_password_3 = 2130837664;
+			public const int avd_hide_password_3 = 2130837663;
 			
 			// aapt resource value: 0x7f020055
 			public const int avd_show_password = 2130837589;
 			
+			// aapt resource value: 0x7f0200a0
+			public const int avd_show_password_1 = 2130837664;
+			
 			// aapt resource value: 0x7f0200a1
-			public const int avd_show_password_1 = 2130837665;
+			public const int avd_show_password_2 = 2130837665;
 			
 			// aapt resource value: 0x7f0200a2
-			public const int avd_show_password_2 = 2130837666;
-			
-			// aapt resource value: 0x7f0200a3
-			public const int avd_show_password_3 = 2130837667;
+			public const int avd_show_password_3 = 2130837666;
 			
 			// aapt resource value: 0x7f020056
 			public const int common_full_open_on_phone = 2130837590;
@@ -9408,11 +9408,11 @@ namespace WeatherToday.Android
 			// aapt resource value: 0x7f020091
 			public const int notification_icon_background = 2130837649;
 			
-			// aapt resource value: 0x7f02009c
-			public const int notification_template_icon_bg = 2130837660;
+			// aapt resource value: 0x7f02009b
+			public const int notification_template_icon_bg = 2130837659;
 			
-			// aapt resource value: 0x7f02009d
-			public const int notification_template_icon_low_bg = 2130837661;
+			// aapt resource value: 0x7f02009c
+			public const int notification_template_icon_low_bg = 2130837660;
 			
 			// aapt resource value: 0x7f020092
 			public const int notification_tile_bg = 2130837650;
@@ -9433,16 +9433,13 @@ namespace WeatherToday.Android
 			public const int temperature_circle = 2130837655;
 			
 			// aapt resource value: 0x7f020098
-			public const int term = 2130837656;
+			public const int tooltip_frame_dark = 2130837656;
 			
 			// aapt resource value: 0x7f020099
-			public const int tooltip_frame_dark = 2130837657;
+			public const int tooltip_frame_light = 2130837657;
 			
 			// aapt resource value: 0x7f02009a
-			public const int tooltip_frame_light = 2130837658;
-			
-			// aapt resource value: 0x7f02009b
-			public const int weather_app = 2130837659;
+			public const int weather_app = 2130837658;
 			
 			static Drawable()
 			{

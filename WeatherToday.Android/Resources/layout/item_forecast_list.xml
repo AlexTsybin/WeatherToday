@@ -37,8 +37,9 @@
         local:MvxBind="WeatherImage IconValue"/>
     <TextView
         android:id="@+id/max_temp"
-        android:layout_width="@dimen/temperature_size"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:minWidth="@dimen/temperature_size"
         android:layout_marginLeft="@dimen/small_margin"
         android:layout_marginRight="@dimen/small_margin"
         android:layout_centerVertical="true"
@@ -48,8 +49,9 @@
 		local:MvxBind="Text MaxTemp"/>
     <TextView
         android:id="@+id/min_temp"
-        android:layout_width="@dimen/temperature_size"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:minWidth="@dimen/temperature_size"
         android:layout_marginRight="@dimen/small_margin"
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true"

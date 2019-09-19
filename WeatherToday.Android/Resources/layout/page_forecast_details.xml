@@ -25,7 +25,7 @@
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:layout_marginStart="@dimen/default_margin"
-            android:src="@drawable/term"
+            android:src="@drawable/ic_weather_undefined"
             local:MvxBind="WeatherImage IconValue"/>
         <LinearLayout
             android:id="@+id/temperatures"
