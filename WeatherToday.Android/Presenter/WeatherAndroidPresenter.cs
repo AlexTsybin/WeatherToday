@@ -127,7 +127,7 @@ namespace WeatherToday.Android.Presenter
                 });
             else if (CurrentActivity != null && CurrentActivity is CommonActivity commonActivity)
                 await Close(commonActivity.ViewModel);
-            else
+            else if (CurrentActivity != null)
                 CurrentActivity.Finish();
         }
 

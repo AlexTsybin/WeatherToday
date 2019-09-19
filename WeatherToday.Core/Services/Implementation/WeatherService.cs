@@ -23,8 +23,6 @@ namespace WeatherToday.Core.Services.Implementation
                 {
                     coordinates[0] = (double)location.Latitude;
                     coordinates[1] = (double)location.Longitude;
-
-                    //coordinates = location.Latitude.ToString().Replace(',', '.') + "," + location.Longitude.ToString().Replace(',', '.');
                 }
             }
             catch (FeatureNotSupportedException fnsEx)

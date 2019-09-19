@@ -16,6 +16,8 @@ using System.Threading.Tasks;
 using WeatherToday.Localization;
 using Android.Support.V4.App;
 using Android.Content;
+using Android.Gms.Maps;
+using Android.Gms.Maps.Model;
 
 namespace WeatherToday.Android.Activity
 {
@@ -25,7 +27,7 @@ namespace WeatherToday.Android.Activity
         AlwaysRetainTaskState = true,
         Theme = "@style/AppTheme",
         ScreenOrientation = ScreenOrientation.User)]
-    public class LocationActivity : CommonActivity<LocationVM>
+    public class LocationActivity : CommonActivity<LocationVM>, IOnMapReadyCallback
     {
         #region Fields
 
@@ -99,12 +101,27 @@ namespace WeatherToday.Android.Activity
 
         private void GoToMap(object sender, EventArgs e)
         {
-            string lat = ViewModel.Latitude;
-            string lon = ViewModel.Longtitude;
+            string lat = ViewModel.Latitude?.Replace(",", ".") ?? string.Empty;
+            string lon = ViewModel.Longtitude?.Replace(",", ".") ?? string.Empty;
 
             var geoUri = global::Android.Net.Uri.Parse("geo:" + lat + "," + lon);
             var mapIntent = new Intent(Intent.ActionView, geoUri);
             StartActivity(mapIntent);
+        }
+
+        private bool CheckPermissions()
+        {
+            if (ContextCompat.CheckSelfPermission(this, Manifest.Permission.AccessFineLocation) == Permission.Granted)
+            {
+                return true;
+            }
+            else
+            {
+                // The app does not have permission ACCESS_FINE_LOCATION 
+                ActivityCompat.RequestPermissions(this, new string[] { Manifest.Permission.AccessFineLocation }, 0);
+            }
+
+            return false;
         }
 
         #endregion
@@ -123,6 +140,9 @@ namespace WeatherToday.Android.Activity
 
             _cityTextView = FindViewById<TextView>(Resource.Id.current_geo_city);
             _cityTextView.Click += GoToMap;
+
+            MapFragment mapFragment = (MapFragment)FragmentManager.FindFragmentById(Resource.Id.map);
+            mapFragment.GetMapAsync(this);
         }
 
         protected override View CreateView()
@@ -131,6 +151,27 @@ namespace WeatherToday.Android.Activity
         }
 
         #region Public
+
+        public void OnMapReady(GoogleMap map)
+        {
+            // Do something with the map, i.e. add markers, move to a specific location, etc.
+            if (CheckPermissions())
+            {
+                IsGooglePlayServicesInstalled();
+
+                LatLng coord = new LatLng(-33.867, 151.206);
+                map.MyLocationEnabled = true;
+                map.MoveCamera(CameraUpdateFactory.NewLatLngZoom(coord, 13));
+
+                MarkerOptions markerOptions = new MarkerOptions();
+                markerOptions.SetPosition(new LatLng(-33.867, 151.206));
+                markerOptions.SetTitle("Sidney");
+
+                map.AddMarker(markerOptions);
+
+                map.MapType = GoogleMap.MapTypeNormal;
+            }
+        }
 
         public override bool OnOptionsItemSelected(IMenuItem item)
         {

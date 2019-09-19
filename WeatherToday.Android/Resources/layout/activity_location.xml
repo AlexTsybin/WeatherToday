@@ -4,19 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:local="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
     <LinearLayout
+        android:id="@+id/parent_ll"
         android:orientation="vertical"
         android:gravity="center_horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="60dp">
+        android:layout_height="match_parent">
         <ImageView
+            android:id="@+id/icon"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="25dp"
             android:src="@drawable/ic_location_earth" />
         <TextView
+            android:id="@+id/you_are_at_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
@@ -24,34 +27,14 @@
             android:text="You are at"
             style="@style/locationTitle" />
         <LinearLayout
+            android:id="@+id/longtitude_ll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center_horizontal"
             android:paddingBottom="15dp">
             <TextView
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:paddingStart="4dp"
-                android:text="Latitude:"
-                android:gravity="right"
-                style="@style/fragmentText.16sp"/>
-            <TextView
-                android:id="@+id/current_lat"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                tools:text="59.9431705"
-                style="@style/fragmentText.16sp"
-                local:MvxBind="Text Latitude"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_horizontal"
-            android:paddingBottom="15dp">
-            <TextView
+                android:id="@+id/longtitude_tv"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:paddingStart="4dp"
@@ -68,12 +51,38 @@
                 local:MvxBind="Text Longtitude"/>
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/latitude_ll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center_horizontal"
             android:paddingBottom="15dp">
             <TextView
+                android:id="@+id/latitude_tv"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:paddingStart="4dp"
+                android:text="Latitude:"
+                android:gravity="right"
+                style="@style/fragmentText.16sp"/>
+            <TextView
+                android:id="@+id/current_lat"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                tools:text="59.9431705"
+                style="@style/fragmentText.16sp"
+                local:MvxBind="Text Latitude"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/city_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal"
+            android:paddingBottom="15dp">
+            <TextView
+                android:id="@+id/city_tv"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:paddingStart="4dp"
@@ -95,7 +104,18 @@
             android:id="@+id/get_current_city"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="60dp"
+            android:layout_marginBottom="30dp"
             android:text="Get Current Location"/>
+        <FrameLayout
+            android:id="@+id/map_fl"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginBottom="30dp">
+            <fragment
+                android:id="@+id/map"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                class="com.google.android.gms.maps.MapFragment"/>
+        </FrameLayout>
     </LinearLayout>
 </ScrollView>
