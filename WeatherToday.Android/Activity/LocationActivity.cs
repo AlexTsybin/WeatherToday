@@ -15,6 +15,7 @@ using Android.Util;
 using System.Threading.Tasks;
 using WeatherToday.Localization;
 using Android.Support.V4.App;
+using Android.Content;
 
 namespace WeatherToday.Android.Activity
 {
@@ -29,6 +30,8 @@ namespace WeatherToday.Android.Activity
         #region Fields
 
         private Button _locationButton;
+        private TextView _cityTextView;
+
         private FusedLocationProviderClient _fusedLocationProviderClient;
 
         #endregion
@@ -94,6 +97,16 @@ namespace WeatherToday.Android.Activity
             }
         }
 
+        private void GoToMap(object sender, EventArgs e)
+        {
+            string lat = ViewModel.Latitude;
+            string lon = ViewModel.Longtitude;
+
+            var geoUri = global::Android.Net.Uri.Parse("geo:" + lat + "," + lon);
+            var mapIntent = new Intent(Intent.ActionView, geoUri);
+            StartActivity(mapIntent);
+        }
+
         #endregion
 
         protected override void OnCreate(Bundle bundle)
@@ -107,6 +120,9 @@ namespace WeatherToday.Android.Activity
 
             _locationButton = FindViewById<Button>(Resource.Id.get_current_city);
             _locationButton.Click += GetCurrentLocation;
+
+            _cityTextView = FindViewById<TextView>(Resource.Id.current_geo_city);
+            _cityTextView.Click += GoToMap;
         }
 
         protected override View CreateView()
