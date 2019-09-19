@@ -10871,14 +10871,11 @@ namespace WeatherToday.Android
 			// aapt resource value: 0x7f0e0162
 			public const int Animation_Design_BottomSheetDialog = 2131624290;
 			
-			// aapt resource value: 0x7f0e01fb
-			public const int AppCompatAlertDialogStyle = 2131624443;
+			// aapt resource value: 0x7f0e01fa
+			public const int AppCompatAlertDialogStyle = 2131624442;
 			
 			// aapt resource value: 0x7f0e01f6
 			public const int AppTheme = 2131624438;
-			
-			// aapt resource value: 0x7f0e01f7
-			public const int AppTheme_Base = 2131624439;
 			
 			// aapt resource value: 0x7f0e0092
 			public const int Base_AlertDialog_AppCompat = 2131624082;
@@ -11453,8 +11450,8 @@ namespace WeatherToday.Android
 			// aapt resource value: 0x7f0e0003
 			public const int CardView_Light = 2131623939;
 			
-			// aapt resource value: 0x7f0e01f9
-			public const int MyToolbarPopupStyle = 2131624441;
+			// aapt resource value: 0x7f0e01f8
+			public const int MyToolbarPopupStyle = 2131624440;
 			
 			// aapt resource value: 0x7f0e0073
 			public const int Platform_AppCompat = 2131624051;
@@ -12008,11 +12005,11 @@ namespace WeatherToday.Android
 			// aapt resource value: 0x7f0e01be
 			public const int ThemeOverlay_MaterialComponents_TextInputEditText_OutlinedBox_Dense = 2131624382;
 			
-			// aapt resource value: 0x7f0e01fa
-			public const int ThemeToolbarNavigationView = 2131624442;
+			// aapt resource value: 0x7f0e01f9
+			public const int ThemeToolbarNavigationView = 2131624441;
 			
-			// aapt resource value: 0x7f0e01f8
-			public const int Toolbar = 2131624440;
+			// aapt resource value: 0x7f0e01f7
+			public const int Toolbar = 2131624439;
 			
 			// aapt resource value: 0x7f0e010e
 			public const int Widget_AppCompat_ActionBar = 2131624206;
@@ -12377,41 +12374,41 @@ namespace WeatherToday.Android
 			// aapt resource value: 0x7f0e01ec
 			public const int Widget_Support_CoordinatorLayout = 2131624428;
 			
-			// aapt resource value: 0x7f0e0200
-			public const int fragmentText = 2131624448;
-			
-			// aapt resource value: 0x7f0e0203
-			public const int fragmentText_16sp = 2131624451;
-			
-			// aapt resource value: 0x7f0e0204
-			public const int fragmentText_20sp = 2131624452;
-			
-			// aapt resource value: 0x7f0e0205
-			public const int fragmentText_24sp = 2131624453;
-			
-			// aapt resource value: 0x7f0e0206
-			public const int fragmentText_28sp = 2131624454;
-			
-			// aapt resource value: 0x7f0e0207
-			public const int fragmentText_36sp = 2131624455;
-			
-			// aapt resource value: 0x7f0e0201
-			public const int fragmentText_55sp = 2131624449;
+			// aapt resource value: 0x7f0e01ff
+			public const int fragmentText = 2131624447;
 			
 			// aapt resource value: 0x7f0e0202
-			public const int fragmentText_55sp_Light = 2131624450;
+			public const int fragmentText_16sp = 2131624450;
 			
-			// aapt resource value: 0x7f0e01ff
-			public const int locationTitle = 2131624447;
+			// aapt resource value: 0x7f0e0203
+			public const int fragmentText_20sp = 2131624451;
 			
-			// aapt resource value: 0x7f0e01fc
-			public const int mainText = 2131624444;
+			// aapt resource value: 0x7f0e0204
+			public const int fragmentText_24sp = 2131624452;
 			
-			// aapt resource value: 0x7f0e01fd
-			public const int mainText_14sp = 2131624445;
+			// aapt resource value: 0x7f0e0205
+			public const int fragmentText_28sp = 2131624453;
+			
+			// aapt resource value: 0x7f0e0206
+			public const int fragmentText_36sp = 2131624454;
+			
+			// aapt resource value: 0x7f0e0200
+			public const int fragmentText_55sp = 2131624448;
+			
+			// aapt resource value: 0x7f0e0201
+			public const int fragmentText_55sp_Light = 2131624449;
 			
 			// aapt resource value: 0x7f0e01fe
-			public const int mainTextTitle = 2131624446;
+			public const int locationTitle = 2131624446;
+			
+			// aapt resource value: 0x7f0e01fb
+			public const int mainText = 2131624443;
+			
+			// aapt resource value: 0x7f0e01fc
+			public const int mainText_14sp = 2131624444;
+			
+			// aapt resource value: 0x7f0e01fd
+			public const int mainTextTitle = 2131624445;
 			
 			static Style()
 			{

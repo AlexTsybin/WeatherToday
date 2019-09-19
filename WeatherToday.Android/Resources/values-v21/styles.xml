@@ -3,7 +3,7 @@
         Base application theme for API 21+. This theme completely replaces
         AppTheme from BOTH res/values/styles.xml on API 21+ devices.
     -->
-  <style name="AppTheme" parent="AppTheme.Base">
+  <style name="AppTheme" parent="Theme.AppCompat">
 
     <item name="android:statusBarColor">@android:color/transparent</item>
     <item name="android:windowDrawsSystemBarBackgrounds">true</item>
