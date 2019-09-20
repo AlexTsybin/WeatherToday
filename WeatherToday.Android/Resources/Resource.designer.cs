@@ -8687,6 +8687,9 @@ namespace WeatherToday.Android
 			// aapt resource value: 0x7f0c00ea
 			public const int large_margin = 2131493098;
 			
+			// aapt resource value: 0x7f0c00f0
+			public const int map_fragment_height = 2131493104;
+			
 			// aapt resource value: 0x7f0c00e7
 			public const int medium_margin = 2131493095;
 			
