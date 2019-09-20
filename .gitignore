@@ -10,6 +10,9 @@
 *.userosscache
 *.sln.docstates
 
+# Manifest
+AndroidManifest.xml
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
