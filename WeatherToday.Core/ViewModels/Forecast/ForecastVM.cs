@@ -46,6 +46,13 @@ namespace WeatherToday.Core.ViewModels.Forecast
             set => SetProperty(ref _weatherDescription, value);
         }
 
+        private string _iconValue;
+        public string IconValue
+        {
+            get => _iconValue;
+            set => SetProperty(ref _iconValue, value);
+        }
+
         public override bool Loading
         {
             get => base.Loading;
@@ -140,6 +147,7 @@ namespace WeatherToday.Core.ViewModels.Forecast
             CountryName = parameter.Country;
             CurrentTemperature = parameter.Temperature;
             WeatherDescription = parameter.Description;
+            IconValue = parameter.IconValue;
         }
 
         #endregion

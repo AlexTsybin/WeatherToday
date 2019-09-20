@@ -11,9 +11,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="@dimen/default_margin"
-        android:layout_marginLeft="@dimen/default_margin"
         android:layout_centerVertical="true"
         style="@style/fragmentText.20sp"
+        android:minWidth="@dimen/weekday_size"
         tools:text="Tue"
 		local:MvxBind="Text WeekDayFormat(WeekDay)"/>
     <TextView
@@ -21,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        style="@style/fragmentText.16sp"
+        style="@style/fragmentText.18sp"
         android:layout_alignBaseline="@+id/week_day"
         android:layout_toRightOf="@+id/week_day"
         tools:text="30 July 2019"
@@ -52,7 +52,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:minWidth="@dimen/temperature_size"
-        android:layout_marginRight="@dimen/small_margin"
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
         style="@style/fragmentText.20sp"

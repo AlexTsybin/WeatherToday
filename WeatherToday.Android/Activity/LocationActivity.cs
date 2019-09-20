@@ -33,6 +33,7 @@ namespace WeatherToday.Android.Activity
 
         private Button _locationButton;
         private TextView _cityTextView;
+        private MapFragment _mapFragment;
 
         private FusedLocationProviderClient _fusedLocationProviderClient;
 
@@ -69,6 +70,8 @@ namespace WeatherToday.Android.Activity
                 IsGooglePlayServicesInstalled();
 
                 await GetLastLocationFromDevice();
+
+                _mapFragment.GetMapAsync(this);
             }
             else
             {
@@ -141,8 +144,8 @@ namespace WeatherToday.Android.Activity
             _cityTextView = FindViewById<TextView>(Resource.Id.current_geo_city);
             _cityTextView.Click += GoToMap;
 
-            MapFragment mapFragment = (MapFragment)FragmentManager.FindFragmentById(Resource.Id.map);
-            mapFragment.GetMapAsync(this);
+            _mapFragment = (MapFragment)FragmentManager.FindFragmentById(Resource.Id.map);
+            _mapFragment.GetMapAsync(this);
         }
 
         protected override View CreateView()
@@ -159,12 +162,15 @@ namespace WeatherToday.Android.Activity
             {
                 IsGooglePlayServicesInstalled();
 
-                LatLng coord = new LatLng(-33.867, 151.206);
+                var lat = ViewModel.Lat;
+                var lon = ViewModel.Lon;
+
+                LatLng coord = new LatLng(lat, lon);
                 map.MyLocationEnabled = true;
                 map.MoveCamera(CameraUpdateFactory.NewLatLngZoom(coord, 13));
 
                 MarkerOptions markerOptions = new MarkerOptions();
-                markerOptions.SetPosition(new LatLng(-33.867, 151.206));
+                markerOptions.SetPosition(new LatLng(lat, lon));
                 markerOptions.SetTitle("Sidney");
 
                 map.AddMarker(markerOptions);

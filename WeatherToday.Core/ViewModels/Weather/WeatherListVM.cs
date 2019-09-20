@@ -126,7 +126,8 @@ namespace WeatherToday.Core.ViewModels.Weather
                 CityName = item.CityName,
                 Country = item.Country,
                 Description = item.WeatherDescription,
-                Temperature = item.Temperature
+                Temperature = item.Temperature,
+                IconValue = item.IconValue
             });
         }
 

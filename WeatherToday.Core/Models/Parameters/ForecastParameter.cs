@@ -11,5 +11,7 @@
         public string Temperature { get; set; }
 
         public string Description { get; set; }
+
+        public string IconValue { get; set; }
     }
 }
