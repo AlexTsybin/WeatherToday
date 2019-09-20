@@ -45,6 +45,7 @@
         android:layout_height="wrap_content"
         style="@style/fragmentText.18sp"
         tools:text="Russia"
+        android:gravity="left"
         android:layout_toLeftOf="@+id/forecast_descr"
         android:layout_below="@+id/city_temp_ll"
         local:MvxBind="Text CountryName"/>
@@ -53,7 +54,7 @@
         android:layout_width="120dp"
         android:layout_height="wrap_content"
         tools:text="Clear"
-        android:gravity="center_horizontal"
+        android:gravity="right"
         android:layout_below="@+id/city_temp_ll"
         android:layout_alignParentEnd="true"
         style="@style/fragmentText.18sp"

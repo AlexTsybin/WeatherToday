@@ -31,7 +31,6 @@
         android:layout_width="@dimen/xxxlarge_margin"
         android:layout_height="@dimen/xxxlarge_margin"
         android:layout_centerVertical="true"
-        android:layout_marginRight="@dimen/small_margin"
         android:layout_toLeftOf="@+id/max_temp"
         android:src="@drawable/ic_weather_undefined"
         local:MvxBind="WeatherImage IconValue"/>
@@ -43,6 +42,7 @@
         android:layout_marginLeft="@dimen/small_margin"
         android:layout_marginRight="@dimen/small_margin"
         android:layout_centerVertical="true"
+        android:gravity="right"
         android:layout_toLeftOf="@+id/min_temp"
         style="@style/fragmentText.20sp"
         tools:text="3"
@@ -53,6 +53,7 @@
         android:layout_height="wrap_content"
         android:minWidth="@dimen/temperature_size"
         android:layout_centerVertical="true"
+        android:gravity="right"
         android:layout_alignParentRight="true"
         style="@style/fragmentText.20sp"
         tools:text="1"
