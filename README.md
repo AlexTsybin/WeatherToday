@@ -1,2 +1,2 @@
 # WeatherToday
-Weather application, fetching data from Dark Spy
+Weather application which fetching data from Dark Spy
