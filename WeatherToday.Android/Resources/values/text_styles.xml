@@ -35,11 +35,15 @@
     <item name="android:fontFamily">sans-serif</item>
   </style>
 
-  <style name="fragmentText.55sp">
+  <style name="fragmentText.Light">
     <item name="android:fontFamily">sans-serif-light</item>
   </style>
 
-  <style name="fragmentText.55sp.Light">
+  <style name="fragmentText.Light.40sp">
+    <item name="android:textSize">40sp</item>
+  </style>
+
+  <style name="fragmentText.Light.55sp">
     <item name="android:textSize">55sp</item>
   </style>
 

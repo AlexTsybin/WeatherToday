@@ -13,10 +13,12 @@
   <dimen name="xlarge_margin">38dp</dimen>
   <dimen name="xxlarge_margin">48dp</dimen>
   <dimen name="xxxlarge_margin">56dp</dimen>
+  <dimen name="xxxxlarge_margin">64dp</dimen>
 
   <dimen name="button_size">36dp</dimen>
 
   <dimen name="temperature_size">38dp</dimen>
+  <dimen name="weekday_size">40dp</dimen>
 
   <dimen name="map_fragment_height">300dp</dimen>
   

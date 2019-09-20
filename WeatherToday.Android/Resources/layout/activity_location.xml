@@ -27,30 +27,6 @@
             android:text="You are at"
             style="@style/locationTitle" />
         <LinearLayout
-            android:id="@+id/longtitude_ll"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_horizontal"
-            android:paddingBottom="15dp">
-            <TextView
-                android:id="@+id/longtitude_tv"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:paddingStart="4dp"
-                android:text="Longtitude:"
-                android:gravity="right"
-                style="@style/fragmentText.16sp"/>
-            <TextView
-                android:id="@+id/current_long"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                tools:text="30.3454007"
-                style="@style/fragmentText.16sp"
-                local:MvxBind="Text Longtitude"/>
-        </LinearLayout>
-        <LinearLayout
             android:id="@+id/latitude_ll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -73,6 +49,30 @@
                 tools:text="59.9431705"
                 style="@style/fragmentText.16sp"
                 local:MvxBind="Text Latitude"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/longtitude_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal"
+            android:paddingBottom="15dp">
+            <TextView
+                android:id="@+id/longtitude_tv"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:paddingStart="4dp"
+                android:text="Longtitude:"
+                android:gravity="right"
+                style="@style/fragmentText.16sp"/>
+            <TextView
+                android:id="@+id/current_long"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                tools:text="30.3454007"
+                style="@style/fragmentText.16sp"
+                local:MvxBind="Text Longtitude"/>
         </LinearLayout>
         <LinearLayout
             android:id="@+id/city_ll"

@@ -6,43 +6,57 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp">
-    <TextView
-        android:id="@+id/forecast_city_name"
-        android:layout_width="230dp"
-        android:layout_height="74dp"
-        style="@style/fragmentText.28sp"
-        android:layout_alignParentStart="true"
-        android:gravity="center_vertical"
-        android:ellipsize="end"
-        android:maxLines="2"
-        android:text="Petropavlovsk-Kamchatskiy"
-        local:MvxBind="Text CityName"/>
+    <LinearLayout
+        android:id="@+id/city_temp_ll"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/xxxxlarge_margin">
+        <TextView
+            android:id="@+id/forecast_city_name"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            style="@style/fragmentText.24sp"
+            android:gravity="center_vertical"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="Petropavlovsk-Kamchatskiy"
+            local:MvxBind="Text CityName"/>
+        <ImageView
+            android:id="@+id/mini_icon"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:src="@drawable/ic_weather_undefined"
+            local:MvxBind="WeatherImage IconValue"/>
+        <TextView
+            android:id="@+id/forecast_temp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            style="@style/fragmentText.Light.40sp"
+            android:text="-65"
+            local:MvxBind="Text CurrentTemperature"/>
+    </LinearLayout>
     <TextView
         android:id="@+id/forecast_country"
         android:layout_width="230dp"
         android:layout_height="wrap_content"
-        style="@style/fragmentText.20sp"
+        style="@style/fragmentText.18sp"
         tools:text="Russia"
-        android:layout_below="@+id/forecast_city_name"
+        android:layout_toLeftOf="@+id/forecast_descr"
+        android:layout_below="@+id/city_temp_ll"
         local:MvxBind="Text CountryName"/>
-    <TextView
-        android:id="@+id/forecast_temp"
-        android:layout_width="120dp"
-        android:layout_height="74dp"
-        style="@style/fragmentText.55sp.Light"
-        android:gravity="center"
-        android:layout_alignParentEnd="true"
-        tools:text="-6°"
-        local:MvxBind="Text CurrentTemperature"/>
     <TextView
         android:id="@+id/forecast_descr"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
         tools:text="Clear"
         android:gravity="center_horizontal"
-        android:layout_below="@+id/forecast_temp"
-        android:layout_alignStart="@+id/forecast_temp"
-        style="@style/fragmentText.16sp"
+        android:layout_below="@+id/city_temp_ll"
+        android:layout_alignParentEnd="true"
+        style="@style/fragmentText.18sp"
         local:MvxBind="Text WeatherDescription"/>
     <MvvmCross.Droid.Support.V4.MvxSwipeRefreshLayout
         android:id="@+id/refresher"
@@ -54,13 +68,13 @@
         local:MvxBind="Refreshing IsRefreshing; RefreshCommand ReloadCommand">
         <MvvmCross.Droid.Support.V7.RecyclerView.MvxRecyclerView
             android:id="@+id/forecast_list"
-            android:scrollbars="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="12dp"
             android:paddingTop="12dp"
             android:divider="@null"
             android:dividerHeight="0dp"
+            android:scrollbars="none"
             local:MvxItemTemplate="@layout/item_forecast_list"
             local:MvxBind="ItemsSource Items; ItemClick ItemSelectedCommand; ItemLongClick ItemLongClickCommand" />
     </MvvmCross.Droid.Support.V4.MvxSwipeRefreshLayout>
