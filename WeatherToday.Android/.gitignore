@@ -1,1 +1,4 @@
-Properties/AndroidManifest.xml 
+Properties/AndroidManifest.xml
+[Bb]in/
+[Oo]bj/
+ 
