@@ -9,7 +9,6 @@ using MvvmCross.Platforms.Android.Binding.BindingContext;
 using MvvmCross.Platforms.Android.Presenters.Attributes;
 using System;
 using WeatherToday.Core.ViewModels.Location;
-using Android.Gms.Common;
 using Android.Gms.Location;
 using Android.Util;
 using System.Threading.Tasks;
@@ -18,6 +17,8 @@ using Android.Support.V4.App;
 using Android.Content;
 using Android.Gms.Maps;
 using Android.Gms.Maps.Model;
+using WeatherToday.Android.Helpers;
+using Android.Support.Design.Widget;
 
 namespace WeatherToday.Android.Activity
 {
@@ -31,52 +32,60 @@ namespace WeatherToday.Android.Activity
     {
         #region Fields
 
+        private LinearLayout _rootLayout;
         private Button _locationButton;
         private TextView _cityTextView;
         private MapFragment _mapFragment;
 
         private FusedLocationProviderClient _fusedLocationProviderClient;
 
+        private readonly string TAG = nameof(LocationActivity);
+
         #endregion
 
         #region Private
 
-        private bool IsGooglePlayServicesInstalled()
+        public void ShouldShowRequestPermission(global::Android.App.Activity activity, string permission, View view)
         {
-            var queryResult = GoogleApiAvailability.Instance.IsGooglePlayServicesAvailable(this);
-            if (queryResult == ConnectionResult.Success)
+            if (ActivityCompat.ShouldShowRequestPermissionRationale(activity, permission))
             {
-                Log.Info("LocationActivity", "Google Play Services is installed on this device.");
-                return true;
-            }
+                // Provide an additional rationale to the user if the permission was not granted
+                // and the user would benefit from additional context for the use of the permission.
+                // For example if the user has previously denied the permission.
+                Log.Info(TAG, "Displaying camera permission rationale to provide additional context.");
 
-            if (GoogleApiAvailability.Instance.IsUserResolvableError(queryResult))
+                var requiredPermissions = new string[] { permission };
+                Snackbar.Make(view,
+                               Strings.permission_location_rationale,
+                               Snackbar.LengthIndefinite)
+                        .SetAction(Strings.ok,
+                                   new Action<View>(delegate (View obj) {
+                                       ActivityCompat.RequestPermissions(activity, requiredPermissions, Resources.GetInteger(Resource.Integer.request_fine_location));
+                                   }
+                        )
+                ).Show();
+            }
+            else
             {
-                // Check if there is a way the user can resolve the issue
-                var errorString = GoogleApiAvailability.Instance.GetErrorString(queryResult);
-                Log.Error("LocationActivity", "There is a problem with Google Play Services on this device: {0} - {1}",
-                          queryResult, errorString);
-
-                // Alternately, display the error to the user.
+                ActivityCompat.RequestPermissions(activity, new string[] { permission }, Resources.GetInteger(Resource.Integer.request_fine_location));
             }
-
-            return false;
         }
 
         private async void GetCurrentLocation(object sender, EventArgs e)
         {
             if (ContextCompat.CheckSelfPermission(this, Manifest.Permission.AccessFineLocation) == Permission.Granted)
             {
-                IsGooglePlayServicesInstalled();
+                if (PlatformHelper.IsGooglePlayServicesInstalled(this))
+                {
+                    await GetLastLocationFromDevice();
 
-                await GetLastLocationFromDevice();
-
-                _mapFragment.GetMapAsync(this);
+                    _mapFragment.GetMapAsync(this);
+                }
             }
             else
             {
                 // The app does not have permission ACCESS_FINE_LOCATION 
-                ActivityCompat.RequestPermissions(this, new string[] { Manifest.Permission.AccessFineLocation }, 0);
+                ShouldShowRequestPermission(this, Manifest.Permission.AccessFineLocation, _rootLayout);
             }
         }
 
@@ -121,7 +130,7 @@ namespace WeatherToday.Android.Activity
             else
             {
                 // The app does not have permission ACCESS_FINE_LOCATION 
-                ActivityCompat.RequestPermissions(this, new string[] { Manifest.Permission.AccessFineLocation }, 0);
+                ShouldShowRequestPermission(this, Manifest.Permission.AccessFineLocation, _rootLayout);
             }
 
             return false;
@@ -137,6 +146,8 @@ namespace WeatherToday.Android.Activity
             SupportActionBar.SetHomeButtonEnabled(true);
 
             _fusedLocationProviderClient = LocationServices.GetFusedLocationProviderClient(this);
+
+            _rootLayout = FindViewById<LinearLayout>(Resource.Id.parent_ll);
 
             _locationButton = FindViewById<Button>(Resource.Id.get_current_city);
             _locationButton.Click += GetCurrentLocation;
@@ -160,7 +171,7 @@ namespace WeatherToday.Android.Activity
             // Do something with the map, i.e. add markers, move to a specific location, etc.
             if (CheckPermissions())
             {
-                IsGooglePlayServicesInstalled();
+                PlatformHelper.IsGooglePlayServicesInstalled(this);
 
                 var lat = ViewModel.Lat;
                 var lon = ViewModel.Lon;

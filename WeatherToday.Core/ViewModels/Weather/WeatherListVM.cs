@@ -165,11 +165,6 @@ namespace WeatherToday.Core.ViewModels.Weather
 
         #region Public
 
-        public override async Task Initialize()
-        {
-            await base.Initialize();
-        }
-
         public override void Prepare()
         {
             base.Prepare();

@@ -10307,6 +10307,9 @@ namespace WeatherToday.Android
 			// aapt resource value: 0x7f09000d
 			public const int mtrl_tab_indicator_anim_duration_ms = 2131296269;
 			
+			// aapt resource value: 0x7f090010
+			public const int request_fine_location = 2131296272;
+			
 			// aapt resource value: 0x7f09000e
 			public const int show_password_duration = 2131296270;
 			

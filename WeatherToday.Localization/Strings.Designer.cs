@@ -142,6 +142,24 @@ namespace WeatherToday.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to OK.
+        /// </summary>
+        public static string ok {
+            get {
+                return ResourceManager.GetString("ok", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Location access is required to determine your location and city of residence.
+        /// </summary>
+        public static string permission_location_rationale {
+            get {
+                return ResourceManager.GetString("permission_location_rationale", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0:dd MMM yyyy}.
         /// </summary>
         public static string short_date {

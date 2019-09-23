@@ -1,7 +1,10 @@
 ﻿using Android.App;
+using Android.Content;
 using Android.Content.PM;
 using Android.OS;
+using Android.Runtime;
 using Android.Views;
+using MvvmCross.Droid.Support.V4;
 using MvvmCross.Platforms.Android.Binding.BindingContext;
 using MvvmCross.Platforms.Android.Presenters.Attributes;
 using System.Threading.Tasks;
@@ -19,16 +22,6 @@ namespace WeatherToday.Android.Views
         Name = "weatherToday.android.views.MainActivity")]
     public class MainActivity : CommonActivity<MainVM>, global::Android.Support.V4.App.FragmentManager.IOnBackStackChangedListener
     {
-        protected override void OnCreate(Bundle savedInstanceState)
-        {
-            base.OnCreate(savedInstanceState);
-
-            SupportFragmentManager.RemoveOnBackStackChangedListener(this);
-            SupportFragmentManager.AddOnBackStackChangedListener(this);
-
-            InitStartPage();
-        }
-
         #region Private
 
         private async Task InitStartPage()
@@ -54,6 +47,16 @@ namespace WeatherToday.Android.Views
         #endregion
 
         #region Protected
+
+        protected override void OnCreate(Bundle savedInstanceState)
+        {
+            base.OnCreate(savedInstanceState);
+
+            SupportFragmentManager.RemoveOnBackStackChangedListener(this);
+            SupportFragmentManager.AddOnBackStackChangedListener(this);
+
+            InitStartPage();
+        }
 
         protected override View CreateView()
         {
