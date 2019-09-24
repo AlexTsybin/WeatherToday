@@ -1,31 +1,25 @@
 ﻿using Android.Support.Design.Widget;
 using Android.Support.V4.View;
 using Android.Support.V4.Widget;
-using Android.Support.V7.Widget;
-using Android.Content;
 using MvvmCross;
 using MvvmCross.Binding.Bindings.Target.Construction;
 using MvvmCross.Droid.Support.V4;
 using MvvmCross.Droid.Support.V7.AppCompat;
 using MvvmCross.Droid.Support.V7.RecyclerView;
-using MvvmCross.Platforms.Android;
 using MvvmCross.Platforms.Android.Presenters;
-using MvvmCross.ViewModels;
 using System.Collections.Generic;
 using System.Reflection;
 using WeatherToday.Android.MvxBindings;
 using WeatherToday.Android.Services;
-using WeatherToday.Android.Utilities;
 using WeatherToday.API.Services.Platform;
 using WeatherToday.Core;
 using WeatherToday.Core.Services.Platform;
-using System;
-using System.Threading.Tasks;
 using WeatherToday.Android.Presenter;
 using MvvmCross.Converters;
 using WeatherToday.Android.Converters.Date;
 using Android.Widget;
 using WeatherToday.Android.Bindings;
+using WeatherToday.Android.Converters.String;
 
 namespace WeatherToday.Android
 {
@@ -67,10 +61,13 @@ namespace WeatherToday.Android
         {
             base.FillValueConverters(registry);
 
+            registry.AddOrOverwrite("HourFormat", new HourValueConverter());
             registry.AddOrOverwrite("WeekDayFormat", new WeekDayValueConverter());
             registry.AddOrOverwrite("ShortDateFormat", new ShortDateValueConverter());
             registry.AddOrOverwrite("LongDateFormat", new LongDateValueConverter());
             registry.AddOrOverwrite("TimeDateFormat", new TimeValueConverter());
+
+            registry.AddOrOverwrite("CelsiusFormat", new CelsiusValueConverter());
         }
 
         protected override void InitializeFirstChance()

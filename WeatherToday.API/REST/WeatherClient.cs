@@ -49,5 +49,22 @@ namespace WeatherToday.API.REST
 
             return JObject.Parse(result);
         }
+
+        public static async Task<JObject> GetHourlyForecast(double[] coordinates)
+        {
+            if (coordinates == null || coordinates.Length == 0)
+                return null;
+
+            string lat = coordinates[0].ToString().Replace(",", ".");
+            string lon = coordinates[1].ToString().Replace(",", ".");
+
+            string url = apiBase + apiKey + "/" + lat + "," + lon + "?exclude=currently,minutely,daily,alerts,flags" + "&units=" + unit;
+
+            var handler = new HttpClientHandler();
+            HttpClient client = new HttpClient(handler);
+            string result = await client.GetStringAsync(url);
+
+            return JObject.Parse(result);
+        }
     }
 }

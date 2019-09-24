@@ -67,6 +67,7 @@
     <Compile Include="Behaviour\RefractoredFabBehavior.cs" />
     <Compile Include="Bindings\WeatherImageBinding.cs" />
     <Compile Include="Converters\Date\DateConverter.cs" />
+    <Compile Include="Converters\String\CelsiusValueConverter.cs" />
     <Compile Include="Domain\DialogOnDismissListener.cs" />
     <Compile Include="Helpers\PlatformHelper.cs" />
     <Compile Include="LinkerPleaseInclude.cs" />
@@ -364,6 +365,9 @@
   <ItemGroup>
     <Content Include="Properties\AndroidManifest.xml" />
     <AndroidResource Include="Resources\values\integers.xml" />
+    <AndroidResource Include="Resources\layout\item_hourly_list.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

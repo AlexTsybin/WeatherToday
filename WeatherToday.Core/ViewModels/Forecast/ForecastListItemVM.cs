@@ -6,6 +6,8 @@ namespace WeatherToday.Core.ViewModels.Forecast
 {
     public class ForecastListItemVM : CollectionItemVM
     {
+        #region Properties
+
         public string Description { get; set; }
 
         public string Humidity { get; set; }
@@ -50,6 +52,8 @@ namespace WeatherToday.Core.ViewModels.Forecast
             get => _iconValue;
             set => SetProperty(ref _iconValue, value);
         }
+
+        #endregion
 
         #region Constructor
 

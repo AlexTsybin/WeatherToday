@@ -21,8 +21,8 @@ namespace WeatherToday.Core.Services.Implementation
                 var location = locations?.FirstOrDefault();
                 if (location != null)
                 {
-                    coordinates[0] = (double)location.Latitude;
-                    coordinates[1] = (double)location.Longitude;
+                    coordinates[0] = location.Latitude;
+                    coordinates[1] = location.Longitude;
                 }
             }
             catch (FeatureNotSupportedException fnsEx)
@@ -117,7 +117,7 @@ namespace WeatherToday.Core.Services.Implementation
                 model.City = cityName;
                 model.Country = await GetCountryFromCoord(coord);
                 model.WeatherDescription = resultObject["currently"]["summary"].ToString();
-                model.Date = (new DateTime(1970, 1, 1)).AddSeconds(Double.Parse(resultObject["currently"]["time"].ToString())).AddHours(Double.Parse(resultObject["offset"].ToString()));
+                model.Date = (new DateTime(1970, 1, 1)).AddSeconds(double.Parse(resultObject["currently"]["time"].ToString())).AddHours(double.Parse(resultObject["offset"].ToString()));
                 model.IconValue = resultObject["currently"]["icon"].ToString();
             }
 
@@ -140,8 +140,8 @@ namespace WeatherToday.Core.Services.Implementation
                 {
                     modelList.Add(new DailyForecastModel
                     {
-                        WeekDay = (new DateTime(1970, 1, 1)).AddSeconds(Double.Parse(day["time"].ToString())),
-                        Date = (new DateTime(1970, 1, 1)).AddSeconds(Double.Parse(day["time"].ToString())),
+                        WeekDay = (new DateTime(1970, 1, 1)).AddSeconds(double.Parse(day["time"].ToString())),
+                        Date = (new DateTime(1970, 1, 1)).AddSeconds(double.Parse(day["time"].ToString())),
                         MaxTemp = day["temperatureMax"].ToString(),
                         MinTemp = day["temperatureMin"].ToString(),
                         Description = day["summary"].ToString(),
@@ -149,6 +149,39 @@ namespace WeatherToday.Core.Services.Implementation
                         Pressure = day["pressure"].ToString(),
                         WindSpeed = day["windSpeed"].ToString(),
                         WindDirection = day["windBearing"].ToString(),
+                        IconValue = day["icon"].ToString()
+                    });
+                }
+            }
+
+            return modelList;
+        }
+
+        public async Task<List<HourlyForecastModel>> GetHourlyForecastAsync(string cityName)
+        {
+            List<HourlyForecastModel> modelList = null;
+
+            double[] coord = await GetLocationFromCity(cityName);
+
+            var resultObject = await WeatherClient.GetHourlyForecast(coord);
+
+            if (resultObject != null)
+            {
+                modelList = new List<HourlyForecastModel>();
+
+                var offset = sbyte.Parse(resultObject["offset"].ToString());
+                int count = 0;
+
+                foreach (var day in resultObject["hourly"]["data"])
+                {
+                    count++;
+                    if (count <= offset)
+                        continue;
+
+                    modelList.Add(new HourlyForecastModel
+                    {
+                        Time = (new DateTime(1970, 1, 1)).AddSeconds(double.Parse(day["time"].ToString())),
+                        Temp = day["temperature"].ToString(),
                         IconValue = day["icon"].ToString()
                     });
                 }

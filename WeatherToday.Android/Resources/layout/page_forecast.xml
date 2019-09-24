@@ -4,12 +4,13 @@
     xmlns:local="http://schemas.android.com/apk/res-auto"
     android:id="@+id/parent_forecast_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp">
+    android:layout_height="match_parent">
     <LinearLayout
         android:id="@+id/city_temp_ll"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/xxxxlarge_margin">
+        android:layout_height="@dimen/xxxlarge_margin"
+        android:layout_marginLeft="@dimen/default_margin"
+        android:layout_marginRight="@dimen/default_margin">
         <TextView
             android:id="@+id/forecast_city_name"
             android:layout_width="0dp"
@@ -46,6 +47,8 @@
         android:maxWidth="230dp"
         style="@style/fragmentText.18sp"
         tools:text="Russia"
+        android:layout_marginTop="@dimen/xsmall_margin"
+        android:layout_marginLeft="@dimen/default_margin"
         android:gravity="left"
         android:layout_alignParentStart="true"
         android:layout_toLeftOf="@+id/forecast_descr"
@@ -59,22 +62,36 @@
         android:gravity="right"
         android:layout_below="@+id/city_temp_ll"
         android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/xsmall_margin"
+        android:layout_marginRight="@dimen/default_margin"
         style="@style/fragmentText.18sp"
         local:MvxBind="Text WeatherDescription"/>
+    <MvvmCross.Droid.Support.V7.RecyclerView.MvxRecyclerView
+        android:id="@+id/hourly_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/default_margin"
+        android:layout_below="@+id/forecast_country"
+        android:divider="@null"
+        android:dividerHeight="0dp"
+        android:scrollbars="none"
+        local:MvxItemTemplate="@layout/item_hourly_list"
+        local:MvxBind="ItemsSource HourItems" />
     <MvvmCross.Droid.Support.V4.MvxSwipeRefreshLayout
         android:id="@+id/refresher"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="@dimen/small_margin"
-        android:layout_below="@+id/forecast_country"
+        android:layout_marginLeft="@dimen/default_margin"
+        android:layout_marginRight="@dimen/default_margin"
+        android:layout_below="@+id/hourly_list"
         local:layout_behavior="@string/appbar_scrolling_view_behavior"
         local:MvxBind="Refreshing IsRefreshing; RefreshCommand ReloadCommand">
         <MvvmCross.Droid.Support.V7.RecyclerView.MvxRecyclerView
             android:id="@+id/forecast_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="12dp"
-            android:paddingTop="12dp"
+            android:layout_marginTop="@dimen/medium_margin"
             android:divider="@null"
             android:dividerHeight="0dp"
             android:scrollbars="none"
