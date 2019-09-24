@@ -34,8 +34,15 @@ namespace WeatherToday.Android.Views.Forecast
             var recyclerView = view.FindViewById<MvxRecyclerView>(Resource.Id.forecast_list);
             if (recyclerView != null)
             {
-                var layoutManager = new LinearLayoutManager(Activity);
+                var layoutManager = new LinearLayoutManager(MyActivity);
                 recyclerView.SetLayoutManager(layoutManager);
+            }
+
+            var hourlyRecyclerView = view.FindViewById<MvxRecyclerView>(Resource.Id.hourly_list);
+            if (hourlyRecyclerView != null)
+            {
+                var layoutManager = new LinearLayoutManager(MyActivity, LinearLayoutManager.Horizontal, false);
+                hourlyRecyclerView.SetLayoutManager(layoutManager);
             }
 
             return view;

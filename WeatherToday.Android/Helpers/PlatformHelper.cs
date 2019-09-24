@@ -1,20 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
-using Android.Content.Res;
+﻿using Android.Content;
 using Android.Gms.Common;
-using Android.OS;
-using Android.Runtime;
-using Android.Support.Design.Widget;
-using Android.Support.V4.App;
 using Android.Util;
-using Android.Views;
-using Android.Widget;
-using WeatherToday.Localization;
 
 namespace WeatherToday.Android.Helpers
 {

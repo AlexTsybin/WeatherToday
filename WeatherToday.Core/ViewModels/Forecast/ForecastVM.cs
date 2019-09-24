@@ -53,6 +53,13 @@ namespace WeatherToday.Core.ViewModels.Forecast
             set => SetProperty(ref _iconValue, value);
         }
 
+        protected ObservableCollection<HourItemVM> _hourItems;
+        public virtual ObservableCollection<HourItemVM> HourItems
+        {
+            get => _hourItems;
+            set => SetProperty(ref _hourItems, value);
+        }
+
         public override bool Loading
         {
             get => base.Loading;
@@ -81,6 +88,30 @@ namespace WeatherToday.Core.ViewModels.Forecast
 
         #endregion
 
+        #region Private
+
+        private async Task SetupHourForecast()
+        {
+            HourItems = new ObservableCollection<HourItemVM>();
+
+            var result = await _weatherService.GetHourlyForecastAsync(CityName);
+
+            if (result == null)
+                return;
+
+            foreach (var model in result)
+            {
+                HourItems.Add(new HourItemVM(new HourForecastParameter
+                {
+                    Time = model.Time,
+                    Temp = Math.Round(double.Parse(model.Temp)).ToString(),
+                    IconValue = model.IconValue
+                }));
+            }
+        }
+
+        #endregion
+
         #region Protected
 
         protected override async Task ReloadExecute()
@@ -93,6 +124,8 @@ namespace WeatherToday.Core.ViewModels.Forecast
         protected override async Task SetupItems()
         {
             Loading = true;
+
+            await SetupHourForecast();
 
             Items = new ObservableCollection<ForecastListItemVM>();
 

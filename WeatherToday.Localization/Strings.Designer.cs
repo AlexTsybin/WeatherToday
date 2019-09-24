@@ -61,6 +61,15 @@ namespace WeatherToday.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0}\u00B0.
+        /// </summary>
+        public static string celsius_temp {
+            get {
+                return ResourceManager.GetString("celsius_temp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to City list.
         /// </summary>
         public static string city_list_title {
@@ -102,6 +111,15 @@ namespace WeatherToday.Localization {
         public static string hectopascal {
             get {
                 return ResourceManager.GetString("hectopascal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0:HH}.
+        /// </summary>
+        public static string hour_time {
+            get {
+                return ResourceManager.GetString("hour_time", resourceCulture);
             }
         }
         

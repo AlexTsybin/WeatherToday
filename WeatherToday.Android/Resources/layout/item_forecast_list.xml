@@ -28,8 +28,8 @@
 		local:MvxBind="Text ShortDateFormat(ForecastDate)"/>
     <ImageView
         android:id="@+id/mini_icon"
-        android:layout_width="@dimen/xxxlarge_margin"
-        android:layout_height="@dimen/xxxlarge_margin"
+        android:layout_width="@dimen/large_margin"
+        android:layout_height="@dimen/large_margin"
         android:layout_centerVertical="true"
         android:layout_toLeftOf="@+id/max_temp"
         android:src="@drawable/ic_weather_undefined"
@@ -55,7 +55,7 @@
         android:layout_centerVertical="true"
         android:gravity="right"
         android:layout_alignParentRight="true"
-        style="@style/fragmentText.20sp"
+        style="@style/fragmentMainText.20sp"
         tools:text="1"
 		local:MvxBind="Text MinTemp"/>
 </RelativeLayout>

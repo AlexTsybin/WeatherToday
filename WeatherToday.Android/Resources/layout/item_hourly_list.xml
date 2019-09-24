@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/small_margin"
+    android:layout_marginRight="@dimen/small_margin">
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/fragmentText.20sp"
+        android:layout_gravity="center_horizontal"
+        android:text="15"
+		local:MvxBind="Text HourFormat(Time)"/>
+    <ImageView
+        android:id="@+id/mini_icon"
+        android:layout_width="@dimen/large_margin"
+        android:layout_height="@dimen/large_margin"
+        android:layout_centerVertical="true"
+        android:src="@drawable/ic_weather_undefined"
+        local:MvxBind="WeatherImage IconValue"/>
+<TextView
+        android:id="@+id/temp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        style="@style/fragmentText.20sp"
+        android:text="3"
+		local:MvxBind="Text CelsiusFormat(Temp)"/>
+</LinearLayout>

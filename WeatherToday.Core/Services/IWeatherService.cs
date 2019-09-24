@@ -10,6 +10,8 @@ namespace WeatherToday.Core.Services
 
         Task<List<DailyForecastModel>> GetForecastAsync(string cityName);
 
+        Task<List<HourlyForecastModel>> GetHourlyForecastAsync(string cityName);
+
         Task<string> GetCityFromCoordinates(double lat, double lon);
     }
 }

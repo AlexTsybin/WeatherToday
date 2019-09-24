@@ -17,7 +17,15 @@ namespace WeatherToday.Android.Converters.Date
 {
     #region Forecast
 
-    public  class WeekDayValueConverter : MvxValueConverter<DateTime, string>
+    public class HourValueConverter : MvxValueConverter<DateTime, string>
+    {
+        protected override string Convert(DateTime value, Type targetType, object parameter, CultureInfo culture)
+        {
+            return string.Format(CultureInfo.InvariantCulture, Strings.hour_time, value);
+        }
+    }
+
+    public class WeekDayValueConverter : MvxValueConverter<DateTime, string>
     {
         protected override string Convert(DateTime value, Type targetType, object parameter, CultureInfo culture)
         {

@@ -12,12 +12,11 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_gravity="center_vertical"
-        android:background="@drawable/temperature_circle"
         android:fontFamily="sans-serif-medium"
         android:gravity="center"
         style="@style/fragmentText.18sp"
-        tools:text="24"
-		local:MvxBind="Text Temperature"/>
+        tools:text="24\u00B0"
+		local:MvxBind="Text CelsiusFormat(Temperature)"/>
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -48,8 +47,8 @@
     </LinearLayout>
     <ImageView
         android:id="@+id/mini_icon"
-        android:layout_width="@dimen/xxlarge_margin"
-        android:layout_height="@dimen/xxlarge_margin"
+        android:layout_width="@dimen/large_margin"
+        android:layout_height="@dimen/large_margin"
         android:layout_gravity="center_vertical"
         android:layout_marginStart="@dimen/small_margin"
         android:src="@drawable/ic_weather_undefined"
