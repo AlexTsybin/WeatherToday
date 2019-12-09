@@ -1,7 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	android:orientation="vertical"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	android:background="@drawable/screen" />
+	android:background="#33333D" >
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerInParent="true">
+        <ImageView
+            android:layout_width="@dimen/xlarge_margin"
+            android:layout_height="@dimen/xlarge_margin"
+            android:src="@drawable/ic_splash_screen_icon"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/large_margin"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            style="@style/splashScreenText"
+            android:layout_gravity="center_horizontal"/>
+    </LinearLayout>
+</RelativeLayout>

@@ -1,5 +1,5 @@
 <resources>
-  <string name="app_name">WeatherApp</string>
+  <string name="app_name">WeatherToday</string>
   <string name="action_settings">Settings</string>
 
   <string name="weather_list_title">Weather today</string>

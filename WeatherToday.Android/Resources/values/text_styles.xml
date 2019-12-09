@@ -1,6 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <resources>
 
+  <style name="splashScreenText">
+    <item name="android:textColor">@color/weather_icon</item>
+    <item name="android:textSize">40sp</item>
+    <item name="android:fontFamily">sans-serif</item>
+  </style>
+
   <style name="mainText">
     <item name="android:textColor">@color/white</item>
     <item name="android:fontFamily">sans-serif</item>
