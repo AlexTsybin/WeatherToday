@@ -11505,34 +11505,37 @@ namespace WeatherToday.Android
 			public const int fragmentText_20sp = 2131689985;
 			
 			// aapt resource value: 0x7F0F0202
-			public const int fragmentText_24sp = 2131689986;
+			public const int fragmentText_22sp = 2131689986;
 			
 			// aapt resource value: 0x7F0F0203
-			public const int fragmentText_28sp = 2131689987;
+			public const int fragmentText_24sp = 2131689987;
 			
 			// aapt resource value: 0x7F0F0204
-			public const int fragmentText_36sp = 2131689988;
+			public const int fragmentText_28sp = 2131689988;
 			
 			// aapt resource value: 0x7F0F0205
-			public const int fragmentText_Light = 2131689989;
+			public const int fragmentText_36sp = 2131689989;
 			
 			// aapt resource value: 0x7F0F0206
-			public const int fragmentText_Light_40sp = 2131689990;
+			public const int fragmentText_Light = 2131689990;
 			
 			// aapt resource value: 0x7F0F0207
-			public const int fragmentText_Light_55sp = 2131689991;
+			public const int fragmentText_Light_40sp = 2131689991;
 			
 			// aapt resource value: 0x7F0F0208
-			public const int locationTitle = 2131689992;
+			public const int fragmentText_Light_55sp = 2131689992;
 			
 			// aapt resource value: 0x7F0F0209
-			public const int mainText = 2131689993;
-			
-			// aapt resource value: 0x7F0F020B
-			public const int mainTextTitle = 2131689995;
+			public const int locationTitle = 2131689993;
 			
 			// aapt resource value: 0x7F0F020A
-			public const int mainText_14sp = 2131689994;
+			public const int mainText = 2131689994;
+			
+			// aapt resource value: 0x7F0F020C
+			public const int mainTextTitle = 2131689996;
+			
+			// aapt resource value: 0x7F0F020B
+			public const int mainText_14sp = 2131689995;
 			
 			// aapt resource value: 0x7F0F00C7
 			public const int MyToolbarPopupStyle = 2131689671;
@@ -11633,8 +11636,8 @@ namespace WeatherToday.Android
 			// aapt resource value: 0x7F0F00E7
 			public const int Separator = 2131689703;
 			
-			// aapt resource value: 0x7F0F020C
-			public const int splashScreenText = 2131689996;
+			// aapt resource value: 0x7F0F020D
+			public const int splashScreenText = 2131689997;
 			
 			// aapt resource value: 0x7F0F00E8
 			public const int TextAppearance_AppCompat = 2131689704;

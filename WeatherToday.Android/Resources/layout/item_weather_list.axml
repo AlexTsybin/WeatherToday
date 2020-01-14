@@ -14,8 +14,8 @@
         android:layout_gravity="center_vertical"
         android:fontFamily="sans-serif-medium"
         android:gravity="center"
-        style="@style/fragmentText.18sp"
-        tools:text="24\u00B0"
+        style="@style/fragmentText.22sp"
+        tools:text="-24\u00B0"
 		local:MvxBind="Text CelsiusFormat(Temperature)"/>
     <LinearLayout
         android:layout_width="0dp"
